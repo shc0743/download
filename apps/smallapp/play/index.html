@@ -1,5 +1,6 @@
 <script>
 (function(){
+appname=undefined
 var path=location.href
 if(path.search("?")!==-1){
 var inputContent=path.split("?")[1]
@@ -11,16 +12,13 @@ if(/appname=/.test(inputContent[i])){
 appname=inputContent[i].replace("appname=","");
 break;
  }
-if(i==inputContent.length-1) appname=undefined;
 }
 } else {
 if(inputContent.search("appname=")!==-1){
 appname=inputContent.replace("appname=","")
  }
 }
-  } else {
-appname=undefined
- }
+  }
 
 if(appname){
 document.write(appname)
