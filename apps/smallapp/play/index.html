@@ -1,5 +1,5 @@
 <script>
-(function(){
+(function(){try{
 appname=undefined
 var path=location.href
 if(path.search("?")!==-1){
@@ -25,5 +25,5 @@ document.write(appname)
  } else {
 document.write("<center><h1>404</h1><p>您要访问的页面似乎出错了...</p></center>")
  }
-})()
+}catch(err){alert(err)}})()
 </script>
