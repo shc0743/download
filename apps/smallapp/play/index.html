@@ -1,6 +1,6 @@
 <script>
 (function(){try{
-appname=undefined
+aid=undefined
 var path=location.href
 if(path.search("\\?")!==-1){
 var inputContent=path.split("?")[1]
@@ -8,20 +8,20 @@ if(inputContent.search("\\&")!==-1) {
 inputContent=inputContent.split("&") 
 var i=0
 for(;i<inputContent.length;i++){
-if(inputContent[i].search(/appname\u003d/)!==-1){
-appname=inputContent[i].replace("appname=","");
+if(inputContent[i].search(/aid\u003d/)!==-1){
+aid=inputContent[i].replace("aid=","");
 break;
  }
 }
 } else {
-if(inputContent.search(/appname\u003d/)!==-1){
-appname=inputContent.replace(/appname\u003d/,"")
+if(inputContent.search(/aid\u003d/)!==-1){
+aid=inputContent.replace(/aid\u003d/,"")
  }
 }
   }
 
-if(appname){
-document.write(appname)
+if(aid){
+location.href=(aid+"/")
  } else {
 document.write("<center><h1>404</h1><p>您要访问的页面似乎出错了...</p></center>")
  }
