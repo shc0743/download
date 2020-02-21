@@ -8,7 +8,7 @@ if(inputContent.search("&")!==-1) {
 inputContent=inputContent.split("&") 
 var i=0
 for(;i<inputContent.length;i++){
-if(/appname=/.test(inputContent[i])){
+if(inputContent[i].search("appname=")){
 appname=inputContent[i].replace("appname=","");
 break;
  }
