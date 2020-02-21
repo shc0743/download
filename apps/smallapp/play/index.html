@@ -8,14 +8,14 @@ if(inputContent.search("&")!==-1) {
 inputContent=inputContent.split("&") 
 var i=0
 for(;i<inputContent.length;i++){
-if(inputContent[i].search("appname=")!==-1){
+if(inputContent[i].search(/appname\u003d/)!==-1){
 appname=inputContent[i].replace("appname=","");
 break;
  }
 }
 } else {
-if(inputContent.search("appname=")!==-1){
-appname=inputContent.replace("appname=","")
+if(inputContent.search(/appname\u003d/)!==-1){
+appname=inputContent.replace(/appname\u003d/,"")
  }
 }
   }
