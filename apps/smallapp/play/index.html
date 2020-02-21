@@ -1,16 +1,26 @@
 <script>
 (function(){
 var path=location.href
+if(path.search("?")!==-1){
 var inputContent=path.split("?")[1]
-if(inputContent.search("&")!==-1) inputContent=inputContent.split("&")
+if(inputContent.search("&")!==-1) { 
+inputContent=inputContent.split("&") 
 var i=0
 for(;i<inputContent.length;i++){
 if(/appname=/.test(inputContent[i])){
-var appname=inputContent[i].replace("appname=","");
+appname=inputContent[i].replace("appname=","");
 break;
  }
-if(i==inputContent.length-1) var appname=undefined;
+if(i==inputContent.length-1) appname=undefined;
 }
+} else {
+if(inputContent.search("appname=")!==-1){
+appname=inputContent.replace("appname=","")
+ }
+}
+  } else {
+appname=undefined
+ }
 
 if(appname){
 document.write(appname)
