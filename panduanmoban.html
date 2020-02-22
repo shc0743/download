@@ -20,10 +20,14 @@ eval(name+'=inputContent.replace(/'+name+'=/,"")'
 }
   }
 
-if(name){
-succeed()
+if(name!==undefined){
+if(typeof(succeed)=="function") {return succeed()} else
+if(typeof(succeed)=="function") {return eval(succeed)} else
+return eval(name);
  } else {
-error()
+if(typeof(error)=="function") {return error()} else
+if(typeof(error)=="function") {return eval(error)} else
+return eval(name);
  }
 }catch(err){alert(err)}})()
 </script>
