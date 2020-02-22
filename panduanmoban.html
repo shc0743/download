@@ -1,6 +1,6 @@
 <script>
-(function(){try{
-=undefined
+function findInput(name,succeed,error){try{
+eval(name+"=undefined")
 var path=location.href
 if(path.search("\\?")!==-1){
 var inputContent=path.split("?")[1]
@@ -8,22 +8,22 @@ if(inputContent.search("&")!==-1) {
 inputContent=inputContent.split("&") 
 var i=0;/*/SUM=7/*/
 for(;i<inputContent.length;i++){
-if(/=/.test(inputContent[i])){
-=inputContent[i].replace("=","");
+if(eval("/"+name+"=/.test(inputContent[i])")){
+eval(name+"=inputContent[i].replace("+'"'+name+"=","");
 break;
  }
 }
 } else {
-if(inputContent.search(/=/)!==-1){
-=inputContent.replace(/=/,"")
+if(inputContent.search(eval('/'+name+'=/')!==-1){
+eval(name+'=inputContent.replace(/'+name+'=/,"")'
  }
 }
   }
 
-if(){
-
+if(name){
+succeed()
  } else {
-
+error()
  }
 }catch(err){alert(err)}})()
 </script>
