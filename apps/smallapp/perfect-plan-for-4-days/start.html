@@ -1,4 +1,5 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<title>4天瘦20斤完美计划</title>
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 <h1><span style="color:red;font-size:60px">4</span>天瘦<span style="color:red;font-size:60px">20</span>斤完美计划</h1>
 <h2><form method=get onsubmit="if(!confirm('警告!\n本计划不适合胆小怕事的人!!!\n真的要继续吗?')) return false;"><input type=hidden value=true name=readystart>准备好开始了吗?<button type=submit>准备好了!</button></form></h2>
@@ -6,7 +7,7 @@
 if(getUrlValue("readystart")){
 document.write("请稍候,正在获取您的训练进度...")
 setTimeout(function(){
-if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days=="1") {location.href="1.html"} else
+if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days==undefined) {location.href="0.html"} else
 if(localStorage.perfectplanfor4days){location.href=localStorage.perfectplanfor4days+".html"} else document.write("抱歉,出现了一点小问题...(请清除缓存)")
 },1500)
 }
