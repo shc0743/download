@@ -3,7 +3,7 @@
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 <h1>第一天</h1>
 <br><div>今天的任务是:不要吃饭<br><img src="data:image/png,ffffff" onclick="this.src='noeat.jpg'" alt="不要吃饭就对了" width="400" height="250"><div contentEditable="true">本次任务完成后，系统自动为您跳转到下个任务</div></div>
-<div>本次任务剩余时间:<span id=time>24小时</span>
+<div>本次任务剩余时间:<span id=time>01</span>:<span id=time2>00</span>
 <style type="text/css">
 .progress-wrap {
   border: 1px solid #333;
@@ -29,11 +29,32 @@
 </div>
 
 <script>
-setTimeout(checkEnd,61000)
+setTimeout(checkEnd,60500)
 
 function checkEnd(){
 delete localStorage.perfectplanfor4daysday1
 localStorage.perfectplanfor4days="2"
 location.href="index.html"
 }
+
+(function(){
+
+var check=function(inp){
+if(inp<10){
+return "0"+inp;
+ } 
+return inp;
+}
+
+var tme=59;
+
+setTimeout(runtime,1000)
+
+function runtime(){
+time.innerHTML="00"
+time2=check(tme);
+tme--;
+}
+
+})()
 </script>
