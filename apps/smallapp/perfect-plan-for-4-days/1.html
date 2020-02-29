@@ -4,7 +4,7 @@
 <script src="https://shc7432.github.io/public/getLinkInput/testcode.js"></script>
 <h1>第一天</h1>
 <br><div contentEditable="true">今天的任务是:不要吃饭<br><img src="noeat.jpg" onclick="this.src='data:image/png,ffffff'" alt="不要吃饭就对了" width="400" height="250">本次任务完成后，系统自动为您跳转到下个任务</div>
-<div>本次任务剩余时间:<span id=time></span>
+<div>本次任务剩余时间:<span id=time>24小时</span>
 <style type="text/css">
 .progress-wrap {
   border: 1px solid #333;
@@ -62,4 +62,21 @@ localStorage.perfectplanfor4daysday1=a
 location.reload()
 }
  }catch(err){alert(err)}
+</script>
+
+<script>
+setTimeout(checkend,500)
+
+function checkEnd(){
+if(document.querySelectorAll("div[class]")[1].style.width=="100%"){
+document.querySelectorAll("div[class='bar progress']")[0].innerHTML="<b>恭喜通关!</b>"
+setTimeout(function(){
+delete localStorage.perfectplanfor4daysday1
+localStorage.perfectplanfor4days="2"
+location.href="..//"
+},3000)
+return;
+}
+setTimeout(checkend,500)
+}
 </script>
