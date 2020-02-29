@@ -15,7 +15,7 @@
   text-align:center;
 }
 .progress {
-  animation: progress 10s;
+  animation: progress 12s;
 }
 @keyframes progress {
   from { width: 0%; }
@@ -37,7 +37,7 @@ location.href="..//"
 },3000)
 }
 
-if(localStorage.perfectplanfor4daysday1){
+if(localStorage.perfectplanfor4daysday1!=undefined){
 let d1=localStorage.perfectplanfor4daysday1.split(";")
 if(new Date().getDate()>d1[0]&&new Date().getHours()>=d1[1]){
 document.querySelectorAll("div[class='bar progress']")[0].innerHTML="<b>恭喜通关!</b>"
