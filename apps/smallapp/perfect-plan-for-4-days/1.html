@@ -65,14 +65,11 @@ location.reload()
 </script>
 
 <script>
-setTimeout(checkend,60000)
+setTimeout(checkend,61000)
 
 function checkEnd(){
-document.querySelectorAll("div[class='bar progress']")[0].innerHTML="<b>恭喜通关!</b>"
-setTimeout(function(){
 delete localStorage.perfectplanfor4daysday1
 localStorage.perfectplanfor4days="2"
-location.href="..//"
-},3000)
+location.href="kndex.html"
 }
 </script>
