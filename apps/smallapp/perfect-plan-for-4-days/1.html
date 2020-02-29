@@ -1,5 +1,52 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
 <title>4天瘦20斤完美计划</title>
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
-<h1>第一天</h1>
-<div>今天的任务是:不要吃饭<br><img src="noeat.jpg"></div>
+<h1>第一天</h1><input type=text hidden id=jumpthis onblur="if(this.value=='跳过关卡'){localStorage.perfectplanfor4daysday1=new Date();location.reload()} else this.value=''">
+<div><label for="jumpthis">今天的任务是:不要吃饭</label><br><img src="noeat.jpg" width="400" height="250">本次任务完成后，系统自动为您跳转到下个任务</div>
+<div>本次任务剩余时间:<span id=time></span>
+<style type="text/css">
+.progress-wrap {
+  border: 1px solid #333;
+}
+.bar {
+  background: #60c0e0;
+  height: 30px;
+}
+.progress {
+  animation: progress 1s;
+}
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+</style>
+
+<div class="progress-wrap">
+  <div class="bar progress" id=jingdu></div>
+</div>
+
+</div>
+<script>
+if(localStorage.perfectplanfor4daysday1){
+if(new Date()>localStorage.perfectplanfor4daysday1){
+jingdu.style.width="100%"
+ } else {
+let n=new Date().getHours()
+debugger;
+let n2=localStorage.perfectplanfor4daysday1.getHours()
+debugger;
+let n3=n2-n
+debugger;
+let n4=n3/24
+let n5=n4*100
+jingdu.style.width=n5+"%"
+time.innerHTML=n3+"小时"
+ }
+} else {
+let a=new Date.setDate(new Date().getDate()+1)
+
+localStorage.perfectplanfor4daysday1=a
+
+location.reload()
+}
+</script>
