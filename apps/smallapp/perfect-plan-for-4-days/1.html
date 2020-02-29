@@ -65,18 +65,14 @@ location.reload()
 </script>
 
 <script>
-setTimeout(checkend,500)
+setTimeout(checkend,60000)
 
 function checkEnd(){
-if(document.querySelectorAll("div[class]")[1].style.width=="100%"){
 document.querySelectorAll("div[class='bar progress']")[0].innerHTML="<b>恭喜通关!</b>"
 setTimeout(function(){
 delete localStorage.perfectplanfor4daysday1
 localStorage.perfectplanfor4days="2"
 location.href="..//"
 },3000)
-return;
-}
-setTimeout(checkend,500)
 }
 </script>
