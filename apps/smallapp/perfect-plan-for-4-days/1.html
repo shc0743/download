@@ -28,15 +28,8 @@
 </div>
 
 </div>
-<script type="test/js">
-function wywc(){
-document.querySelectorAll("div[class='bar progress']")[0].innerHTML="<b>恭喜通关!</b>"
-setTimeout(function(){
-localStorage.perfectplanfor4days="2"
-location.href="..//"
-},3000)
-}
-
+<script>
+try{
 if(localStorage.perfectplanfor4daysday1!=undefined){
 let d1=localStorage.perfectplanfor4daysday1.split(";")
 if(new Date().getDate()>d1[0]&&new Date().getHours()>=d1[1]){
@@ -68,4 +61,5 @@ localStorage.perfectplanfor4daysday1=a
 
 location.reload()
 }
+ }catch(err){alert(err)}
 </script>
