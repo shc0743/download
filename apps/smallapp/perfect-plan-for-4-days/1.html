@@ -29,9 +29,14 @@
 </div>
 <script type="test/js">
 if(localStorage.perfectplanfor4daysday1){
+alert(localStorage.perfectplanfor4daysday1)
 if(new Date()>localStorage.perfectplanfor4daysday1){
-jingdu.style.width="100%"
-time.innerHTML="<b>恭喜通关!</b>"
+document.querySelectorAll("#jingdu").style.width="100%"
+document.querySelectorAll("#time").innerHTML="<b>恭喜通关!</b>"
+setTimeout(function(){
+delete localStorage.perfectplanfor4daysday1
+localStorage.perfectplanfor4days="2"
+},3000)
  } else {
 let n=new Date().getHours()
 debugger;
@@ -41,8 +46,8 @@ let n3=n2-n
 debugger;
 let n4=n3/24
 let n5=n4*100
-jingdu.style.width=n5+"%"
-time.innerHTML=n3+"小时"
+document.querySelectorAll("#jingdu").style.width=n5+"%"
+document.querySelectorAll("#time").innerHTML=n3+"小时"
  }
 } else {
 let a=new Date.setDate(new Date().getDate()+1)
