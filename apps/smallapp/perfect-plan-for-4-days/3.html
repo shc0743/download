@@ -29,12 +29,21 @@
 </div>
 
 <script>
+
+if(getUrlValue("question")){
+if(confirm("温馨提示\n经过这几天的训练,您有没有成功瘦身超过20斤呢?\n请如实回答")){
+alert("恭喜!您成功瘦身超过了20斤,训练目标已经达到!")
+location.href="end.html"
+ } else {
+localStorage.perfectplanfor4days="3.1"
+location.href="index.html"
+ }
+}
+
 setTimeout(checkEnd,60500)
 
 function checkEnd(){
-delete localStorage.perfectplanfor4daysday1
-localStorage.perfectplanfor4days="2"
-location.href="index.html"
+location.href+="?question=true"
 }
 
 (function(){
