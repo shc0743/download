@@ -5,7 +5,7 @@
 <h1>第一天</h1>
 <br><div><label for="jumpthis" contenteditable onblur="if(this.innerHTML=='跳过关卡'){localStorage.perfectplanfor4daysday1=new Date();location.reload()} else this.innerHTML=''">
 今天的任务是:不要吃饭</label><br><img src="noeat.jpg" alt="不要吃饭就对了" width="400" height="250">本次任务完成后，系统自动为您跳转到下个任务</div>
-<div>本次任务剩余时间:<span id=time></span>
+<!--<div>本次任务剩余时间:<span id=time></span>-->
 <style type="text/css">
 .progress-wrap {
   border: 1px solid #333;
@@ -15,20 +15,29 @@
   height: 30px;
 }
 .progress {
-  animation: progress 1s;
+  animation: progress 5s;
 }
-/*@keyframes progress {
+@keyframes progress {
   from { width: 0%; }
   to { width: 100%; }
-}*/
+}
 </style>
 
 <div class="progress-wrap">
-  <div class="bar progress" id=jingdu></div>
+  <div class="bar progress" onclick="wywc()">我已完成</div>
 </div>
 
 </div>
 <script type="test/js">
+function wywc(){
+document.querySelectorAll("#time").innerHTML="<b>恭喜通关!</b>"
+setTimeout(function(){
+localStorage.perfectplanfor4days="2"
+location.href="..//"
+},3000)
+}
+
+/*
 if(localStorage.perfectplanfor4daysday1){
 alert(localStorage.perfectplanfor4daysday1)
 if(new Date()>localStorage.perfectplanfor4daysday1){
@@ -56,5 +65,5 @@ let a=new Date.setDate(new Date().getDate()+1)
 localStorage.perfectplanfor4daysday1=a
 
 location.reload()
-}
+}*/
 </script>
