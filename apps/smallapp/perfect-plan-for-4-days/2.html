@@ -35,18 +35,14 @@ localStorage.perfectplanfor4days="3"
 location.href="index.html"
 }
 
-(function(){
-
 tme=9999;
 
-setTimeout(runtime,5000)
+setTimeout(runtime,3000)
 
 function runtime(){
-time.innerHTML=tme;
-tme--;
-if(tme==-1) checkEnd();
+document.getElementById("time").innerHTML=tme;
+tme=tme-1;
+if(tme==-1){checkEnd()};
 setTimeout(runtime,10)
 }
-
-})()
 </script>
