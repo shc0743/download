@@ -1,0 +1,61 @@
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<title>4天瘦20斤完美计划</title>
+<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<h1>第三天</h1>
+<br><div>今天的任务是:单指倒立<span contenteditable>五小时</span><br><img src="data:image/png,ffffff" onclick="this.src=''" alt="请在倒立的过程中自拍一张照片给我们" width="400" height="250"><div contentEditable="true">本次任务完成后，系统自动为您跳转到下个任务</div></div>
+<div>本次任务剩余时间: <span style="color:blue"><span id=time>01</span>:<span id=time2>00</span></span>
+<style type="text/css">
+.progress-wrap {
+  border: 1px solid #333;
+}
+.bar {
+  background: #60c0e0;
+  height: 30px;
+  text-align:center;
+}
+.progress {
+  animation: progress 60s;
+}
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+</style>
+
+<div class="progress-wrap" onclick="//wywc()">
+  <div class="bar progress" contenteditable></div>
+</div>
+
+</div>
+
+<script>
+setTimeout(checkEnd,60500)
+
+function checkEnd(){
+delete localStorage.perfectplanfor4daysday1
+localStorage.perfectplanfor4days="2"
+location.href="index.html"
+}
+
+(function(){
+
+check=function(inp){
+if(inp<10){
+return "0"+inp;
+ } 
+return inp;
+}
+
+tme=59;
+
+setTimeout(runtime,1000)
+
+function runtime(){
+time.innerHTML="00"
+time2.innerHTML=check(tme);
+tme--;
+setTimeout(runtime,1000)
+}
+
+})()
+</script>
