@@ -13,9 +13,9 @@ background-color:#fff;
 </style>
 <h1>体重调查</h1>
 <pre><form action="3.1" method="GET">使用本软件前体重:
-<input class="InBox" required step=0.1 placeholder="200" name=before type=number>KG
+<input class="InBox" required step=0.1 id=bef name=before type=number>KG
 使用本软件后体重:
-<input class="InBox" required step=0.1 placeholder="100" name=after type=number>KG
+<input class="InBox" required step=0.1 id=aft name=after type=number>KG
 <input type=submit value="提交"></form></pre>
 
 <script>
@@ -31,6 +31,9 @@ if(/\u002e/.test(getUrlValue("before"))) {before=before*10;ab=ab*10}
 if(/\u002e/.test(getUrlValue("after"))) {after=after*10;ab=ab*10}
 localStorage.perfectplanfor4days4day=((10-(before-after)))*2/ab
 location.href="index.html"
+} else {
+bef.placeholder="200"
+aft.placeholder="100"
 }
 })()
 </script>
