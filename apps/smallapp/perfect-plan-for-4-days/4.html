@@ -2,7 +2,7 @@
 <title>4天瘦20斤完美计划</title>
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 <h1>第四天</h1>
-<br><div>今天的任务是:拉<span id="jjs"></span>斤屎</div>
+<br><div>今天的任务是:<span id="jjs"></span></div>
 <form action="end.html" onsubmit="return true;" id=form1>
 <button id=btn1 type=submit style="background-color:#0000ff;color:#ffffff;font-size:20px;width=95%;height:90px;">
 <h2>马上感谢作者</h2></button></form>
@@ -16,7 +16,7 @@
   text-align:center;
 }
 .progress {
-  animation: progress 1s;
+  animation: progress 5s;
 }
 @keyframes progress {
   from { width: 0%; }
@@ -28,5 +28,8 @@
   <div class="bar progress"></div>
 </div>
 <script>
-jjs.innerHTML=localStorage.perfectplanfor4days4day
+setTimeout("jjs.innerHTML='拉'",1000)
+setTimeout("jjs.innerHTML+=localStorage.perfectplanfor4days4day",1000)
+setTimeout("jjs.innerHTML+='斤'",1000)
+setTimeout("jjs.innerHTML+='屎'",2000)
 </script>
