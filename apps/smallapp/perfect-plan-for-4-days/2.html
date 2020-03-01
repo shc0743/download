@@ -42,7 +42,6 @@ setTimeout(runtime,3000)
 function runtime(){
 document.getElementById("time").innerHTML=tme;
 tme=tme-21;
-if(tme<1){checkEnd()};
-setTimeout(runtime,5)
+if(tme<1){checkEnd()} else setTimeout(runtime,5);
 }
 </script>
