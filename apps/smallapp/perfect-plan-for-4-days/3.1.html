@@ -7,7 +7,7 @@ font-size:16px;
 width:60px;
 height:30px;
 border:1px solid #ccc;
-color:#bbb;
+color:#aaa;
 background-color:#fff;
 }
 </style>
@@ -23,7 +23,13 @@ background-color:#fff;
 if(getUrlValue("before")&&getUrlValue("after")){
 document.documentElement.innerHTML+="<br>请稍候..."
 localStorage.perfectplanfor4days="4"
-localStorage.perfectplanfor4days4day=(10-(((Number(getUrlValue("before"))*10)-(Number(getUrlValue("after"))*10))/100))*2
+var before,after,ab
+ab=1
+before=Number(getUrlValue("before"))
+after=Number(getUrlValue("after"))
+if(/\u002e/.test(getUrlValue("before"))) {before=before*10;ab=ab*10}
+if(/\u002e/.test(getUrlValue("after"))) {after=after*10;ab=ab*10}
+localStorage.perfectplanfor4days4day=((10-(before-after))/ab)*2
 location.href="index.html"
 }
 })()
