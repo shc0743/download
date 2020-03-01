@@ -25,12 +25,10 @@ document.documentElement.innerHTML+="<br>请稍候..."
 localStorage.perfectplanfor4days="4"
 var before,after,ab
 ab=1
-before=Number(getUrlValue("before"))
-after=Number(getUrlValue("after"))
-if(/\u002e/.test(String(getUrlValue("before")))) {before=before*10;ab=ab*10}
-if(/\u002e/.test(String(getUrlValue("after")))) {after=after*10;ab=ab*10}
-localStorage.perfectplanfor4days4day=((10-(before-after)))*2/ab
-location.href="index.html"
+before=parseFloat(getUrlValue("before"))*10
+after=parseFloat(getUrlValue("after"))*10
+localStorage.perfectplanfor4days4day=((10-(before-after)))*2/10
+location.href="index"
 } else {
 bef.placeholder="200"
 aft.placeholder="100"
