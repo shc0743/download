@@ -7,8 +7,8 @@
 if(getUrlValue("readystart")){
 document.write("请稍候...")
 setTimeout(function(){
-if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days==undefined) {location.href="0.html"} else
-if(localStorage.perfectplanfor4days){location.href=localStorage.perfectplanfor4days+".html"} else document.write("抱歉,出现了一点小问题...(请清除缓存)")
+if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days==undefined) {location.href="0"} else
+if(localStorage.perfectplanfor4days){location.href=localStorage.perfectplanfor4days} else document.write("抱歉,出现了一点小问题...(请清除缓存)")
 },1500)
 }
 </script>
