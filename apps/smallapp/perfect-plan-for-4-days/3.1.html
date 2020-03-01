@@ -21,7 +21,7 @@ background-color:#fff;
 <script>
 (function(){
 if(getUrlValue("before")&&getUrlValue("after")){
-document.documentElement.innerHTML="请稍候..."
+document.documentElement.innerHTML+="<br>请稍候..."
 localStorage.perfectplanfor4days="4"
 localStorage.perfectplanfor4days4day=(10-(((Number(getUrlValue("before"))*10)-(Number(getUrlValue("after"))*10))/100))*2
 location.href="index.html"
