@@ -14,7 +14,7 @@
   text-align:center;
 }
 .progress {
-  animation: progress 103s;
+  animation: progress 3s;
 }
 @keyframes progress {
   from { width: 0%; }
@@ -43,6 +43,6 @@ function runtime(){
 document.getElementById("time").innerHTML=tme;
 tme=tme-1;
 if(tme==-1){checkEnd()};
-setTimeout(runtime,5)
+setTimeout(runtime,2)
 }
 </script>
