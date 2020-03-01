@@ -1,9 +1,11 @@
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 <script>
-onload=function(){
+(function(){
+if(getUrlValue("before")&&getUrlValue("after")){
 document.documentElement.innerHTML="请稍候..."
 localStorage.perfectplanfor4days="4"
-localStorage.perfectplanfor4days4day=(10-(Number(getUrlValue("before"))-Number(getUrlValue("after"))))*2
+localStorage.perfectplanfor4days4day=(10-(((Number(getUrlValue("before"))*10)-(Number(getUrlValue("after"))*10))/100))*2
 location.href="index.html"
 }
+})()
 </script>
