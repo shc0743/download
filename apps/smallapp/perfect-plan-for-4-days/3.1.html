@@ -29,7 +29,7 @@ before=Number(getUrlValue("before"))
 after=Number(getUrlValue("after"))
 if(/\u002e/.test(getUrlValue("before"))) {before=before*10;ab=ab*10}
 if(/\u002e/.test(getUrlValue("after"))) {after=after*10;ab=ab*10}
-localStorage.perfectplanfor4days4day=((10-(before-after))/ab)*2
+localStorage.perfectplanfor4days4day=((10-(before-after)))*2/ab
 location.href="index.html"
 }
 })()
