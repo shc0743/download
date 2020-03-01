@@ -29,8 +29,6 @@
 </div>
 
 <script>
-setTimeout(checkEnd,60500)
-
 function checkEnd(){
 delete localStorage.perfectplanfor4daysday1
 localStorage.perfectplanfor4days="2"
@@ -53,6 +51,7 @@ setTimeout(runtime,1000)
 function runtime(){
 time.innerHTML="00"
 time2.innerHTML=check(tme);
+if(tme==0) setTimeout(checkEnd,500)
 tme--;
 setTimeout(runtime,1000)
 }
