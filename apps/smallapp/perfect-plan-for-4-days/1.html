@@ -32,6 +32,8 @@
 function checkEnd(){
 delete localStorage.perfectplanfor4daysday1
 localStorage.perfectplanfor4days="2"
+var d=(new Date().setDate(new Date().getDate()+1))
+localStorage.perfectplanfor4daysday=d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()
 location.href="index.html"
 }
 
