@@ -52,6 +52,8 @@ function getCookie(cname) {
 if(getUrlValue("o")==null) {
 if(getCookie("bopen")==""){
 location.href="index.html"
+} else {
+setCookie("bopen","",10)
 }
 } else {
 setCookie("bopen",true,10)
