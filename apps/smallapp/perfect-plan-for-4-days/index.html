@@ -17,14 +17,18 @@ if(nd>rd){
 if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days==undefined) {location.href="start.html"} else
 if(localStorage.perfectplanfor4days){location.href=localStorage.perfectplanfor4days} else document.write("抱歉,出现了一点小问题...<a href='0.html'>重新开始</a>")
  } else {
-var xch=rd.getHours()+23-nd.getHours()
-var xcm=rd.getMinutes()+60-nd.getMinutes()
-//alert(localStorage.perfectplanfor4daysday+"\n"+rd+"\n"+nd)
-var xc=xch+"时"+xcm+"分"
-if(xc=="23时60分") xc="1天"
+vad xco=(function(){
+var timeDiff = rd - nd
+var xch = Math.floor(timeDiff / 3600);
+timeDiff = timeDiff % 3600;
+var xcm = Math.floor(timeDiff / 60);
+timeDiff = timeDiff % 60;
+var xcs = timeDiff;
+return {xch:xch;xcm:xcm;xcs:xcs}
+})()
+var xc=xco.xch+"时"+xco.xcm+"分"+xco.xcs+"秒"
 document.write("<h1 style='text-align:center;'>403:访问被拒绝</h1>")
 document.write("<h3 onclick='location.reload(1)'>您没有足够的权限访问此页面。</h3>")
-//document.write("<h4><button onclick='location.reload(1)'>重试</button></h4>")
 document.write("<p>请"+xc+"后再试</p>")
  }
 }
