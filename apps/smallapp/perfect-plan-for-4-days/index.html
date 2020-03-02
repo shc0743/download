@@ -26,9 +26,7 @@ timeDiff = timeDiff % 60;
 var xcs = Math.floor(timeDiff);
 
 var xc=xch+"时"+xcm+"分"+xcs+"秒"
-document.write("<h1 style='text-align:center;'>403:访问被拒绝</h1>")
-document.write("<h3 onclick='location.reload(1)'>您没有足够的权限访问此页面。</h3>")
-document.write("<p>请"+xc+"后再试</p>")
+location.href="403?inp="+encodeURIComponent(xc)
  }
 }
 })()
