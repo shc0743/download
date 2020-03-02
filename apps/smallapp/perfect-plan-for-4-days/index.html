@@ -17,8 +17,8 @@ if(nd>rd){
 if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days==undefined) {location.href="start.html"} else
 if(localStorage.perfectplanfor4days){location.href=localStorage.perfectplanfor4days} else document.write("抱歉,出现了一点小问题...<a href='0.html'>重新开始</a>")
  } else {
-var xch=rd.getHours()-nd.getHours()
-var xcm=rd.getMinutes()-nd.getMinutes()
+var xch=rd.getHours()+24-nd.getHours()
+var xcm=rd.getMinutes()+60-nd.getMinutes()
 //alert(localStorage.perfectplanfor4daysday+"\n"+rd+"\n"+nd)
 var xc=xch+"时"+xcm+"分"
 document.write("<h1>恭喜,您的今日目标已经达到!</h1>")
