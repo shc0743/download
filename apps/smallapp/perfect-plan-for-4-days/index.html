@@ -26,7 +26,13 @@ timeDiff = timeDiff % 60;
 var xcs = Math.floor(timeDiff);
 
 var xc=xch+"时"+xcm+"分"+xcs+"秒"
-location.href="403?inp="+encodeURIComponent(xc)
+var w=window.open()
+w.document.open()
+w.alert("请"+xc+"后再试")
+w.document.close()
+w.close()
+location.href="403";
+/*+encodeURIComponent(xc)*/
  }
 }
 })()
