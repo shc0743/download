@@ -23,7 +23,7 @@ var xch = Math.floor(timeDiff / 3600);
 timeDiff = timeDiff % 3600;
 var xcm = Math.floor(timeDiff / 60);
 timeDiff = timeDiff % 60;
-var xcs = timeDiff;
+var xcs = Math.floor(timeDiff);
 
 var xc=xch+"时"+xcm+"分"+xcs+"秒"
 document.write("<h1 style='text-align:center;'>403:访问被拒绝</h1>")
