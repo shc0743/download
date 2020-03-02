@@ -30,11 +30,13 @@
 
 <script>
 function checkEnd(){
+try{
 delete localStorage.perfectplanfor4daysday1
 localStorage.perfectplanfor4days="2"
 var d=(new Date().setDate(new Date().getDate()+1))
 localStorage.perfectplanfor4daysday=d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()+"T"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
 location.href="index.html"
+}catch(err){alert(err)}
 }
 
 (function(){
@@ -53,9 +55,10 @@ setTimeout(runtime,1000)
 function runtime(){
 time.innerHTML="00"
 time2.innerHTML=check(tme);
-if(tme==0) setTimeout(checkEnd,500)
+if(tme==0){setTimeout(checkEnd,500)} else {
 tme--;
 setTimeout(runtime,1000)
+ }
 }
 
 })()
