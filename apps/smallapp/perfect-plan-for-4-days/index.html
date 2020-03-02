@@ -5,8 +5,10 @@
 (function(){
 var rd=new Date(localStorage.perfectplanfor4daysday);
 var nd=new Date();
-alert(localStorage.perfectplanfor4daysday+"\n"+rd+"\n"+nd)
-
+/*alert(localStorage.perfectplanfor4daysday+"\n"+rd+"\n"+nd)
+2020-02-03T11:45:51+08:00
+Mon 2 03 2020 11:45:51 GMT+0800 (CST)
+Mon 3 02 2020 11:45:02 GMT+0800 (CST)*/
 if(localStorage.perfectplanfor4daysday==undefined){
 if(localStorage.perfectplanfor4days==null||localStorage.perfectplanfor4days==undefined) {location.href="start.html"} else
 if(localStorage.perfectplanfor4days){location.href=localStorage.perfectplanfor4days} else document.write("抱歉,出现了一点小问题...<a href='0.html'>重新开始</a>")
