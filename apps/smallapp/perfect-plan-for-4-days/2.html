@@ -32,7 +32,8 @@
 
 function checkEnd(){
 localStorage.perfectplanfor4days="3"
-var d=(new Date().setDate(new Date().getDate()+1))
+var d=new Date()
+d.setDate(d.getDate() + 1)
 localStorage.perfectplanfor4daysday=d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()+"T"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
 location.href="index.html"
 }
