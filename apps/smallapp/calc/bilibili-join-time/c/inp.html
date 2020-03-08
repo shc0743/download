@@ -13,7 +13,7 @@
 <p>
 <form action="" method=GET onsubmit="document.body.innerHTML+='请稍候...'">
 输入入坑天数: 
-<input type=number name=ts min=0 max=100000000 step=1 placeholder=输入入坑天数 required> 
+<input type=number name=ts min=0 step=1 placeholder=输入入坑天数 required> 
 <button type=submit>提交</button>
 </p>
 
@@ -25,9 +25,9 @@ try{
 dmo.innerHTML=document.title
 
 var d = new Date();
-d.setFullYear(2009, 6, 26);
+d.setFullYear(2009, 5, 26);
 var d2=new Date()
-document.querySelectorAll("input[name='ts']")[0].max = (d2-d)/1000/60/60/24;
+document.querySelectorAll("input[name='ts']")[0].max = Math.floor((d2-d)/1000/60/60/24);
 
 if(getUrlValue("ts")){
 var d = new Date();
