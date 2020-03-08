@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>bilibili入坑时间计算器</title>
+</head>
+<body>
+
+<h1 id=dmo></h1>
+
+<p>
+<form action="" method=GET onsubmit="document.body.innerHTML+='请稍候...'">
+输入入坑天数: 
+<input type=number name=ts placeholder=输入入坑天数 required> 
+<button type=submit>提交</button>
+</p>
+
+<p id="demo"></p>
+
+<script>
+try{
+dmo.innerHTML=document.title
+
+if(getUrlValue("ts")){
+var d = new Date();
+var a=(v);
+d.setDate(d.getDate() - a);
+demo.innerHTML="您的入坑时间是: "+
+(d.getFullYear()+"-"+(d.getMonth()+1)+
+"-"+d.getDate());
+}
+
+}catch(err){alert(err)}
+</script> 
+
+</body>
+</html>
