@@ -13,7 +13,7 @@
 <p>
 <form action="" method=GET onsubmit="document.body.innerHTML+='请稍候...'">
 输入入坑天数: 
-<input type=number name=ts placeholder=输入入坑天数 required> 
+<input type=number name=ts min=0 max=100000000 step=1 placeholder=输入入坑天数 required> 
 <button type=submit>提交</button>
 </p>
 
