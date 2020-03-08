@@ -20,8 +20,14 @@
 <p id="demo"></p>
 
 <script>
+(function(){
 try{
 dmo.innerHTML=document.title
+
+var d = new Date();
+d.setFullYear(2009, 6, 26);
+var d2=new Date()
+document.querySelectorAll("input[name='ts']")[0].max = (d2-d)/1000/60/60/24;
 
 if(getUrlValue("ts")){
 var d = new Date();
@@ -34,6 +40,8 @@ demo.innerHTML="您的入坑时间是: "+
 }
 
 }catch(err){alert(err)}
+
+})()
 </script> 
 
 </body>
