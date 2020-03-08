@@ -25,7 +25,7 @@ dmo.innerHTML=document.title
 
 if(getUrlValue("ts")){
 var d = new Date();
-var a=(v);
+var a=(getUrlValue("ts"));
 d.setDate(d.getDate() - a);
 demo.innerHTML="您的入坑时间是: "+
 (d.getFullYear()+"-"+(d.getMonth()+1)+
