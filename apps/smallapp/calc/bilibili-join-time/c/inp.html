@@ -29,7 +29,8 @@ var a=(getUrlValue("ts"));
 d.setDate(d.getDate() - a);
 demo.innerHTML="您的入坑时间是: "+
 (d.getFullYear()+"-"+(d.getMonth()+1)+
-"-"+d.getDate());
+"-"+d.getDate())+" <input type=button value=重置"+
+" onclick='location.href=\"inp\"'>"
 }
 
 }catch(err){alert(err)}
