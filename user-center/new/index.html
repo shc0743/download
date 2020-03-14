@@ -46,11 +46,11 @@ var uunme=localStorage.unme.split(",")
 var i,out1=false
 if(uunme!=""&&uunme!=null){
 for(i=0;i<uunme.length;i++){
-out1=out1||(username==uunme[i])
+out1=out1||(username.value==uunme[i])
   }
 } else {
-delete localStorage.unme
-delete localStorage.pwme
+localStorage.unme=""
+localStorage.pwme=""
 var out1=false
 }
 
