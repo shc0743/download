@@ -74,7 +74,10 @@ $( function() {
       buttons: {
         "知道了": function() {
           $( "#diac" ).dialog( "close" );
-        }
+        },
+      close: function() {
+        return false;
+      }
       }
     });
     $( "#diah" ).dialog({
@@ -82,12 +85,14 @@ $( function() {
       buttons: {
         "好的": function() {
           $( "#diah" ).dialog( "close" );  
-          username.value=""
         } ,
         "好吧": function() {
           $( "#diah" ).dialog( "close" );
-          username.value=""
-        }
+        },
+      close: function() {
+        username.value=""
+        return false;
+      }
       }
     });
     $( "#diaok" ).dialog({
