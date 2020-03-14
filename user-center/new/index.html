@@ -48,7 +48,11 @@ if(uunme!=""&&uunme!=null){
 for(i=0;i<uunme.length;i++){
 out1=out1||(username==uunme[i])
   }
-} else var out1=false
+} else {
+delete localStorage.unme
+delete localStorage.pwme
+var out1=false
+}
 
 }
 if(!out1){
