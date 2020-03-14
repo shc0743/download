@@ -69,10 +69,12 @@ $( function() {
       autoOpen: false,
       buttons: {
         "好的": function() {
-          $( this ).dialog( "close" );
+          $( this ).dialog( "close" );  
+          username.value=""
         } ,
         "好吧": function() {
           $( this ).dialog( "close" );
+          username.value=""
         }
       }
     });
