@@ -38,12 +38,18 @@
 
 <script>
 
-if(getUrlValue("question")){
-if(dialog1()){
+function win(){
 alert("恭喜!您成功瘦身超过了20斤,训练目标已经达到!")
 location.href="end.html"
- } else {
+}
+function nowin(){
 localStorage.perfectplanfor4days="3.1"
+location.href="index.html"
+}
+
+if(getUrlValue("question")){
+if(dialog1()){
+ } else {
  }
 }
 
@@ -56,12 +62,12 @@ localStorage.perfectplanfor4days="3.1"
       modal: true,
       buttons: {
         "有": function() {
-          istherewin=true; 
           $( this ).dialog( "close" );
+          win()
         },
         "没有": function() {
-          istherewin=false;
           $( this ).dialog( "close" );
+          nowin()
         }
       }
     });
@@ -69,7 +75,6 @@ localStorage.perfectplanfor4days="3.1"
 
 function dialog1(){
     $( "#dialog" ).dialog( "open" );
-    return istherewin;
 }
 
 function checkEnd(){
