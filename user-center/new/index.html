@@ -36,7 +36,7 @@
 <button type=submit>马上注册!</button>
 </pre></form>
 
-<script type="text/javascript">
+<script id=srt1 type="test/javascript">
 frm.onsubmit=function(event){
   event.preventDefault();
   if(username.value!=""&&password.value!=""){
@@ -91,6 +91,10 @@ $( function() {
     });
 
   } );
+</script>
+<script>
+try{eval(srt1.innerHTML)}
+catch(err){alert(err)}
 </script>
  
 <div id="diac" title="注册失败">
