@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿婆猪女装记录</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//resources/demos/style.css">
+  <style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+</head>
+
+<body>
+
+<h1>注册账号</h1>
+
+<h2>准备好注册账号了吗?现在就开始吧!</h2>
+
+<form id=frm>
+<pre>账号
+<input type=text id=username maxlength=15 required>
+密码
+<input type=password id=password required maxlength=25>
+<button type=submit>马上注册!</button>
+</pre></form>
+
+<script>
+frm.onsubmit=function(event){
+  event.preventDefault();
+  if(username.value!=""&&password.value!=""){
+      localStorage.unme+=username.value+","
+      localStorage.pwme+=password.value+","
+      $( "#diaok" ).dialog( "open" );
+  } else {
+      $( "#diac" ).dialog( "open" );
+  }
+}  
+$( function() {
+    $( "#diac" ).dialog({
+      autoOpen: false
+    });
+    $( "#diaok" ).dialog({
+      autoOpen: false
+    });
+  } );
+</script>
+ 
+<div id="diac" title="注册失败">
+  <p>请填写用户名和密码</p>
+</div>
+<div id="diaok" title="注册成功">
+  <p>恭喜您注册成功!!!</p>
+</div>
+
+</body>
+</html>
