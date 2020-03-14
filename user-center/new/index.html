@@ -32,7 +32,7 @@
 <pre>账号
 <input type=text id=username maxlength=15 required>
 密码
-<input type=password id=password required maxlength=25>
+<input type=text id=password required maxlength=25>
 <button type=submit>马上注册!</button>
 </pre></form>
 
@@ -40,25 +40,57 @@
 frm.onsubmit=function(event){
   event.preventDefault();
   if(username.value!=""&&password.value!=""){
+var uunme=localStorage.unme.split(",")
+var i,out1=false
+for(i=0;i<uunme.length;i++){
+out1=out1||(unme==uunme[i])
+}
+if(!out1){
       localStorage.unme+=username.value+","
       localStorage.pwme+=password.value+","
       $( "#diaok" ).dialog( "open" );
+} else {
+      $( "#diah" ).dialog( "open" );
+}
   } else {
       $( "#diac" ).dialog( "open" );
   }
 }  
 $( function() {
     $( "#diac" ).dialog({
-      autoOpen: false
+      autoOpen: false,
+      buttons: {
+        "知道了": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+    $( "#diah" ).dialog({
+      autoOpen: false,
+      buttons: {
+        "好的": function() {
+          $( this ).dialog( "close" );
+        } ,
+        "好吧": function() {
+          $( this ).dialog( "close" );
+        }
+      }
     });
     $( "#diaok" ).dialog({
       autoOpen: false
+      buttons: {
+        "完成": function() {
+          $( this ).dialog( "close" );
+        } 
     });
   } );
 </script>
  
 <div id="diac" title="注册失败">
   <p>请填写用户名和密码</p>
+</div>
+<div id="diah" title="注册失败">
+  <p>已经有这个用户了,换一个吧QAQ</p>
 </div>
 <div id="diaok" title="注册成功">
   <p>恭喜您注册成功!!!</p>
