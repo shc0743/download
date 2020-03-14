@@ -42,12 +42,14 @@ frm.onsubmit=function(event){
   if(username.value!=""&&password.value!=""){
 var uunme=localStorage.unme.split(",")
 var i,out1=false
+if(uunme!=""&&uunme!=null){
 for(i=0;i<uunme.length;i++){
 out1=out1||(unme==uunme[i])
 }
+}
 if(!out1){
-      localStorage.unme+=username.value+","
-      localStorage.pwme+=password.value+","
+      localStorage.unme+=username.value+",";
+      localStorage.pwme+=password.value+",";
       $( "#diaok" ).dialog( "open" );
 } else {
       $( "#diah" ).dialog( "open" );
@@ -61,7 +63,7 @@ $( function() {
       autoOpen: false,
       buttons: {
         "知道了": function() {
-          $( this ).dialog( "close" );
+          $( "#diac" ).dialog( "close" );
         }
       }
     });
@@ -69,11 +71,11 @@ $( function() {
       autoOpen: false,
       buttons: {
         "好的": function() {
-          $( this ).dialog( "close" );  
+          $( "#diah" ).dialog( "close" );  
           username.value=""
         } ,
         "好吧": function() {
-          $( this ).dialog( "close" );
+          $( "#diah" ).dialog( "close" );
           username.value=""
         }
       }
@@ -82,7 +84,7 @@ $( function() {
       autoOpen: false,
       buttons: {
         "完成": function() {
-          $( this ).dialog( "close" );
+          $( "#diaok" ).dialog( "close" );
         } 
     });
   } );
