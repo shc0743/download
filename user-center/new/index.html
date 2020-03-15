@@ -42,7 +42,7 @@
 <script id=srt1 type="test/javascript">
 frm.onsubmit=usernew
 function usernew(event){
-  event.preventDefault();
+  if(event!=undefined) event.preventDefault();
   if(username.value!=""&&password.value!=""){
 
 if(localStorage.unme!=""&&localStorage.unme!=null){
