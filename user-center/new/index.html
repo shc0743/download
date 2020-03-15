@@ -43,7 +43,7 @@
 frm.onsubmit=usernew
 function usernew(event){
   if(event!=undefined) event.preventDefault();
-var xhtf=2
+var xhtf=1
 while(xhtf){
 xhtf--;
 
@@ -63,6 +63,7 @@ out1=out1||(username.value==uunme[i])
 
 localStorage.unme=""
 localStorage.pwme=""
+xhtf++;
 var out1=false
 
 }
