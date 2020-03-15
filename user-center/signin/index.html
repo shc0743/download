@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿婆猪女装记录</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//resources/demos/style.css">
+  <style>
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+</head>
+<body>
+
+<h1>登录</h1>
+
+<form action="" onsubmit="login();return false;">
+      <span id="lotmsg"></span><label for="user">账号</label>
+      <input type="text" name="name" id="user" value="" class="text ui-widget-content ui-corner-all">
+      <label for="pw">密码</label>
+      <input type="text" name="email" id="pw" value="" class="text ui-widget-content ui-corner-all">
+<input type=submit>
+</form>
+
+<script>
+function logi(){
+var unme=(user.value)
+var pwme=(pw.value)
+if(unme==""||pwme==""){
+lotmsg.innerHTML="账号或密码错误<br>"
+setTimeout("lotmsg.innerHTML=''",1500)
+return;
+}
+var uunme=localStorage.unme.split(",")
+var pwnme=localStorage.pwme.split(",")
+var i,out1=false,out2=false
+for(i=0;i<uunme.length;i++){
+out1=out1||(unme==uunme[i])
+}
+for(i=0;i<pwnme.length;i++){
+out2=out2||(pwme==pwnme[i])
+}
+if(out1&&out2){
+lotmsg.innerHTML="登录成功!<br>"
+uname.value=user.value
+window.unmev=user.value
+setTimeout(function(){lin.dialog( "close" );document.getElementById("login").hidden=true;},2000)
+} else {
+lotmsg.innerHTML="账号或密码错误<br>"
+setTimeout("lotmsg.innerHTML=''",1500)
+}
+    }
+</script>
+
+</body>
+</html>
