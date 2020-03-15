@@ -43,33 +43,47 @@
 frm.onsubmit=usernew
 function usernew(event){
   if(event!=undefined) event.preventDefault();
+var xhtf=1
+while(xhtf){
+xhtf=0;
+
   if(username.value!=""&&password.value!=""){
 
 if(localStorage.unme!=""&&localStorage.unme!=null){
+
 var uunme=localStorage.unme.split(",")
 var i,out1=false
 if(uunme!=""&&uunme!=null){
+
 for(i=0;i<uunme.length;i++){
 out1=out1||(username.value==uunme[i])
   }
+
 } else {
+
 localStorage.unme=""
 localStorage.pwme=""
 var out1=false
+xhtf=1
+
 }
 
 }
-if(!out1){
+
+if((!out1)&&(xhtf==0)){
       localStorage.unme+=username.value+",";
       localStorage.pwme+=password.value+",";
       $( "#diaok" ).dialog( "open" );
 } else {
-      $( "#diah" ).dialog( "open" );
+      if(xhtf==0) $( "#diah" ).dialog( "open" );
 }
-  } else {
+
+  /*!=""*/} else {
       $( "#diac" ).dialog( "open" );
   }
-}  
+
+/*while*/ }
+/*function*/}  
 
 $( function() {
 
