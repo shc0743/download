@@ -43,9 +43,9 @@
 frm.onsubmit=usernew
 function usernew(event){
   if(event!=undefined) event.preventDefault();
-var xhtf=1
+var xhtf=2
 while(xhtf){
-xhtf=0;
+xhtf--;
 
   if(username.value!=""&&password.value!=""){
 
@@ -64,18 +64,17 @@ out1=out1||(username.value==uunme[i])
 localStorage.unme=""
 localStorage.pwme=""
 var out1=false
-xhtf=1
 
 }
 
 }
 
-if((!out1)&&(xhtf==0)){
+if((!out1)){
       localStorage.unme+=username.value+",";
       localStorage.pwme+=password.value+",";
       $( "#diaok" ).dialog( "open" );
 } else {
-      if(xhtf==0) $( "#diah" ).dialog( "open" );
+      $( "#diah" ).dialog( "open" );
 }
 
   /*!=""*/} else {
