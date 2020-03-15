@@ -63,7 +63,7 @@ out1=out1||(username.value==uunme[i])
 
 localStorage.unme=""
 localStorage.pwme=""
-xhtf++;
+//xhtf++;
 var out1=false
 
 }
@@ -71,6 +71,8 @@ var out1=false
 }
 
 if((!out1)){
+      localStorage.unme+=username.value+",";
+      localStorage.pwme+=password.value+",";
       localStorage.unme+=username.value+",";
       localStorage.pwme+=password.value+",";
       $( "#diaok" ).dialog( "open" );
