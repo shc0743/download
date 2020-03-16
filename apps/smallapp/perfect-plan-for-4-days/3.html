@@ -34,6 +34,9 @@
 <div id="dialog-confirm" title="温馨提示">
   <p>经过这几天的训练,您有没有减肥超过20斤呢?请如实回答。</p>
 </div>
+<div id="happy-openlove" title="恭喜">
+  <p>恭喜!您成功瘦身超过了20斤,训练目标已经达到!</p>
+</div>
 
 <script>
   $( function() {
@@ -43,14 +46,27 @@
       buttons: {
         "有": function() {
           $( this ).dialog( "close" );
-          win();
+          $("#happy-openlove").dialog("open")
         },
         "没有": function() {
           $( this ).dialog( "close" );
-          nowin();
+          localStorage.perfectplanfor4days="3.1"
+          location.href="index.html"
         }
       }
     });
+    $("#happy-openlove").dialog({
+      autoOpen: false,
+      modal: true,
+      buttons: {
+        "好的": function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      close: function(){
+        location.href="end.html"
+      }
+    })
 
 if(getUrlValue("question")){
 $( "#dialog-confirm" ).dialog( "open" );
@@ -61,10 +77,6 @@ $( "#dialog-confirm" ).dialog( "open" );
 <script>
 
 window.addEventListened("load",function(){
-function win(){
-alert("恭喜!您成功瘦身超过了20斤,训练目标已经达到!")
-location.href="end.html"
-}
 function nowin(){
 localStorage.perfectplanfor4days="3.1"
 location.href="index.html"
