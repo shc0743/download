@@ -1,6 +1,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
 <title>4天瘦20斤完美计划</title>
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <h1>第三天</h1>
 <br><div>今天的任务是:单指倒立<span contenteditable>五小时</span><br><img src="data:image/png,ffffff" onclick="this.src=''" alt="请在倒立的过程中自拍一张照片给我们" width="400" height="250"><div contentEditable="true">本次任务完成后，系统自动为您跳转到下个任务</div></div>
 <div>本次任务剩余时间: <span style="color:blue"><span id=time>01</span>:<span id=time2>00</span></span>
@@ -28,28 +32,60 @@
 
 </div>
 
+<div id="dialog-confirm" title="温馨提示">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>经过这几天的训练,您有没有减肥超过20斤呢?请如实回答。</p>
+</div>
+
 <script>
 
-if(getUrlValue("question")){
-if(confirm("温馨提示\n经过这几天的训练,您有没有成功瘦身超过20斤呢?\n请如实回答")){
+function win(){
 alert("恭喜!您成功瘦身超过了20斤,训练目标已经达到!")
 location.href="end.html"
- } else {
+}
+function nowin(){
 localStorage.perfectplanfor4days="3.1"
+location.href="index.html"
+}
 
+if(getUrlValue("question")){
+dialog1()
+}
+
+  $( function() {
+    $( "#dialog-confirm" ).dialog({
+      autoOpen: false,
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "有": function() {
+          $( this ).dialog( "close" );
+          win()
+        },
+        "没有": function() {
+          $( this ).dialog( "close" );
+          nowin()
+        }
+      }
+    });
+  } );
+
+function dialog1(){
+    $( "#dialog" ).dialog( "open" );
+}
+
+function checkEnd(){
 var d=new Date()
 function checkHad0(inp){
 if(inp<10||String(inp).length<2) return "0"+inp;
 return inp;
 }
+d.setDate(d.getDate() + 1)
 localStorage.perfectplanfor4daysday=d.getFullYear()+"-"+checkHad0(d.getMonth()+1)+"-"+checkHad0(d.getDate())+
 "T"+checkHad0(d.getHours())+":"+checkHad0(d.getMinutes())+":"+checkHad0(d.getSeconds())+"+08:00"
+localStorage.perfectplanfor4days="3?question=true"
 location.href="index.html"
- }
-}
-
-function checkEnd(){
-location.href+="?question=true"
 }
 
 (function(){
