@@ -39,20 +39,26 @@
 </div>
 
 <script>
+trueclose=0
   $( function() {
     $( "#dialog-confirm" ).dialog({
       autoOpen: false,
       modal: true,
       buttons: {
         "有": function() {
+          trueclose=1
           $( this ).dialog( "close" );
           $("#happy-openlove").dialog("open")
         },
         "没有": function() {
+          trueclose=1
           $( this ).dialog( "close" );
           localStorage.perfectplanfor4days="3.1"
           location.href="index.html"
         }
+      },
+      close: function(){
+        if(!trueclose) $( this ).dialog( "open" );
       }
     });
     $("#happy-openlove").dialog({
