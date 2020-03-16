@@ -32,7 +32,7 @@
 </div>
 
 <div id="dialog-confirm" title="温馨提示">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>经过这几天的训练,您有没有减肥超过20斤呢?请如实回答。</p>
+  <p>经过这几天的训练,您有没有减肥超过20斤呢?请如实回答。</p>
 </div>
 
 <script>
@@ -57,11 +57,11 @@ dialog1()
       buttons: {
         "有": function() {
           $( this ).dialog( "close" );
-          win()
+          win();
         },
         "没有": function() {
           $( this ).dialog( "close" );
-          nowin()
+          nowin();
         }
       }
     });
