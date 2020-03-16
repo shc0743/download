@@ -51,6 +51,11 @@
         }
       }
     });
+
+if(getUrlValue("question")){
+$( "#dialog-confirm" ).dialog( "open" );
+}
+
   } );
 </script>
 <script>
@@ -63,14 +68,6 @@ location.href="end.html"
 function nowin(){
 localStorage.perfectplanfor4days="3.1"
 location.href="index.html"
-}
-
-function dialog1(){
-    $( "#dialog-confirm" ).dialog( "open" );
-}
-
-if(getUrlValue("question")){
-dialog1()
 }
 
 function checkEnd(){
