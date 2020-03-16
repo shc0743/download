@@ -37,6 +37,7 @@
 
 <script>
 
+window.addEventListened("load",function(){
 function win(){
 alert("恭喜!您成功瘦身超过了20斤,训练目标已经达到!")
 location.href="end.html"
@@ -44,10 +45,6 @@ location.href="end.html"
 function nowin(){
 localStorage.perfectplanfor4days="3.1"
 location.href="index.html"
-}
-
-if(getUrlValue("question")){
-dialog1()
 }
 
   $( function() {
@@ -71,6 +68,10 @@ function dialog1(){
     $( "#dialog-confirm" ).dialog( "open" );
 }
 
+if(getUrlValue("question")){
+dialog1()
+}
+
 function checkEnd(){
 var d=new Date()
 function checkHad0(inp){
@@ -83,6 +84,8 @@ localStorage.perfectplanfor4daysday=d.getFullYear()+"-"+checkHad0(d.getMonth()+1
 localStorage.perfectplanfor4days="3?question=true"
 location.href="index.html"
 }
+
+})
 
 (function(){
 
