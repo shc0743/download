@@ -16,7 +16,7 @@
 
 <h1>登录</h1>
 
-<form action="" onsubmit="logi();return false;">
+<form id=frm1 method=post action="">
       <span id="lotmsg"></span><label for="user">账号</label>
       <input type="text" name="name" id="user" value="" class="text ui-widget-content ui-corner-all">
       <br><label for="pw">密码</label>
@@ -25,6 +25,11 @@
 </form>
 
 <script>
+frm1.onsubmit=function(event){
+event.preventDefault();
+logi();
+return false;
+}
 function logi(){
 var unme=(user.value)
 var pwme=(pw.value)
