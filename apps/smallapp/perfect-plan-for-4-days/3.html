@@ -75,8 +75,6 @@ $( "#dialog-confirm" ).dialog( "open" );
   } );
 </script>
 <script>
-
-window.addEventListened("load",function(){
 function nowin(){
 localStorage.perfectplanfor4days="3.1"
 location.href="index.html"
@@ -94,10 +92,6 @@ localStorage.perfectplanfor4daysday=d.getFullYear()+"-"+checkHad0(d.getMonth()+1
 localStorage.perfectplanfor4days="3?question=true"
 location.href="index.html"
 }
-
-})
-
-(function(){
 
 check=function(inp){
 if(inp<10){
@@ -117,6 +111,4 @@ if(tme==0) setTimeout(checkEnd,500)
 tme--;
 setTimeout(runtime,1000)
 }
-
-})()
 </script>
