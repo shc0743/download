@@ -36,8 +36,8 @@ logi();
 return false;
 }
 function logi(){
-var unme=(user.value)
-var pwme=(pw.value)
+var unme=($("#user").val())
+var pwme=($("#pw").val())
 if(unme==""||pwme==""){
 lotmsg.innerHTML="账号或密码错误<br>"
 setTimeout("lotmsg.innerHTML=''",1500)
@@ -56,7 +56,7 @@ out2i=i
 }
 if(out1&&out2&&(out1i==out2i)){
 lotmsg.innerHTML="登录成功!<br>"
-setCookie("signin",user.value,60)
+setCookie("signin",$("#user").val(),120)
 } else {
 lotmsg.innerHTML="账号或密码错误<br>"
 setTimeout("lotmsg.innerHTML=''",1500)
