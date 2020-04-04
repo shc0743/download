@@ -37,7 +37,7 @@ return false;
 }
 function logi(){
 var unme=($("#user").val())
-var pwme=($("#pw").val())
+var pwme=($("#pw").val()).md5()
 if(unme==""||pwme==""){
 lotmsg.innerHTML="账号或密码错误<br>"
 setTimeout("lotmsg.innerHTML=''",1500)
