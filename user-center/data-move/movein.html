@@ -47,10 +47,8 @@ if(importerrdata.checked){
 if(JSON.parse(indata.value).errdata==undefined){
 outresult.innerHTML+="无法导入错误日志,因为没有找到可用的数据<br>"
 } else {
-if(typeof localStorage.unme != "string") localStorage.unme = "";
-if(typeof localStorage.pwme != "string") localStorage.pwme = "";
-localStorage.unme+=JSON.parse(indata.value).unme;
-localStorage.pwme+=JSON.parse(indata.value).pwme;
+if(typeof localStorage.errdata != "string") localStorage.errdata = "";
+localStorage.errdata+=JSON.parse(indata.value).errdata;
 outresult.innerHTML+="成功导入了错误日志<br>"
 succecount++;
  }
