@@ -22,7 +22,7 @@ $("#mout").button()
 
 mout.onclick=function(){
 try{
-outresult.innerHTML="导出结果(请复制):<br><textarea cols=50 rows=5>"+JSON.stringify(localStorage)+"</textarea>"
+outresult.innerHTML="导出结果(请复制):<br><textarea cols=50 rows=5 readonly>"+JSON.stringify(localStorage)+"</textarea>"
  }
 catch(err){
 outresult.innerHTML="非常抱歉,数据导出过程中出现了错误,所以暂时无法导出。<br>错误信息: "+err
