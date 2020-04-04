@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数据导入</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+  <script src="https://shc7432.github.io/public/something/sometool.js"></script>
+</head>
+<body>
+<h1>数据导入</h1>
+<form id=movein>
+数据<br><textarea cols=45 rows=3 placeholder=输入数据 id=indata></textarea><br>
+导入<div style="border:1px solid #ccc;">
+<input type=checkbox id=importuserdata>用户数据</div>
+<button type=submit>导入</button>
+</form>
+<div id=outresult></div>
+
+<script>
+$(function(){
+$("#movein").button()
+})
+movein.onsubmit=function(){
+try{
+if(indata.value==""){
+indata.style.border="1px solid #f00";
+setTimeout(function(){indata.style.border="1px solid";},2000)
+return false;
+}
+if(importuserdata){
+localStorage.unme=JSON.parse(indata.value).unme;
+localStorage.pwme=JSON.parse(indata.value).pwme;
+outresult.innerHTML+="导入了用户数据"
+}
+outresult.innerHTML+="导入成功!"
+return false;
+ } catch(err){
+indata.value="请输入正确的数据!";
+setTimeout(function(){indata.value="";},2000)
+return false;
+ }
+}
+</script>
+</body>
+</html>
