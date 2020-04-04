@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数据加密</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+  <script src="https://shc7432.github.io/public/something/sometool.js"></script>
+</head>
+<body>
+<h1>数据加密</h1>
+<form style="border:1px solid #ccc;">
+加密算法<select id=sfa>
+  <option value ="md5">MD5</option>
+  <option value ="md53">MD5(MD5(MD5(string)))</option>
+  <option value ="sha1">SHA1</option>
+  <option value="sha5">SHA1(SHA1(SHA1(SHA1(SHA1(string)))))</option>
+</select><br>
+要加密的文字<textarea id=txt1 cols=50 rows=5 placeholder=输入文字></textarea><br>
+加密结果<textarea id=txt2 cols=50 rows=5 placeholder=加密结果 readonly></textarea><br>
+<button type=button id=start style="width:150px;height:30px;font-size:18px;background-color:#0000ff;color:#ffffff;">加密!</button>
+</form>
+
+<script>
+start.onclick=function(){
+var text;
+switch (sfa.value) {
+    case "md5":
+        text=md5(txt1.value);
+        break; 
+    case "md53":
+        text=MD5(MD5(MD5(txt1.value)));
+        break; 
+    case "sha1":
+        text=sha1(txt1.value);
+        break; 
+    case "sha5":
+        text=sha5(txt1.value);
+        break; 
+    default: 
+        text="";
+        break;
+  } 
+txt2.value=text;
+}
+</script>
+</body>
+</html>
