@@ -15,13 +15,16 @@
 <form id=movein>
 数据<br><textarea cols=45 rows=3 placeholder=输入数据 id=indata></textarea><br>
 导入<div style="border:1px solid #ccc;">
-<input type=checkbox id=importuserdata>用户数据</div>
+<input type=checkbox id=importuserdata>用户数据<br>
+<input type=checkbox id=importerrdata>错误日志
+</div>
 <button type=submit>导入</button>
 </form>
 <div id=outresult></div>
 
 <script>
 movein.onsubmit=function(){
+let succecount=0;
 try{
 if(indata.value==""){
 indata.style.border="1px solid #f00";
@@ -30,20 +33,34 @@ return false;
 }
 if(importuserdata.checked){
 if(JSON.parse(indata.value).unme==undefined||JSON.parse(indata.value).pwme==undefined){
-outresult.innerHTML+="无法导入用户数据,因为没有可用的用户数据<br>"
+outresult.innerHTML+="无法导入用户数据,因为没有找到可用的数据<br>"
 } else {
 if(typeof localStorage.unme != "string") localStorage.unme = "";
 if(typeof localStorage.pwme != "string") localStorage.pwme = "";
 localStorage.unme+=JSON.parse(indata.value).unme;
 localStorage.pwme+=JSON.parse(indata.value).pwme;
 outresult.innerHTML+="成功导入了用户数据<br>"
+succecount++;
  }
 }
-outresult.innerHTML+="导入成功!<br>"
+if(importerrdata.checked){
+if(JSON.parse(indata.value).errdata==undefined){
+outresult.innerHTML+="无法导入错误日志,因为没有找到可用的数据<br>"
+} else {
+if(typeof localStorage.unme != "string") localStorage.unme = "";
+if(typeof localStorage.pwme != "string") localStorage.pwme = "";
+localStorage.unme+=JSON.parse(indata.value).unme;
+localStorage.pwme+=JSON.parse(indata.value).pwme;
+outresult.innerHTML+="成功导入了错误日志<br>"
+succecount++;
+ }
+}
+outresult.innerHTML+="本次成功导入了"+succecount+"个数据<br>"
 return false;
  } catch(err){
 indata.value="请输入正确的数据!";
 setTimeout(function(){indata.value="";},2000)
+if(succecount>0) outresult.innerHTML+="本次成功导入了"+succecount+"个数据<br>"
 return false;
  }
 }
