@@ -12,6 +12,22 @@
 </head>
 <body>
 <h1>数据导出</h1>
-<button></button>
+<button id=mout>导出</button>
+<div id=outresult></div>
+
+<script>
+$(function(){
+$("#mout").button()
+})
+
+mout.onclick=function(){
+try{
+outresult.innerHTML="导出结果(请复制):<br>"+JSON.stringify(localStorage)
+ }
+catch(err){
+outresult.innerHTML="非常抱歉,数据导出过程中出现了错误,所以暂时无法导出。<br>错误信息: "+err
+ }
+}
+</script>
 </body>
 </html>
