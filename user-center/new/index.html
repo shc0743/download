@@ -54,7 +54,7 @@ var xhtf=1
 while(xhtf){
 xhtf--;
 
-  if(username.value!=""&&password.value!=""){
+  if(username.value!=""&&password.value!=""&&username.value.search(",")==-1&&password.value.search(",")==-1){
 
 if(localStorage.unme!=""&&localStorage.unme!=null){
 
@@ -79,9 +79,9 @@ var out1=false
 
 if((!out1)){
       localStorage.unme+=username.value+",";
-      localStorage.pwme+=password.value+",";
+      localStorage.pwme+=md5(password.value)+",";
       localStorage.unme+=username.value+",";
-      localStorage.pwme+=password.value+",";
+      localStorage.pwme+=md5(password.value)+",";
       $( "#diaok" ).dialog( "open" );
 } else {
       $( "#diah" ).dialog( "open" );
@@ -92,6 +92,7 @@ if((!out1)){
   }
 
 /*while*/ }
+          $( "#newuser" ).dialog( "close" );
 /*function*/}  
 
 $( function() {
@@ -101,8 +102,7 @@ $( function() {
       modal: true,
       buttons: {
         "注册": function() {
-          usernew()
-          $( "#newuser" ).dialog( "close" );
+          usernew();
         },
         "取消": function() {
           $( "#newuser" ).dialog( "close" );
@@ -165,7 +165,7 @@ catch(err){alert(err)}
 </script>
  
 <div id="diac" title="注册失败">
-  <p>请填写用户名和密码</p>
+  <p>请填写用户名和密码,用户名不要有逗号</p>
 </div>
 <div id="diah" title="注册失败">
   <p>已经有这个用户了,换一个吧QAQ</p>
