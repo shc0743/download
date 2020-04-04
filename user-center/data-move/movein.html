@@ -28,12 +28,12 @@ indata.style.border="1px solid #f00";
 setTimeout(function(){indata.style.border="1px solid";},2000)
 return false;
 }
-if(importuserdata){
+if(importuserdata.checked){
 localStorage.unme=JSON.parse(indata.value).unme;
 localStorage.pwme=JSON.parse(indata.value).pwme;
-outresult.innerHTML+="导入了用户数据"
+outresult.innerHTML+="导入了用户数据<br>"
 }
-outresult.innerHTML+="导入成功!"
+outresult.innerHTML+="导入成功!<br>"
 return false;
  } catch(err){
 indata.value="请输入正确的数据!";
