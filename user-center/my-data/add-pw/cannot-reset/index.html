@@ -14,10 +14,8 @@
 <h1>数据加密</h1>
 <form style="border:1px solid #ccc;">
 加密算法<select id=sfa>
-  <option value ="md5">MD5</option>
+  <option value ="md5">MD5(string)</option>
   <option value ="md53">MD5(MD5(MD5(string)))</option>
-  <option value ="sha1">SHA1</option>
-  <option value="sha5">SHA1(SHA1(SHA1(SHA1(SHA1(string)))))</option>
 </select><br>
 要加密的文字<br><textarea id=txt1 cols=50 rows=5 placeholder=输入文字></textarea><br>
 加密结果<br><textarea id=txt2 cols=50 rows=5 placeholder=加密结果 readonly></textarea><br>
@@ -33,12 +31,6 @@ switch (sfa.value) {
         break; 
     case "md53":
         text=MD5(MD5(MD5(txt1.value)));
-        break; 
-    case "sha1":
-        text=sha1(txt1.value);
-        break; 
-    case "sha5":
-        text=sha5(txt1.value);
         break; 
     default: 
         text="";
