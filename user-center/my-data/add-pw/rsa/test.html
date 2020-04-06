@@ -6,7 +6,7 @@
     <script src="http://travistidwell.com/jsencrypt/bin/jsencrypt.js"></script>
     <script type="text/javascript">
 
-      // Call this code when the page is done loading.
+      /*// Call this code when the page is done loading.
       $(function() {
 
         // Run a quick encryption/decryption when they click.
@@ -30,7 +30,17 @@
             alert('Something went wrong....');
           }
         });
-      });
+      });*/
+
+      function s(){
+let a=new JSEncrypt();
+a.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN
+FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
+xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
+gwQco1KRMDSmXSMkDwIDAQAB");
+let b=a.encrypt(inpt.value);
+document.documentElement.innerHTML+=b;
+}
     </script>
   </head>
   <body>
@@ -57,8 +67,8 @@ FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
 xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
 gwQco1KRMDSmXSMkDwIDAQAB
 -----END PUBLIC KEY-----</textarea><br/>
-    <label for="input">Text to encrypt:</label><br/>
-    <textarea id="input" name="input" type="text" rows=4 cols=70>This is a test!</textarea><br/>
-    <input id="testme" type="button" value="Test Me!!!" /><br/>
+    <label for="inpt">Text to encrypt:</label><br/>
+    <textarea id="inpt" name="input" type="text" rows=4 cols=70>This is a test!</textarea><br/>
+    <input id="testme" type="button" value="Test Me!!!" onclick="s()" /><br/>
   </body>
 </html>
