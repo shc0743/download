@@ -53,12 +53,12 @@ outresult.innerHTML+="成功导入了错误日志<br>"
 succecount++;
  }
 }
-outresult.innerHTML+="本次成功导入了"+succecount+"个数据<br>"
+outresult.innerHTML+="成功导入了"+succecount+"个数据<br>"
 return false;
  } catch(err){
 indata.value="请输入正确的数据!";
 setTimeout(function(){indata.value="";},2000)
-if(succecount>0) outresult.innerHTML+="本次成功导入了"+succecount+"个数据<br>"
+if(succecount>0) outresult.innerHTML+="成功导入了"+succecount+"个数据<br>"
 return false;
  }
 }
