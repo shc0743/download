@@ -28,55 +28,44 @@
 <button type="button" onclick="addpw()">加密</button><button type="button" onclick="unaddpw()">解密</button>
 </form>
 <div class="pwout" title="加密结果">
-加密结果:<div id=pwout1></div>
+加密结果:<textarea id=pwout1 cols=50 rows=5 readonly></textarea>
 </div>
 <div class="pwout2" title="解密结果">
-解密结果:<div id=pwout3></div>
+解密结果:<textarea id=pwout3 cols=50 rows=5 readonly></textarea>
 </div>
 
 <script>
 $(function(){
+
 $(".pwout").dialog({
 autoOpen: false,
 modal: true,
 buttons: {
-"复制结果": function(){
-if(copytext(pwout1.innerHTML)){
-($(this).dialog("close"))
-} else {
-(document.querySelector(".pwout").innerHTML="按 Ctrl + C 复制 <br><textarea cols=50 rows=5>"+pwout1.innerHTML+"</textarea>")
-  }
-},
 "确定": function(){
 $(this).dialog("close");
 }
  }
 })
+
 $(".pwout2").dialog({
 autoOpen: false,
 modal: true,
 buttons: {
-"复制结果": function(){
-if(copytext(pwout1.innerHTML)){
-($(this).dialog("close"))
-} else {
-(document.querySelector(".pwout").innerHTML="按 Ctrl + C 复制 <br><textarea cols=50 rows=5>"+pwout1.innerHTML+"</textarea>")
-  }
-},
 "确定": function(){
 $(this).dialog("close");
 }
 })
+
 window.addpw=function(){
     var pwd = keypw.value;
     var str=ctet1.value
     var mi = CryptoJS.AES.encrypt(str, pwd);
-    pwout1.innerHTML=mi;
+    pwout1.value=mi;
     $(".pwout").dialog("open");
 }
 window.unaddpw=function(){
     var result = CryptoJS.AES.decrypt(ctet1.value, keypw.value).toString(CryptoJS.enc.Utf8);
-    pwout3.innerHTML=result;
+    pwout3.value=result;
     $(".pwout2").dialog("open");
 }
 })
