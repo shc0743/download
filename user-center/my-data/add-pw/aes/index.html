@@ -76,7 +76,7 @@ window.addpw=function(){
 }
 window.unaddpw=function(){
     var result = CryptoJS.AES.decrypt(ctet1.value, keypw.value).toString(CryptoJS.enc.Utf8);
-    pwout3.innerHTML=mi;
+    pwout3.innerHTML=result;
     $(".pwout2").dialog("open");
 }
 })
