@@ -16,7 +16,7 @@
 <script src="https://shc0743.github.io/crypto-js/sha1.js"></script>
 <script src="https://shc0743.github.io/crypto-js/sha512.js"></script>
 <script src="https://shc7432.github.io/public/something/sometool.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 </head>
@@ -41,9 +41,11 @@ autoOpen: false,
 modal: true,
 buttons: {
 "复制结果": function(){
-copytext(pwout1.innerHTML) ? 
-($(this).dialog("close")) : 
+if(copytext(pwout1.innerHTML)){
+($(this).dialog("close"))
+} else {
 (document.querySelector(".pwout").innerHTML="按 Ctrl + C 复制 <br><textarea cols=50 rows=5>"+pwout1.innerHTML+"</textarea>")
+  }
 },
 "确定": function(){
 $(this).dialog("close");
@@ -55,9 +57,11 @@ autoOpen: false,
 modal: true,
 buttons: {
 "复制结果": function(){
-copytext(pwout3.innerHTML) ? 
-($(this).dialog("close")) : 
-(document.querySelector(".pwout2").innerHTML="按 Ctrl + C 复制 <br><textarea cols=50 rows=5>"+pwout3.innerHTML+"</textarea>")
+if(copytext(pwout1.innerHTML)){
+($(this).dialog("close"))
+} else {
+(document.querySelector(".pwout").innerHTML="按 Ctrl + C 复制 <br><textarea cols=50 rows=5>"+pwout1.innerHTML+"</textarea>")
+  }
 },
 "确定": function(){
 $(this).dialog("close");
