@@ -52,6 +52,7 @@ frm.onsubmit=usernew
 function usernew(event){
   if(event!=undefined) event.preventDefault();
 var xhtf=1
+if(!localStorage.userdata) localStorage.userdata=JSON.stringify({data:[]})
 while(xhtf){
 xhtf--;
 
@@ -59,7 +60,7 @@ xhtf--;
 
 if(localStorage.unme!=""&&localStorage.unme!=null){
 
-var uunme=localStorage.unme.split(",")
+var uunme=localStorage.userdata.data;
 var i,out1=false
 if(uunme!=""&&uunme!=null){
 
@@ -68,9 +69,6 @@ out1=out1||(username.value==uunme[i])
   }
 
 } else {
-
-localStorage.unme=""
-localStorage.pwme=""
 //xhtf++;
 var out1=false
 
@@ -79,10 +77,8 @@ var out1=false
 }
 
 if((!out1)){
-      localStorage.unme+=username.value+",";
-      localStorage.pwme+=md5(password.value)+",";
-      localStorage.unme+=username.value+",";
-      localStorage.pwme+=md5(password.value)+",";
+      ud=JSON.parse(localStorage.userdata)
+      ud.data.push({username: username.value,password: password.value})
       $( "#diaok" ).dialog( "open" );
 } else {
       $( "#diah" ).dialog( "open" );
