@@ -77,8 +77,9 @@ var out1=false
 }
 
 if((!out1)){
-      ud=JSON.parse(localStorage.userdata)
-      ud.data.push({username: username.value,password: password.value})
+      let ud=JSON.parse(localStorage.userdata)
+      let pw=CryptoJS.MD5(password.value)
+      ud.data.push({username: username.value,password: pw})
       $( "#diaok" ).dialog( "open" );
 } else {
       $( "#diah" ).dialog( "open" );
