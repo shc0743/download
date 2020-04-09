@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>制作重定向链接</title>
+  <script src="https://shc7432.github.io/public/something/sometool.js"></script>
+</head>
+<body>
+<h1>制作重定向链接</h1>
+<form id=makelk>
+链接:<input id=linki size=50>
+<button type=submit>制作</button>
+</form>
+制作结果:<textarea id=outresult readonly placeholder=制作结果 cols=50 rows=3></textarea>
+
+<script>
+makelk.onsubmit=function(){
+let a=linki.value;
+a=encodeURIComponent(a);
+a=aesPw.add(a,"123456");
+a="https://shc7432.github.io/download/returnto/return?link="+a;
+outresult.value=a;
+return false;
+}
+</script>
+</body>
+</html>
