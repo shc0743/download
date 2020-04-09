@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,8 @@
 链接:<input id=linki size=50>
 <button type=submit>制作</button>
 </form>
-制作结果:<textarea id=outresult readonly placeholder=制作结果 cols=50 rows=3></textarea>
+制作结果:<br>
+<textarea id=outresult readonly placeholder=制作结果 cols=50 rows=3></textarea>
 
 <script>
 makelk.onsubmit=function(){
@@ -24,6 +24,9 @@ a="https://shc7432.github.io/download/returnto/return?link="+a;
 outresult.value=a;
 return false;
 }
+$(function(){
+$("button").button()
+})
 </script>
 </body>
 </html>
