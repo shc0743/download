@@ -3,9 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <title>正在重定向</title>   
-<script>
-location.href="return.php?"+location.href.split("?")[1]
-</script>  
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 </head>
 <body>
@@ -18,7 +15,7 @@ location.href="return.php?"+location.href.split("?")[1]
 
 <p>您也可以立即重定向</p>
 
-<p style="text-align:center;"><button class="goButton" style="height:35px">继续</button></p>
+<p style="text-align:center;"><button class="goButton" style="height:35px" onclick='location.href="return1.html?"+location.href.split("?")'>继续</button></p>
 
 <script>
 document.querySelector(".goButton").style.width=screen.width-60;
