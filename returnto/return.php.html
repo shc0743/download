@@ -15,7 +15,7 @@
 
 <p>您也可以立即重定向</p>
 
-<p style="text-align:center;"><button class="goButton" style="height:35px" onclick='location.href="return1.html?"+location.href.split("?")'>继续</button></p>
+<p style="text-align:center;"><button class="goButton" style="height:35px" onclick='location.href="return1.html?"+location.href.split("?")[1]'>继续</button></p>
 
 <script>
 document.querySelector(".goButton").style.width=screen.width-60;
@@ -23,7 +23,7 @@ gotolink.innerHTML=getUrlValue("link");
 seco=5;
 function secs(){
 sec.innerHTML=seco;
-if(seco==0) location.href="return1.html?"+location.href.split("?");
+if(seco==0) location.href="return1.html?"+location.href.split("?")[1];
 seco--;
 setTimeout(secs,1000)
 }
