@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <title>正在重定向</title>   
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 <p style="text-align:center;"><button class="goButton" style="height:35px" onclick='location.href="return1.html?"+location.href.split("?")[1]'>继续</button></p>
 
 <script>
-document.querySelector(".goButton").style.width=screen.width-60;
+document.querySelector(".goButton").style.width=(screen.width-60)+"px";
 gotolink.innerHTML=getUrlValue("link");
 seco=5;
 function secs(){
