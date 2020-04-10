@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8" />
+<title>正在重定向</title>   
+<script>
+location.href="return.php?"+location.href.split("?")
+</script>  
+<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+</head>
+<body>
+
+<h1>正在重定向</h1>
+
+<p>您将在<span style="color:blue;" id=sec></span>秒内被重定向</p>
+
+<p>链接:<span style="color:green;" id=gotolink></span></p>
+
+<p>您也可以立即重定向</p>
+
+<p style="text-align:center;"><button class="goButton" style="height:35px">继续</button></p>
+
+<script>
+document.querySelector(".goButton").style.width=screen.width-60;
+gotolink.innerHTML=getUrlValue("link");
+seco=5;
+function secs(){
+sec.innerHTML=seco;
+if(seco==0) location.href="return1.html?"+location.href.split("?");
+seco--;
+setTimeout(secs,1000)
+}
+secs()
+</script>
+
+</body>
+</html>
