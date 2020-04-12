@@ -32,6 +32,16 @@
 <textarea id=outresult readonly placeholder=制作结果 cols=50 rows=3></textarea>
 
 <script>
+window.pwTools=new Object();
+
+pwTools.base64=new Object();
+pwTools.base64.add=function(str){
+  return btoa(encodeURIComponent(str));
+}
+pwTools.base64.unadd=function(str){
+  return decodeURIComponent(atob(str));
+}
+
 makelk.onsubmit=function(){
 let a=linki.value;
 if(needpw.checked){
