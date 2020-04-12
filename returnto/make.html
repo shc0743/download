@@ -23,9 +23,9 @@
 <body>
 <h1>制作重定向链接</h1>
 <form id=makelk onsubmit="return false;">
-链接:<input id=linki size=40><br>
+链接:<input id=linki size=40 required><br>
 <input type=checkbox id=cjadd>多次重定向<br>
-<input type=checkbox id=needpw>需要密码<br>密码:<input id=setpwv><br>
+<input type=checkbox id=needpw>需要密码<br>密码:<input id=setpwv type=text maxlength=15 placeholder="最大长度15位"><br>
 <button type=submit>制作</button>
 </form>
 制作结果:<br>
@@ -33,19 +33,20 @@
 
 <script>
 makelk.onsubmit=function(){
-if(cjadd.checked){
 let a=linki.value;
-a=encodeURIComponent(a);
-a="https://shc7432.github.io/download/returnto/return?link="+a;
-} else {
-let a=linki.value;
-a=encodeURIComponent(a);
-a="https://shc7432.github.io/download/returnto/return?isNotMuch=true&link="+a;
-}
 if(needpw.checked){
 let pw=setpwv.value;
-pw=pwTools.
+pw=pwTools.base64.add(pw);
+pw=encodeURIComponent(pw);
+a=pwTools.base64.add(a);
 }
+a=encodeURIComponent(a);
+if(cjadd.checked){
+a="https://shc7432.github.io/download/returnto/return?link="+a;
+} else {
+a="https://shc7432.github.io/download/returnto/return?isNotMuch=true&link="+a;
+}
+if(needpw.checked) a+="&pw="+pw;
 outresult.value=a;
 return false;
 }
