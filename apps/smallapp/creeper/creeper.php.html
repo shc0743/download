@@ -58,10 +58,10 @@ jQuery(".inputcontent").dialog({
 autoOpen: false,
 model: true,
 buttons: {
-"取消": {
+"取消": function(){
 jQuery(this).dialog("close");
 },
-"保存": {
+"保存": function(){
 
 jQuery(".inputcontent").dialog("close");
 }
