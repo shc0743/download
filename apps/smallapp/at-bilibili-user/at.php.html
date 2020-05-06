@@ -76,6 +76,7 @@ out.innerHTML=str.length+"字"
 out.style.color="#ccc";
 out.style.fontSize="12px";
  }
+this.value=encodeURIComponent(this.value);
 }
 
 var uname=getUrlValue("username");
