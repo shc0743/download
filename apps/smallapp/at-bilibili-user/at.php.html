@@ -80,6 +80,7 @@ var guomax=((rstr.length+dogen)>500)
 if(dogen>2147483647||guomax){
 replacestringresult.value="字数超出限制,最多"+Math.floor(
 (500-rstr.length)/6)+"个doge"
+replacestringresult.style.color="#ff0000";
 return;
 }
 for(let i=0;i<dogen;i++){
@@ -87,7 +88,7 @@ rstr+="[doge]";
 }
 };
 if(rstr.length>500){
-replacestringresult.value="超出"+(500-rstr.length)+"字";
+replacestringresult.value="超出"+(rstr.length-500)+"字";
 replacestringresult.style.color="#ff0000";
 return;
 }
