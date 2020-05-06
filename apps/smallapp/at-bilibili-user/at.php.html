@@ -25,13 +25,6 @@
     return returnCitySN.cip;
   }
 
-  if(!(/\?/.test(location.href))){
-    location.href+="?"
-  }
-  if(!(/username+dogenum/.test(location.href))){
-    location.href+="username=&dogenum="
-  }
-
   $(function(){
     $(".replaceresult").dialog({
       autoOpen: false,
@@ -59,9 +52,10 @@
 "setTimeout(function(){document.querySelector('form').submit()},300)">全部重置</button>
 </form>
 
-<div title="生成结果" style="border:1px solid #ccc;" id="replacestringresultframe">
+<div style="border:1px solid #ccc;" id="replacestringresultframe">
 生成结果:<br>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
+<div style="font-size:10px;color:#ccc;">IP:<script>document.write(getIP())</script></div>
 </div>
 
 <script>
