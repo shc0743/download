@@ -45,7 +45,7 @@
 <form style="border:1px solid #ccc;" action="" method="get">
 输入你要@的人 :<input name=username id=atpeopleusername><br>
 添加doge :<input type=checkbox name=adddoge id=adddoge>
-<input name=dogenum id=dogenum placeholder="doge数量,默认1"><br>
+<input name=dogenum hidden id=dogenum placeholder="doge数量,默认1"><br>
 <button type=submit>提交</button>
 </form>
 
@@ -77,6 +77,14 @@ rstr+="[doge]";
 };
 replacestringresult.value=rstr;
 //replacestringresultframe.hidden=0;
+}
+
+adddoge.oninput=function(){
+  if(this.checked){
+    dogenum.hidden=0;
+  } else {
+    dogenum.hidden=1;
+  }
 }
 })()
 </script>
