@@ -25,6 +25,13 @@
     return returnCitySN.cip;
   }
 
+  if(!(/\?/.test(location.href))){
+    location.href+="?"
+  }
+  if(!(/username+dogenum/.test(location.href))){
+    location.href+="username=&dogenum="
+  }
+
   $(function(){
     $(".replaceresult").dialog({
       autoOpen: false,
