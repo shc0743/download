@@ -43,7 +43,7 @@
 <h1>@人 生成器</h1>
 
 <form style="border:1px solid #ccc;" action="" method="get">
-输入你要@的人 :<input name=username><br>
+输入你要@的人 :<input name=username id=atpeopleusername><br>
 <button type=submit>提交</button>
 </form>
 
@@ -61,6 +61,7 @@ var str="你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @w
 "很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
 "@wuli小周 了"
 if(uname){
+atpeopleusername.value=uname;
 var rstr=str.replace((new RegExp("wuli小周","g")),uname);
 replacestringresult.value=rstr;
 //replacestringresultframe.hidden=0;
