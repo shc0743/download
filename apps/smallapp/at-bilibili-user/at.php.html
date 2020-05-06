@@ -47,7 +47,8 @@
 <button type=submit>提交</button>
 </form>
 
-<div class="replaceresult" title="生成结果">
+<div title="生成结果" style="border:1px solid #ccc;" id="replacestringresultframe">
+生成结果:<br>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
 </div>
 
@@ -62,7 +63,7 @@ var str="你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @w
 if(uname){
 var rstr=str.replace((new RegExp("wuli小周","g")),uname);
 replacestringresult.value=rstr;
-$(".replaceresult").dialog("open");
+//replacestringresultframe.hidden=0;
 }
 })()
 </script>
