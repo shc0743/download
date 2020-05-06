@@ -75,6 +75,10 @@ var rstr=str.replace((new RegExp("wuli小周","g")),uname);
 if(doge){
 dogenum.hidden=0;
 if(!dogen) dogen=1;
+if(dogen>2147483647){
+replacestringresult.value="doge数量过大,请重新输入"
+return;
+}
 for(let i=0;i<dogen;i++){
 rstr+="[doge]";
 }
