@@ -48,7 +48,8 @@
 <input name=dogenum hidden id=dogenum placeholder="doge数量,默认1" type=number><br>
 <button type=submit>提交</button>
 <button type=reset>重置</button>
-<button type=reset onclick="document.querySelector('form').submit()">全部重置</button>
+<button type=reset onclick=
+"setTimeout(function(){document.querySelector('form').submit()},300)">全部重置</button>
 </form>
 
 <div title="生成结果" style="border:1px solid #ccc;" id="replacestringresultframe">
