@@ -44,7 +44,8 @@
 
 <form style="border:1px solid #ccc;" action="" method="get">
 输入你要@的人 :<input name=username id=atpeopleusername><br>
-添加doge :<input type=checkbox name=adddoge id=adddoge><br>
+添加doge :<input type=checkbox name=adddoge id=adddoge>
+<input name=dogenum id=dogenum placeholder="doge数量,默认1"><br>
 <button type=submit>提交</button>
 </form>
 
@@ -57,6 +58,7 @@
 (function(){
 var uname=getUrlValue("username");
 var doge=getUrlValue("adddoge");
+var dogen=getUrlValue("dogenum");
 var str="你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
 "你们有没有考虑过@wuli小周 的感受？你们知道人家@wuli小周 做视频有多辛苦吗？你们老@wuli小周"+
 " @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
@@ -65,8 +67,14 @@ var str="你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @w
 if(uname){
 atpeopleusername.value=uname;
 adddoge.checked=doge;
+dogenum.value=dogen;
 var rstr=str.replace((new RegExp("wuli小周","g")),uname);
-if(doge) rstr+="[doge]";
+if(doge){
+if(!dogen) dogen=1;
+for(let i=0;i<dogen;i++){
+rstr+="[doge]";
+}
+};
 replacestringresult.value=rstr;
 //replacestringresultframe.hidden=0;
 }
