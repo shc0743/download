@@ -24,24 +24,9 @@
   window.getip=window.getIP=function(){
     return returnCitySN.cip;
   }
-</script>
-<script>
-  (function(){
-    if(!localStorage.userData){
-      //创建userdata
-      var ud={
-        uid: getRandom(),
-        ip: getIP(),
-        username: null,
-        password: null
-      }
-      var jsonud=JSON.stringify(ud);
-      localStorage.userData=jsonud;
-      location.reload(1);
-    } else {
-      window.userData=JSON.parse(localStorage.userData);
-    }
-  })()
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 </script>
 </head>
 <body>
@@ -61,8 +46,10 @@
 <div style="border:1px solid #ccc;" id="replacestringresultframe">
 生成结果:<br>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
-<div style="font-size:10px;color:#ccc;">IP:<script>document.write(getIP())</script></div>
-<div style="font-size:10px;color:#ccc;">uid:<script>document.write(userData.uid)</script></div>
+<div style="font-size:10px;color:#ccc;">IP:<script>
+document.write(getIP())</script></div>
+<div style="font-size:10px;color:#ccc;">uid:<script>
+document.write(getRandom(10000000,99999999))</script></div>
 </div>
 
 <script>
