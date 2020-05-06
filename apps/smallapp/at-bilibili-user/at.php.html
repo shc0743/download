@@ -95,10 +95,8 @@ var rstr=str.replace((new RegExp("wuli小周","g")),uname);
 if(doge){
 dogenum.hidden=0;
 if(!dogen) dogen=1;
-var guomax=((rstr.length+dogen)>500)
-if(dogen>2147483647||guomax){
-replacestringresult.value="字数超出限制,最多"+Math.floor(
-(500-rstr.length)/6)+"个doge"
+if(dogen>60){
+replacestringresult.value="doge超出限制"
 replacestringresult.style.color="#ff0000";
 return;
 }
