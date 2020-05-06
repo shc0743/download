@@ -24,12 +24,13 @@
   window.getip=window.getIP=function(){
     return returnCitySN.cip;
   }
-
+</script>
+<script>
   (function(){
     if(!localStorage.userData){
       //创建userdata
       var ud={
-        uid: (Math.floor(Math.random()*16)),
+        uid: getRandom(),
         ip: getIP(),
         username: null,
         password: null
@@ -41,18 +42,6 @@
       window.userData=JSON.parse(localStorage.userData);
     }
   })()
-
-  $(function(){
-    $(".replaceresult").dialog({
-      autoOpen: false,
-      modal: true,
-      buttons: {
-        "确定": function () {
-          $( this ).dialog( "close" );
-        }
-      }
-    })
-  })
 </script>
 </head>
 <body>
