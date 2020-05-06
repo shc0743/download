@@ -25,6 +25,22 @@
     return returnCitySN.cip;
   }
 
+  (function(){
+    if(!localStorage.userData){
+      //创建userdata
+      var ud={
+        uid: (Math.floor(Math.random()*16)),
+        username: null,
+        password: null
+      }
+      var jsonud=JSON.stringify(ud);
+      localStorage.userData=jsonud;
+      location.reload(1);
+    } else {
+      window.userData=JSON.parse(localStorage.userData);
+    }
+  })
+
   $(function(){
     $(".replaceresult").dialog({
       autoOpen: false,
@@ -56,6 +72,7 @@
 生成结果:<br>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
 <div style="font-size:10px;color:#ccc;">IP:<script>document.write(getIP())</script></div>
+<div style="font-size:10px;color:#ccc;">uid:<script>document.write(userData.uid)</script></div>
 </div>
 
 <script>
