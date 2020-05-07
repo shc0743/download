@@ -46,7 +46,8 @@ window.userData=ud;
 } else {
 let ud=new Object();
 ud.uid=getRandom(10000000,99999999);
-ud.id=CryptoJS.MD5(ud.uid);
+let uduid=String(ud.uid);
+ud.id=CryptoJS.MD5(uduid);
 ud.time=new Date();
 uds=JSON.stringify(ud);
 localStorage.userData=uds;
