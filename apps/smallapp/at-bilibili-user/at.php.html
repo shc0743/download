@@ -34,7 +34,7 @@ let udtime=ud.time;
 udtime=new Date(udtime);
 udtc=(((new Date()-udtime)/1000)/3600);
 if(udtc>23){
-if(confirm("会话已过期\n按\"确定\"重新创建\n按\"取消\"刷新状态")){
+if(1){
 delete localStorage.userData;
 location.reload(1);
 } else {
