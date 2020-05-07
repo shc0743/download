@@ -1,3 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8" />
+<title>正在重定向</title>   
+<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<meta http-equiv="Refresh" content="5;url=at.php" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h1>正在重定向</h1>
+
+<p>您将在<span style="color:blue;">5</span>秒内被重定向</p>
+
+<p>您也可以立即重定向</p>
+
+<p>如果5秒后您仍看到此消息,请点击<noscript><a href="at.php">继续</a><noscript>继续</p>
+
+<p style="text-align:center;display:none;" id=canscript hidden><button class="goButton" style="height:35px;background-color:#3a87fe;" onclick='location.href="at.php"'>继续</button></p>
+
 <script>
-location.href="at.php?username=&dogenum="
+document.querySelector(".goButton").style.width=(screen.width-60)+"px";
+canscript.hidden=0;
+canscript.style.display="block";
 </script>
+
+</body>
+</html>
