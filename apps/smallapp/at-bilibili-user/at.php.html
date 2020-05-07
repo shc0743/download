@@ -47,6 +47,12 @@ window.userData=ud;
 let ud=new Object();
 ud.uid=getRandom(10000000,99999999);
 ud.id=String(CryptoJS.MD5(ud.uid));
+ud.rid="";
+for(let i=0;i<36;i++){
+let r=getRandom(0,35);
+r=parseInt(String(r),36);
+ud.rid+=r;
+}
 ud.time=new Date();
 uds=JSON.stringify(ud);
 localStorage.userData=uds;
@@ -77,6 +83,8 @@ document.write(getIP())</script></div>
 document.write(userData.uid)</script></div>
 <div style="font-size:10px;color:#ccc;">ID:<script>
 document.write(userData.id)</script></div>
+<div style="font-size:10px;color:#ccc;">RandomID:<script>
+document.write(userData.rid)</script></div>
 </div>
 
 <script>
