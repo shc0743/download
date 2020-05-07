@@ -49,8 +49,7 @@ ud.uid=getRandom(10000000,99999999);
 ud.id=String(CryptoJS.MD5(ud.uid));
 ud.rid="";
 for(let i=0;i<36;i++){
-let r=getRandom(0,35);
-r=parseInt(String(r),36);
+let r=getRandom(0,35).toString(36);
 ud.rid+=r;
 }
 ud.time=new Date();
