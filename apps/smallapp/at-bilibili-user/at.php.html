@@ -89,8 +89,8 @@ var str=(("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 
 " @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
 "很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
 "@wuli小周 了").replace(new RegExp("wuli小周","g"),this.value));
- if(str.length>500){
-out.innerHTML="超出"+(str.length-500)+"字"
+ if(str.length>5000){
+out.innerHTML="超出"+(str.length-5000)+"字"
 out.style.color="#f00";
 out.style.fontSize="12px";
  } else {
@@ -117,7 +117,7 @@ var rstr=str.replace((new RegExp("wuli小周","g")),uname);
 if(doge){
 dogenum.hidden=0;
 if(!dogen) dogen=1;
-if(dogen>60){
+if(dogen>600){
 replacestringresult.value="doge超出限制"
 replacestringresult.style.color="#ff0000";
 return;
@@ -126,8 +126,8 @@ for(let i=0;i<dogen;i++){
 rstr+="[doge]";
 }
 };
-if(rstr.length>500){
-replacestringresult.value="超出"+(rstr.length-500)+"字";
+if(rstr.length>5000){
+replacestringresult.value="超出"+(rstr.length-5000)+"字";
 replacestringresult.style.color="#ff0000";
 return;
 }
