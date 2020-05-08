@@ -91,7 +91,7 @@ elem.innerHTML=elem.innerHTML.replace(/\u0020/ig,"")
 elem.innerHTML=elem.innerHTML.replace(/[\u4e00-\u9fa5]/ig,"")
 elem.innerHTML=elem.innerHTML.replace
 (/[，。？！“”（）～：；、……‘’《》｛｝［］——＊ | ·＃〖〗【】『』〔〕「」]/ig,"")
-let inp=elem.innerHTML;
+let inp=elem.innerHTML.replace(/\u003c\u0062\u0072\u0020\u002f\u003e/ig,"\n");
 while(1){
 if((inp.split("")[0])=="\n"){
 inp.replace("\n","")
@@ -122,7 +122,7 @@ for(let i=1;i<inp.length;i++){
 inp2+=inp[i];
 }
 inp=inp2;
-elem.innerHTML=inp;
+elem.innerHTML=inp.replace(/\n/ig,"<br />");
 }
 creepergame.data={};
 creepergame.data.successnumber=0;
