@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css?">
 <script src="https://shc0743.github.io/crypto-js/core.js"></script>
 <script src="https://shc0743.github.io/crypto-js/enc-base64.js"></script>
@@ -41,9 +42,9 @@ style="border:1px solid #ccc;" contenteditable></div>
 <div>
 <a class="gray linksmall" href="javascript:creepergame.editsing()">编辑歌词</a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a class="gray linksmall" href="javascript:">开始</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a class="gray linksmall" href="javascript:">暂停</a>
+<a class="gray linksmall" href="javascript:creepergame.start()">开始</a>
+<!--&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="gray linksmall" href="javascript:creepergame.parse()">暂停</a>-->
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a class="gray linksmall" href="javascript:creepergame.reset();">重置</a>
 </div>
@@ -52,20 +53,87 @@ style="border:1px solid #ccc;" contenteditable></div>
 
 </div>
 
+<div style="border: 1px solid #ccc;color:#ccc;font-size:10px;">
+答对题数: <span style="color:#0000ff;"></span>
+<div style="font-size:10px;color:#ccc;">IP:<script>
+document.write(getIP())</script></div>
+<div style="font-size:10px;color:#ccc;">uid:<script>
+document.write(userData.uid)</script></div>
+<div style="font-size:10px;color:#ccc;">ID:<script>
+document.write(userData.id)</script></div>
+<div style="font-size:10px;color:#ccc;">RandomID:<script>
+document.write(userData.rid)</script></div>
+</div>
+
 </div>
 
 <script>
+if(sessionStorage.editsing){
+document.querySelector(".inputcontent").innerHTML=sessionStorage.editsing
+}
+window.a_elementdata=document.querySelectorAll("a.gray.linksmall");
+
 window.creepergame=new Object()
+
 creepergame.editsing=function(){
 let a=document.querySelector(".inputcontent");
 if(a.hidden){a.hidden=0;} else {a.hidden=1;}
 }
+
 creepergame.reset=function(){
 gameout.innerHTML=""
 }
 
-if(sessionStorage.editsing){
-document.querySelector(".inputcontent").innerHTML=sessionStorage.editsing
+creepergame.start=function(){
+a_elementdata[1].hidden=1;
+let elem=document.querySelector(".inputcontent");
+elem.innerHTML=elem.innerHTML.replace(/\u0020/ig,"")
+elem.innerHTML=elem.innerHTML.replace(/[\u4e00-\u9fa5]/ig,"")
+elem.innerHTML=elem.innerHTML.replace
+(/[，。？！“”（）～：；、……‘’《》｛｝［］——＊ | ·＃〖〗【】『』〔〕「」]/ig,"")
+let inp=elem.innerHTML;
+while(1){
+if((inp.split("")[0])=="\n"){
+inp.replace("\n","")
+ } else break;
+}
+inp=inp.split("\n");
+gameout.innerHTML+=("<div>"+inp[0]+"</div><div contenteditable "+
+"class=userinp></div>");
+let userinp=document.querySelector(".userinp");
+userinp=userinp[userinp.length-1];
+userinp.oninput=function(){
+if(/\n/.test(this.innerHTML)) creepergame.panduanduicuo()
+}
+let inp2="";
+for(let i=1;i<inp.length;i++){
+inp2+=inp[i];
+}
+inp=inp2;
+while(1){
+if((inp.split("")[0])=="\n"){
+inp.replace("\n","")
+ } else break;
+}
+inp=inp.split("\n");
+creepergame.data.success=inp[0];
+inp2="";
+for(let i=1;i<inp.length;i++){
+inp2+=inp[i];
+}
+inp=inp2;
+elem.innerHTML=inp;
+}
+creepergame.data={};
+creepergame.data.successnumber=0;
+creepergame.panduanduicuo=function(){
+let userinp=document.querySelector(".userinp");
+userinp=userinp[userinp.length-1];
+if(userinp.innerHTML==creepergame.data.success){
+this.backgroundColor="#0f0";
+creepergame.data.successnumber+=1;
+creepergame.start();
+} else userinp.innerHTML=userinp.innerHTML.replace(/\n/g,"")
 }
 </script>
 
