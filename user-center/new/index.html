@@ -89,7 +89,7 @@ var out1=false
 
 if((!out1)){
       let ud=JSON.parse(localStorage.userdata);
-      let pw=CryptoJS.MD5(password.value);
+      let pw=String(CryptoJS.MD5(password.value));
       ud.data.push({username: username.value,password: pw});
       ud=JSON.stringify(ud);
       localStorage.userdata=ud;
