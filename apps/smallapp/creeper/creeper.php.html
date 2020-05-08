@@ -39,23 +39,31 @@ style="border:1px solid #ccc;" contenteditable></div>
 <div>
 
 <div>
-<a class="gray linksmall" href="javascript:editsing()">编辑歌词</a>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="gray linksmall" href="javascript:">开始</a>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="gray linksmall" href="javascript:">暂停</a>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="gray linksmall" href="javascript:">重置</a>
+<a class="gray linksmall" href="javascript:creepergame.editsing()">编辑歌词</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="gray linksmall" href="javascript:">开始</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="gray linksmall" href="javascript:">暂停</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="gray linksmall" href="javascript:creepergame.reset();">重置</a>
 </div>
 
-<div style="border: 1px solid #ccc;">
+<div style="border: 1px solid #ccc;" id=gameout>
 
 </div>
 
 </div>
 
 <script>
-function editsing(){
+window.creepergame=new Object()
+creepergame.editsing=function(){
 let a=document.querySelector(".inputcontent");
 if(a.hidden){a.hidden=0;} else {a.hidden=1;}
 }
+creepergame.reset=function(){
+gameout.innerHTML=""
+}
+
 if(sessionStorage.editsing){
 document.querySelector(".inputcontent").innerHTML=sessionStorage.editsing
 }
