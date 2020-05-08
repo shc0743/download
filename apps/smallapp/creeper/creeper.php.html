@@ -32,14 +32,14 @@ font-size: 12px;
 </head>
 <body>
 
-<div class="inputcontent" title="编辑歌词">
+<div class="inputcontent" title="编辑歌词" hidden>
 <iframe style="border: 1px solid #ccc;" src="canedit.html"></iframe>
 </div>
 
 <div>
 
 <div>
-<a class="gray linksmall" href="javascript:jQuery(".inputcontent").dialog('open')">编辑歌词</a>
+<a class="gray linksmall" href="javascript:editsing()">编辑歌词</a>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="gray linksmall" href="javascript:">开始</a>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="gray linksmall" href="javascript:">暂停</a>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="gray linksmall" href="javascript:">重置</a>
@@ -52,26 +52,10 @@ font-size: 12px;
 </div>
 
 <script>
-$(function{
-
-jQuery(".inputcontent").dialog({
-autoOpen: false,
-model: true,
-buttons: {
-"取消": function(){
-jQuery(this).dialog("close");
-},
-"保存": function(){
-
-jQuery(".inputcontent").dialog("close");
+function editsing(){
+let a=document.querySelector(".inputcontent");
+if(a.hidden){a.hidden=0;} else {a.hidden=1;}
 }
-},
-close: function(){
-
-}
-})
-
-})
 </script>
 
 </body>
