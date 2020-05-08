@@ -56,6 +56,9 @@ function editsing(){
 let a=document.querySelector(".inputcontent");
 if(a.hidden){a.hidden=0;} else {a.hidden=1;}
 }
+if(sessionStorage.editsing){
+document.querySelector(".inputcontent").innerHTML=sessionStorage.editsing
+}
 </script>
 
 </body>
