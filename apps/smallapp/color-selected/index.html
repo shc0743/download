@@ -5,7 +5,7 @@
 .rgbinp {width: 255px}
 </style>
 <div id=colout style="border: 1px solid #000;"><script>
-document.write("\u2020<br>\u2020<br>\u2020<br>")</script></div>
+document.write("<br><br><br>")</script></div>
 <div>颜色选择<br />
 R <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
 G <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
@@ -20,9 +20,9 @@ rgbinp[i].oninput=function(){
 rgbout[0].innerHTML=rgbinp[0].value
 rgbout[1].innerHTML=rgbinp[1].value
 rgbout[2].innerHTML=rgbinp[2].value
-var rHex=(Math.floor(rgbinp[0].value/16)).toString(16)
-var gHex=(Math.floor(rgbinp[1].value/16)).toString(16)
-var bHex=(Math.floor(rgbinp[2].value/16)).toString(16)
+var rHex=(Math.floor((rgbinp[0].value)/16)).toString(16)
+var gHex=(Math.floor((rgbinp[1].value)/16)).toString(16)
+var bHex=(Math.floor((rgbinp[2].value)/16)).toString(16)
 var rrggbb="#"+rHex+rHex+gHex+gHex+bHex+bHex
 nowColor.innerHTML=colour.style.backgroundColor=rrggbb
 return rrggbb
