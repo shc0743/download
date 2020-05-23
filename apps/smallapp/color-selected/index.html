@@ -35,7 +35,9 @@ return rrggbb
 }
 nowcolor.oninput=function(){
 var a=this.innerHTML
+var no7
 colout.style.backgroundColor=a
+if(a.length!=7&&a.length!=4) no7="请输入#xxxxxx的颜色值!";
 a=a.replace("#","")
 var b,c,d
 b=a.substr(0,2)
@@ -46,7 +48,7 @@ list[0]=parseInt(list[0],16)
 list[1]=parseInt(list[1],16)
 list[2]=parseInt(list[2],16)
 for(i=0;i<2;i++){
-rgbinp[i].value=rgbout[i].innerHTML=list[i]
+rgbinp[i].value=rgbout[i].innerHTML=no7||list[i]
 }
 }
 </script>
