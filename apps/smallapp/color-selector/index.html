@@ -1,12 +1,33 @@
 <h1>颜色选择器</h1>
 <meta name=viewport content="width=device-width">
 <div>颜色预览</div>
+<style>
+.rgbinp {width: 255px}
+</>
 <pre id=colout style="border: 1px solid #000;">
 
 
 </pre>
 <div>颜色选择<br />
-R <input type=range><br>
-G<br>
-B<br>
-当前颜色: <span></span><br></div>
+R <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
+G <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
+B <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
+当前颜色: <span id=nowcolor></span><br></div>
+
+<script>
+rgbinp=document.querySelectorAll(".rgbinp")
+rgbout=document.querySelectorAll(".rgbout")
+for(let i=0;i<rgbinp.length;i++){
+rgbinp[i].oninput=function(){
+rgbout[0].innerHTML=rgbinp[0].value
+rgbout[1].innerHTML=rgbinp[1].value
+rgbout[2].innerHTML=rgbinp[2].value
+var rHex=(Math.floor(rgbinp[0].value/16)).toString(16)
+var gHex=(Math.floor(rgbinp[1].value/16)).toString(16)
+var bHex=(Math.floor(rgbinp[2].value/16)).toString(16)
+var rrggbb="#"+rHex+rHex+gHex+gHex+bHex+bHex
+nowColor.innerHTML=colour.style.backgroundColor=rrggbb
+return rrggbb
+}
+}
+</script>
