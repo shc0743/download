@@ -3,6 +3,7 @@
 <div>颜色预览</div>
 <style>
 .rgbinp {width: 255px}
+#colout {width:255px;height:255px}
 </style>
 <div id=colout style="border: 1px solid #000;"><script>
 document.write("<br><br><br>")</script></div>
@@ -21,10 +22,11 @@ rgbout[0].innerHTML=rgbinp[0].value
 rgbout[1].innerHTML=rgbinp[1].value
 rgbout[2].innerHTML=rgbinp[2].value
 try{
-var rHex=(Math.floor((rgbinp[0].value)/16)).toString(16);
-var gHex=(Math.floor((rgbinp[1].value)/16)).toString(16);
-var bHex=(Math.floor((rgbinp[2].value)/16)).toString(16);
-var rrggbb="#"+rHex+rHex+gHex+gHex+bHex+bHex;
+var list=["#"]
+list.push(parseInt(rgbinp[0].value,10).toString(16))
+list.push(parseInt(rgbinp[1].value,10).toString(16))
+list.push(parseInt(rgbinp[2].value,10).toString(16))
+var rrggbb=list.join("")
 colout.style.backgroundColor="rgb("+rgbinp[0].value+","+rgbinp[1].value+","+rgbinp[2].value+")";
 nowcolor.innerHTML=rrggbb
 }catch(e){alert(e)}
@@ -35,11 +37,16 @@ nowcolor.oninput=function(){
 var a=this.innerHTML
 colout.style.backgroundColor=a
 a=a.replace("#","")
-a=a.split("")
-a=a[0]+a[2]+a[4]
-a=a.split("")
+var b,c,d
+b=a.substr(0,2)
+c=a.substr(2,2)
+d=a.substr(4,2)
+var list=[b,c,d]
+list[0]=parseInt(list[0],16)
+list[1]=parseInt(list[1],16)
+list[2]=parseInt(list[2],16)
 for(i=0;i<2;i++){
-rgbinp[i].value=a[i]
+rgbinp[i].value=rgbout[i].innerHTML=list[i]
 }
 }
 </script>
