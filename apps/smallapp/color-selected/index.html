@@ -12,7 +12,7 @@ R <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></spa
 G <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
 B <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
 <pre style="background-color:#7fcaff;width:80px;text-align:center;" onclick="randomVal()">
-随机</pre><br>
+随机</pre>
 当前颜色: <span id=nowcolor style="color:blue" contenteditable></span><br></div>
 
 <script>
@@ -42,9 +42,14 @@ return "0"+str;
 return str;
 }}
 function randomVal(){
-
+var r=getRandom(0,255),g=getRandom(0,255),b=getRandom(0,255);
+var rgb=[r,g,b]
+for(i=0;i<3;i++){
+rgbinp[i].value=rgbout[i].innerHTML=rgb[i]
 }
-function get(min, max) {
+rgbinp[0].oninput()
+}
+function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
@@ -66,4 +71,6 @@ for(i=0;i<3;i++){
 rgbinp[i].value=rgbout[i].innerHTML=no7||list[i]
 }
 }
+
+rgbinp[0].oninput()
 </script>
