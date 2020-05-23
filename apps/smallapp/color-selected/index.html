@@ -10,7 +10,7 @@ document.write("<br><br><br>")</script></div>
 R <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
 G <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
 B <input type=range class=rgbinp min=0 max=255 value=0> <span class=rgbout></span><br>
-当前颜色: <span id=nowcolor style="color:blue"></span><br></div>
+当前颜色: <span id=nowcolor style="color:blue" contenteditable></span><br></div>
 
 <script>
 rgbinp=document.querySelectorAll(".rgbinp")
@@ -29,6 +29,17 @@ colout.style.backgroundColor="rgb("+rgbinp[0].value+","+rgbinp[1].value+","+rgbi
 nowcolor.innerHTML=rrggbb
 }catch(e){alert(e)}
 return rrggbb
+}
+}
+nowcolor.oninput=function(){
+var a=this.innerHTML
+colout.style.backgroundColor=a
+a=a.replace("#","")
+a=a.split("")
+a=a[0]+a[2]+a[4]
+a=a.split("")
+for(i=0;i<2;i++){
+rgbinp[i].value=a[i]
 }
 }
 </script>
