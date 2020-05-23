@@ -20,11 +20,12 @@ rgbinp[i].oninput=function(){
 rgbout[0].innerHTML=rgbinp[0].value
 rgbout[1].innerHTML=rgbinp[1].value
 rgbout[2].innerHTML=rgbinp[2].value
+try{
 var rHex=(Math.floor((rgbinp[0].value)/16)).toString(16);
 var gHex=(Math.floor((rgbinp[1].value)/16)).toString(16);
 var bHex=(Math.floor((rgbinp[2].value)/16)).toString(16);
 var rrggbb="#"+rHex+rHex+gHex+gHex+bHex+bHex;
-nowColor.innerHTML=colout.style.backgroundColor=rrggbb;
+nowColor.innerHTML=colout.style.backgroundColor=rrggbb;}catch(e){alert(e)}
 return rrggbb
 }
 }
