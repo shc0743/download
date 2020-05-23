@@ -44,6 +44,9 @@ return str;
 function randomVal(){
 
 }
+function get(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 nowcolor.oninput=function(){
 var a=this.innerHTML
