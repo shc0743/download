@@ -76,7 +76,8 @@ location.reload(1);
 
 <div style="border:1px solid #ccc;" id="replacestringresultframe">
 <pre>生成结果:                                    <span style="background-color: #7fcaff;"
- onclick="copytext(replacestringresult.value,this)">复制</span></pre>
+ onclick="copytext(replacestringresult.value);this.focus();window.focus();
+">复制</span></pre>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
 
 <div style="font-size:10px;color:#ccc;">IP:<script>
@@ -128,6 +129,7 @@ str=("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli
 "@wuli小周 了")
 }
 if(uname){
+uname=decodeURIComponent(uname);
 atpeopleusername.value=uname;
 adddoge.checked=doge;
 dogenum.value=dogen;
