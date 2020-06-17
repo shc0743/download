@@ -67,6 +67,7 @@ location.reload(1);
 输入你要@的人 :<input name=username id=atpeopleusername> <span id=zstips></span><br>
 添加doge :<input type=checkbox name=adddoge id=adddoge>
 <input name=dogenum hidden id=dogenum placeholder="doge数量,默认1" type=number><br>
+是不是up :<input type=checkbox name=isup id=isup><br>
 <button type=submit>提交</button>
 <button type=reset>重置</button>
 <button type=reset onclick=
@@ -74,8 +75,10 @@ location.reload(1);
 </form>
 
 <div style="border:1px solid #ccc;" id="replacestringresultframe">
-生成结果:<br>
+<pre>生成结果:                                    <span style="background-color: #7fcaff;"
+ onclick="copytext(replacestringresult.value,this)">复制</span></pre>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
+
 <div style="font-size:10px;color:#ccc;">IP:<script>
 document.write(getIP())</script></div>
 <div style="font-size:10px;color:#ccc;">uid:<script>
@@ -111,11 +114,19 @@ out.style.fontSize="12px";
 var uname=getUrlValue("username");
 var doge=getUrlValue("adddoge");
 var dogen=getUrlValue("dogenum");
-var str="你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
+var isup=getUrlValue("isup");
+var str=("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
 "你们有没有考虑过@wuli小周 的感受？你们知道人家@wuli小周 做视频有多辛苦吗？你们老@wuli小周"+
 " @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
 "很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
-"@wuli小周 了"
+"@wuli小周 了")
+if(isup){
+str=("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
+"你们有没有考虑过@wuli小周 的感受？你们知道人家@wuli小周 看视频有多辛苦吗？你们老@wuli小周"+
+" @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
+"很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
+"@wuli小周 了")
+}
 if(uname){
 atpeopleusername.value=uname;
 adddoge.checked=doge;
@@ -150,6 +161,44 @@ adddoge.oninput=function(){
   }
 }
 })()
+window.copytext=function(text,elem){
+if(typeof document.execCommand!=="function"){
+//alert("复制失败，请长按复制");
+return false;
+}
+var dom = document.createElement("textarea");
+dom.value = text;
+dom.setAttribute('style', 'display: block;width: 1px;height: 1px;');
+if(document.body){
+document.body.appendChild(dom);
+} else if(document.documentElement){
+document.documentElement.appendChild(dom);
+} else {
+//alert("复制失败，请长按复制");
+elem.innerHTML="复制失败，请长按复制";
+return false;
+}
+dom.select();
+ var result = document.execCommand('copy');
+if(document.body){
+document.body.removeChild(dom);
+} else if(document.documentElement){
+document.documentElement.removeChild(dom);
+} else {
+//alert("复制失败，请长按复制");
+elem.innerHTML="复制失败，请长按复制";
+return false;
+}
+if (result) {
+//alert("复制成功");
+elem.innerHTML="复制成功";
+return true;
+}
+if(typeof document.createRange!=="function"){
+//alert("复制失败，请长按复制");
+elem.innerHTML="复制失败，请长按复制";
+return false;
+}
 </script>
 
 </body>
