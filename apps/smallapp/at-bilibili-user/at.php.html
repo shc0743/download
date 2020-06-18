@@ -77,8 +77,8 @@ location.reload(1);
 
 <div style="border:1px solid #ccc;" id="replacestringresultframe">
 <pre>生成结果:                                    <span style="background-color: #7fcaff;"
- onclick="copytext(replacestringresult.value);this.focus();window.focus();
-this.innerHTML='复制成功';setTimeout('this.innerHTML=\'复制\'',2000);">复制</span></pre>
+ onclick="copytext(replacestringresult.value);this.focus();window.focus();this.innerHTML=
+'复制成功';setTimeout(function(){this.innerHTML='复制'},2000);">复制</span></pre>
 <textarea cols="50" rows="8" id=replacestringresult></textarea>
 
 <div style="font-size:10px;color:#ccc;">IP:<script>
