@@ -68,13 +68,14 @@ copy.onclick=function(){
 if(btnsStatus.copy){
 copytext(out);
 this.innerHTML="复制成功";
-setTimeout(function(){this.innerHTML="复制"},2000)
+setTimeout(function(){copy.innerHTML="复制"},2000)
  }
 }
 rst.onclick=function(){
 create.style.backgroundColor="#7fcaff";
 copy.style.backgroundColor="#ccc";
 btnsStatus={create: 1,copy: 0};
+copy.innerHTML="复制";
 }
 
 })()
