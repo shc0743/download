@@ -66,6 +66,7 @@ count.innerHTML=count.innerHTML.replace(new RegExp("&nbsp;","g"),"");
 if(count.innerHTML=="") count.innerHTML=nbsp10;
 if(isNaN(Number(count.innerHTML))){
 this.innerHTML="生成失败,原因:输入不是数字";
+copy.style.backgroundColor="#7fcaff";
 setTimeout('create.innerHTML="生成"',2000)
 return;
 }
@@ -88,7 +89,6 @@ rst.onclick=function(){
 create.style.backgroundColor="#7fcaff";
 copy.style.backgroundColor="#ccc";
 btnsStatus={create: 1,copy: 0};
-copy.innerHTML="复制";
 }
 
 })()
