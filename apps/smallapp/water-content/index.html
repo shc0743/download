@@ -35,8 +35,8 @@ function getRandom(min, max) {
 
 <h1>凑字数器</h1>
 <div style="border:1px solid #ccc;">
-凑<span style="width:20px;border:1px solid #888;" id=count onblur=
-"if(this.innerHTML=='') this.innerHTML=' '" contenteditable> </span>个字<br>
+凑<span style="width:20px;border:1px solid #888;" id=count onfocus="this.innerHTML
+=''" onblur="if(this.innerHTML=='') this.innerHTML=' '" contenteditable> </span>个字<br>
 <span id=create>生成</span> &nbsp; &nbsp; <span id=copy>复制</span> &nbsp; &nbsp; 
 <span id=rst style="background-color: #7fcaff;">重置</span> 
 </div>
