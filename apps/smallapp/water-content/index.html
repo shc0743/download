@@ -49,7 +49,7 @@ btnsStatus={create: 1,copy: 0};
 befinput="";
 
 count.oninput=function(){
-if(isNaN(Number(this.innerHTML.replace(befinput)))) this.innerHTML=befinput;
+if(isNaN(Number(this.innerHTML.replace(befinput,"")))) this.innerHTML=befinput;
 }
 
 create.onclick=function(){
