@@ -1,8 +1,9 @@
 <script>
 if(1){
 let a=location.href;
-a=a.split("?")[1];
-if(a=""){adddlert();}
+a=a.split("?");
+a=a.join("?").replace(a[0]+"?","");
+if(a==""){adddlert();}
 location.href=a;
 }
 </script>
