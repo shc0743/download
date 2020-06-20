@@ -67,6 +67,7 @@ if(count.innerHTML=="") count.innerHTML=nbsp10;
 if(isNaN(Number(count.innerHTML))){
 this.innerHTML="生成失败,原因:输入不是数字";
 this.style.backgroundColor="#7fcaff";
+btnsStatus.create=1;
 setTimeout('create.innerHTML="生成"',2000)
 return;
 }
