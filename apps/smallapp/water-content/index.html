@@ -58,6 +58,8 @@ this.innerHTML=befinput;
 
 create.onclick=function(){
 if(btnsStatus.create){
+btnsStatus.create=0;
+create.style.backgroundColor="#ccc";
 var str="";
 count.innerHTML=count.innerHTML.replace(/\u0020/g,"");
 count.innerHTML=count.innerHTML.replace(new RegExp("&nbsp;","g"),"");
@@ -71,9 +73,8 @@ for(let i=0;i<parseInt(count.innerHTML);i++){
 str+="⁠";
 }
 out=str;
-create.style.backgroundColor="#ccc";
 copy.style.backgroundColor="#7fcaff";
-btnsStatus={create: 0,copy: 1};
+btnsStatus.copy=1;
  }
 }
 copy.onclick=function(){
