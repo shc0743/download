@@ -30,6 +30,7 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 nbsp10="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+nbsp10="";
 </script>
 </head>
 <body>
@@ -37,8 +38,7 @@ nbsp10="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 <h1>凑字数器</h1>
 <div style="border:1px solid #ccc;">
 凑<span style="width:20px;border:1px solid #888;" id=count 
-onfocus="this.select()" contenteditable>
-<script>for(let i=0;i<20;i++){document.write("&nbsp;")}</script></span>个字<br>
+onfocus="this.select()" contenteditable></span>个字<br>
 <span id=create>生成</span> &nbsp; &nbsp; <span id=copy>复制</span> &nbsp; &nbsp; 
 <span id=rst style="background-color: #7fcaff;">重置</span> <br>
 <script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
