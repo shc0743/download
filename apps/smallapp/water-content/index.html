@@ -60,7 +60,6 @@ create.onclick=function(){
 if(btnsStatus.create){
 btnsStatus.create=0;
 create.style.backgroundColor="#ccc";
-setTimeout(function(){
 var str="";
 count.innerHTML=count.innerHTML.replace(/\u0020/g,"");
 count.innerHTML=count.innerHTML.replace(new RegExp("&nbsp;","g"),"");
@@ -78,7 +77,6 @@ str+="⁠";
 out=str;
 copy.style.backgroundColor="#7fcaff";
 btnsStatus.copy=1;
-},0)
  }
 }
 copy.onclick=function(){
