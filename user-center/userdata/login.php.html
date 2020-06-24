@@ -33,5 +33,44 @@ function getRandom(min, max) {
 </head>
 <body>
 
+<div id=signin hidden>
+<h1>Sign in</h1>
+<form method="post" action="" id=loginForm>
+Username: <input type=text><br>
+Password: <input type=password><br>
+<button type=submit>Sign in</button>
+</form>
+<div style="font-size: 8px;">Don't have account?<a class=typeToggle>Sign in</a></div>
+</div>
+
+<div id=signup hidden>
+<h1>Sign up</h1>
+<form method="post" action="" id=newForm>
+Username: <input type=text><br>
+Password: <input type=password><br>
+<button type=submit>Sign in</button>
+</form>
+<div style="font-size: 8px;">Have a account?<a class=typeToggle>Sign in</a></div>
+</div>
+
+<script>
+(function(){
+var type=getUrlValue("type");
+var returnto=getUrlValue("returnto");
+if(!type) {
+document.documentElement.innerHTML='{"error":"Type is undefined."}'
+return;
+}
+if(type=="signin") { signin.hidden=0 } else 
+if(type=="signup") { signup.hidden=0 } else 
+document.documentElement.innerHTML='{"error":"Wrong parameter \"type\""}'
+
+
+})()
+</script>
+
+<span id=disabledjs>User disabled javascript.
+<script>disabledjs.hidden=1;</script></span>
+
 </body>
 </html>
