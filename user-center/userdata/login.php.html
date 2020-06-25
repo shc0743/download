@@ -2,7 +2,7 @@
 <html lang="">
 <head>
 <meta charset="utf-8" />
-<title></title>   
+<title>⁠</title>   
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://shc7432.github.io/public/something/sometool.js"></script>
 <script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
@@ -58,14 +58,12 @@ Password: <input type=password><br>
 var type=getUrlValue("type");
 var returnto=getUrlValue("returnto");
 if(!type) {
-document.documentElement.innerHTML='{"error":"Type is undefined."}'
+document.documentElement.innerHTML='{"error":"Type is not defined."}'
 return;
 }
 if(type=="signin") { signin.hidden=0 } else 
 if(type=="signup") { signup.hidden=0 } else 
-document.documentElement.innerHTML='{"error":"Wrong parameter \"type\""}'
-
-
+document.documentElement.innerHTML='{"error":"Wrong parameter \\\"type\\\""}'
 })()
 </script>
 
