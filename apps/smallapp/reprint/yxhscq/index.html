@@ -80,20 +80,11 @@ return false;
 
 function playsoundDz(sounds,el){
 if(!sced) return;
-myaudio.src="https://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(result.value);
-myaudio.play();
-bgm.volume = 0.02;
+bgm.volume = 0.2;
 bgm.play();
-}
-function stopsoundDz(el){
-        var myAuto = document.getElementById('myaudio');
-        myAuto.pause();
-        myAuto.load();
-        var bgm = document.getElementById('bgm');
-        bgm.pause();
-        bgm.load();
-el.value="播放营销号语音";
-el.onclick=playsoundDz('',el);
+myaudio.src="https://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(result.value);
+myaudio.volume=0.6;
+myaudio.play();
 }
 </script>
 <span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls" loop="false"></audio><audio src="bgm1.mp3" id="bgm" controls="controls" loop="false"></audio></span>
