@@ -17,7 +17,7 @@
                         <input type="text" id="event2" class="form-control" placeholder="桃核太大了，吞下去容易噎着" required />
                     </div>
                     <input type="submit" value="生成" class="btn btn-primary" onclick="generate()" />
-                    <input type="button" value="播放营销号语音" class="btn btn-primary" onclick="()" />
+                    <input type="button" value="播放营销号语音" class="btn btn-primary" onclick="playsoundDz('bgm.mp3',this)" />
                 </form>
             </div>
             <div class="col-sm-7 col-xs-12">
@@ -69,6 +69,32 @@ function generate() {
     result = `　　${subject}${event}是怎么回事呢？${subject}相信大家都很熟悉，但是${subject}${event}是怎么回事呢，下面就让小编带大家一起了解吧。\r\n　　${subject}${event}，其实就是${event2}，大家可能会很惊讶${subject}怎么会${event}呢？但事实就是这样，小编也感到非常惊讶。\r\n　　这就是关于${subject}${event}的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`;
     document.getElementById("result").value = result;
     auto_grow(document.getElementById("result"));
+    sced=1;
+}
+result.onkeydown=result.oninput=function(e){
+e.preventDefault();
+return false;
+}
+
+function playsoundDz(sounds,el){
+if(!sced) return;
+myaudio.src="http://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(result.value);
+myaudio.play()
+bgm.volume = 0.02;
+bgm.play();
+el.value="停止播放";
+el.onclick=stopsoundDz(el);
+}
+function stopsoundDz(el){
+        var myAuto = document.getElementById('myaudio');
+        myAuto.pause();
+        myAuto.load();
+        var bgm = document.getElementById('bgm');
+        bgm.pause();
+        bgm.load();
+el.value="播放营销号语音";
+el.onclick=playsoundDz('',el);
 }
 </script>
+<span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls" loop="false"></audio><audio src="bgm1.mp3" id="bgm" controls="controls" loop="false"></audio></span>
 </body>
