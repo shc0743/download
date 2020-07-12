@@ -73,18 +73,17 @@ function generate() {
     sced=1;
 }
 result.onkeydown=result.oninput=function(e){
+if(e.keyCode==13) {void(0)}
 e.preventDefault();
 return false;
 }
 
 function playsoundDz(sounds,el){
 if(!sced) return;
-myaudio.src="http://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(result.value);
-myaudio.play()
+myaudio.src="https://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(result.value);
+myaudio.play();
 bgm.volume = 0.02;
 bgm.play();
-el.value="停止播放";
-el.onclick=stopsoundDz(el);
 }
 function stopsoundDz(el){
         var myAuto = document.getElementById('myaudio');
