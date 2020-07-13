@@ -1,7 +1,7 @@
 <meta name=viewport content="width=device-width">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
 <body onload="onload()">
-<audio src="bgm1.mp3" id="bgm" controls="controls" loop="false" oncanplay="bgmloadok()" hidden>如果您看到此消息,请<a href="javascript:bgmloadok()">点这里</a></audio>
+<audio src="bgm1.mp3" id="bgm" controls="controls" loop="false" oncanplaythrough="bgmloadok()" hidden>如果您看到此消息,请<a href="javascript:bgmloadok()">点这里</a></audio>
     <div class="container">
         <h1>营销号生成器</h1>
         <div class="row">
@@ -74,12 +74,11 @@ myaudio.play();}
 notloadok.hidden=1;
 uploadloadtime=undefined;
 }
-function uploadloadtime(){
-if(typeof(t)=="undefined") var t=0;
+function uploadloadtime(t){
 t++;
 loadedtime.innerHTML=t;
-setTimeout(uploadloadtime,1000);
-};uploadloadtime();
+setTimeout("uploadloadtime("+t+")",1000);
+};uploadloadtime(0);
 setTimeout("cantload.hidden=0",10000)
 
 function generate() {
