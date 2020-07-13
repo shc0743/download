@@ -79,7 +79,8 @@ if(typeof(t)=="undefined") var t=0;
 t++;
 loadedtime.innerHTML=t;
 setTimeout(uploadloadtime,1000);
-}
+};uploadloadtime();
+setTimeout("cantload.hidden=0",10000)
 
 function generate() {
     subject = document.getElementById("subject").value;
