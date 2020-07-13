@@ -1,6 +1,7 @@
 <meta name=viewport content="width=device-width">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
 <body onload="onload()">
+<iframe style="position:absolute;top:99999px;" src="bgm1.mp3" onload="bgmloadok()"></iframe>
     <div class="container">
         <h1>营销号生成器</h1>
         <div class="row">
@@ -34,6 +35,8 @@
         <br />
         <a href="http://kaseidis.gitee.io/interesting_gadgets/marketing_generator/index.htm" target="_blank">大陆镜像</a>
     </div>
+<div id=notloadok style="background-color:#fff;position: absolute;  top: 0%;  left: 0%;  width: 100%;  height: 100%;  border: 0px solid #fff;  background-color: #ffffff;text-align:center;">
+<h1>正在加载,请稍候...</h1></div>
 <style>
 textarea {
     resize: none;
@@ -61,6 +64,15 @@ function auto_grow(element) {
 function onload() {
     auto_grow(document.getElementById("result"));
 }
+function bgmloadok(){
+window.playsoundDz=function(sounds,el){if(!sced) return;
+bgm.volume = 0.2;
+bgm.play();
+myaudio.src="https://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(document.getElementById("result").value);
+myaudio.volume=0.6;
+myaudio.play();}
+notloadok.hidden=1;
+}
 
 function generate() {
     subject = document.getElementById("subject").value;
@@ -81,12 +93,5 @@ return false;
 
 
 </script>
-<span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls"></audio><audio src="bgm1.mp3" id="bgm" controls="controls" loop="false" canplay="window.playsoundDz=function(sounds,el){
-if(!sced) return;
-bgm.volume = 0.2;
-bgm.play();
-myaudio.src="https://tts.baidu.com/text2audio?cuid=t&lan=zh&ctp=1&pdt=311&tex="+encodeURIComponent(document.getElementById("result").value);
-myaudio.volume=0.6;
-myaudio.play();
-}"></audio></span>
+<span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls"></audio><audio src="bgm1.mp3" id="bgm" controls="controls" loop="false"></audio></span>
 </body>
