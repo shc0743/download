@@ -1,7 +1,8 @@
 <meta name=viewport content="width=device-width">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
 <body onload="onload()">
-<iframe style="position:absolute;top:99999px;" src="bgm1.mp3" onload="bgmloadok()"></iframe>
+<iframe style="position:absolute;top:-99999px;z-index:3" src="bgm1.mp3" onload="bgmloadok()">如果您看到此消息,请<a href="javascript:bgmloadok()">点这里</a></iframe>
+<audio src="bgm1.mp3" id="bgm" controls="controls" loop="false"></audio>
     <div class="container">
         <h1>营销号生成器</h1>
         <div class="row">
@@ -93,5 +94,5 @@ return false;
 
 
 </script>
-<span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls"></audio><audio src="bgm1.mp3" id="bgm" controls="controls" loop="false"></audio></span>
+<span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls"></audio></span>
 </body>
