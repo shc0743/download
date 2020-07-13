@@ -92,7 +92,11 @@ e.preventDefault();
 return false;
 }
 
-
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i)=="micromessenger") {
+let a=document.body;
+a.innerHTML=((`<div style="background-color:#ffee00">提示:在微信中可能无法正常播放,建议用浏览器打开</div>`)+a.innerHTML);
+}
 </script>
 <span style="position:absolute;top:-999999px;left:-999999px;"><audio src="" id="myaudio" controls="controls"></audio></span>
 </body>
