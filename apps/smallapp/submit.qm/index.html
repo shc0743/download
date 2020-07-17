@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8" />
+<title>提交签名</title>   
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://pv.sohu.com/cityjson"></script>
+<script>
+  window.getip=window.getIP=function(){
+    return returnCitySN.cip;
+  }
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+</script>
+</head>
+<body>
+
+<h1>提交签名</h1>
+<div>提交ID: <span style="color:blue">
+<script>document.write(getRandom(10000000,99999999))</script></span><br>
+若ID重复,请<a href="javascript://">重新获取</a>
+<div style="text-align:center">扫描二维码即可签名</div>
+</div>
+
+</body>
+</html>
