@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <title>提交签名</title>   
  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://shc7432.github.io/public/something/sometool.js"></script>
 <script src="https://pv.sohu.com/cityjson"></script>
 <script>
   window.getip=window.getIP=function(){
@@ -17,9 +18,9 @@ function getRandom(min, max) {
 <body>
 
 <h1>提交签名</h1>
-<div>提交ID: <span style="color:blue">
-<script>document.write(getRandom(10000000,99999999))</script></span><br>
-若ID重复,请<a href="javascript://">重新获取</a>
+<div>提交ID: <span style="color:blue" id=subid><script>document.write(getRandom(100000000000000,999999999999999))
+</script></span> <span style="background-color:#3333ff" onclick="copytext(subid.innerHTML)">复制</span><br>
+若ID重复,请<a href="javascript:subid.innerHTML=getRandom(100000000000000,999999999999999)">重新获取</a>
 <div style="text-align:center">扫描二维码即可签名(需在微信中打开)<br>
 <img src="qrcode.png.PNG"></div></div>
 
