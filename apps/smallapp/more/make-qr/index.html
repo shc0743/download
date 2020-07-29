@@ -18,12 +18,17 @@ https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=tes
 二维码颜色: <input type=color>或<input placeholder=手动输入> <b>提示:</b> 请不要太接近背景颜色<br>
 <button type=submit>制作</button>
 </form>
-<div>
+<div id=continuelog title=Continue>
+Please wait...<br>
+Now: <span id=continuenow></span><br>
+<progress id=concomplete max=100 value=0></progress><span ></span>
 </div>
 
 <script>
+continuelog.dialog({autoOpen:0,modal:1,width:"300px"})
 makeform.onsubmit=function(event){
 event.preventDefault();
+continuelog.dialog("open");
 
 }
 </script>
