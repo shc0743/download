@@ -19,17 +19,32 @@ https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=tes
 <button type=submit>制作</button>
 </form>
 <div id=continuelog title=Continue>
-Please wait...<br>
-Now: <span id=continuenow></span><br>
-<progress id=concomplete max=100 value=0></progress><span ></span>
+<span id=continuewait>Please wait...<br>
+Now: <span id=continuenow>Check whether you are connected to the Internet</span><br></span>
+<progress id=completeprog max=100 value=0></progress><span id=completeschedule>0</span>% Complete
 </div>
 
 <script>
-continuelog.dialog({autoOpen:0,modal:1,width:"300px"})
+continuelog.dialog({autoOpen:0,modal:1,width:"300px",hidex:1})
 makeform.onsubmit=function(event){
 event.preventDefault();
 continuelog.dialog("open");
-
+continuelog.innerHTML+="<img src='https://i0.hdslb.com/bfs/archive/d52994a1876d07a975dc6683b78a898d9b581208.png'"+
+" onload='internetnormalornotsuccess(1)' onerror='internetnormalornotsuccess(0)' />"
+}
+function internetnormalornotsuccess(boo){
+boo=(!!boo);
+if(boo){
+continuewait.hidden=1;
+incrementcomplete(0);
+} else {
+continuewait.innerHTML="Unable to connect to the internet.<br><button onclick='this.parentElement.dialog(\"close\")'>Close</button>"
+}
+}
+function incrementcomplete(a){
+completeschedule.innerHTML=completeprog.value=a;
+if(a!=100) setTimeout("incrementcomplete("+(a+1)+")",8);
+if(a==100) nextMake();
 }
 </script>
 
