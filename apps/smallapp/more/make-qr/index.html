@@ -13,19 +13,25 @@ https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=tes
 -->
 <h1>在线制作二维码</h1>
 <form method=post action="make" id=makeform>
-二维码内容: <textarea style="width:80%;" rows=6 placeholder="请输入内容"></textarea><br>
-二维码背景颜色: <input type=color value="#ffffff">或<input placeholder=手动输入><br>
-二维码颜色: <input type=color value="#000000">或<input placeholder=手动输入> <b>提示:</b> 请不要太接近背景颜色<br>
+二维码内容: <textarea id=qrcon style="width:80%;" rows=6 placeholder="请输入内容"></textarea><br>
 <button type=submit>制作</button>
 </form>
 <div id=continuelog title=Continue>
 <span id=continuewait>Please wait...<br>
 Now: <span id=continuenow>Check whether you are connected to the Internet</span><br></span>
-<progress id=completeprog max=100 value=0></progress><span id=completeschedule>0</span>% Complete
+<progress id=completeprog max=100 value=0></progress><br><span id=completeschedule>0</span>% Complete
 </div>
+<form id=dlog title="下载二维码">
+<big>下载二维码</big><br>
+二维码背景颜色: <input id=qrbgc type=color value="#ffffff"><br>
+二维码颜色: <input id=qrc type=color value="#000000"><b>提示:</b> 请不要太接近背景颜色<br>
+二维码大小: <input id=qrs type=number min=150 max=1000 step=25 placeholder="最大1000,最小150,间隔25" value=400><br>
+下载 <button type=submit onclick="pngjpg=png">PNG</button> <button type=submit onclick="pngjpg=jpg">JPG</button>
+</form>
 
 <script>
 continuelog.dialog({autoOpen:0,modal:1,width:"300px",hidex:1})
+dlog.dialog({modal:1})
 makeform.onsubmit=function(event){
 event.preventDefault();
 continuelog.dialog("open");
@@ -45,6 +51,22 @@ function incrementcomplete(a){
 completeschedule.innerHTML=completeprog.value=a;
 if(a!=100) setTimeout("incrementcomplete("+(a+1)+")",8);
 if(a==100) nextMake();
+}
+function nextMake(){
+continuelog.dialog("close");
+dlog.dialog("open");
+}
+dlog.onsubmit=function(event){
+event.preventDefault();
+var dc,dbg,dd,ds,dt;
+dc=qrc.value.replace("#","");
+dbg=qrbgc.value.replace("#","");
+var a=document.createElement("a");
+a.href=`https://api.qrserver.com/v1/create-qr-code/?color=${dc}&bgcolor=${dbg}&data=${dd}&qzone=1&margin=0&size=${ds}&ecc=H&format=${dt}&download=1`
+a.download="qrcode."+dt;
+a.hidden=1;
+document.body.append(a);
+a.click();
 }
 </script>
 
