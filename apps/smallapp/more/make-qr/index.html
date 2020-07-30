@@ -20,12 +20,12 @@ https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=tes
 <span id=continuewait>Please wait...<br>
 Now: <span id=continuenow>Check whether you are connected to the Internet</span><br></span>
 <progress id=completeprog max=100 value=0></progress><br><span id=completeschedule>0</span>% Complete
-</div>
+<span id=continuehidearea></span></div>
 <form id=dlog title="下载二维码">
 <big>下载二维码</big><br>
 二维码背景颜色: <input id=qrbgc type=color value="#ffffff"><br>
 二维码颜色: <input id=qrc type=color value="#000000"><b>提示:</b> 请不要太接近背景颜色<br>
-二维码大小: <input id=qrs type=number min=150 max=1000 step=25 placeholder="最大1000,最小150,间隔25" value=400><br>
+二维码大小: <input id=qrs type=number min=150 max=1000 step=25 placeholder="间隔25" value=400><br>
 下载 <button type=submit onclick="pngjpg='png'">PNG</button> <button type=submit onclick="pngjpg='jpg'">JPG</button>
 </form>
 
@@ -35,7 +35,7 @@ dlog.dialog({modal:1})
 makeform.onsubmit=function(event){
 event.preventDefault();
 continuelog.dialog("open");
-continuelog.innerHTML+="<img hidden src='https://www.w3school.com.cn/i/eg_mouse.jpg?r="+new Date().getTime()+"'"+
+continuehidearea.innerHTML="<img hidden src='https://www.w3school.com.cn/i/eg_mouse.jpg?r="+new Date().getTime()+"'"+
 " onload='internetnormalornotsuccess(1)' onerror='internetnormalornotsuccess(0)' />"
 }
 function internetnormalornotsuccess(boo){
