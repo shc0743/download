@@ -13,7 +13,8 @@ https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=tes
 -->
 <h1>在线制作二维码</h1>
 <form method=post action="make" id=makeform>
-二维码内容: <textarea id=qrcon style="width:80%;" rows=6 placeholder="请输入内容"></textarea><br>
+二维码内容: <textarea id=qrcon style="width:80%;" rows=6 placeholder="请输入内容"><script>{
+let a=location.href.split("#")[1].replace("/","");if(a) document.write(a);}</script></textarea><br>
 <button type=submit>制作</button>
 </form>
 <div id=continuelog title=Continue>
