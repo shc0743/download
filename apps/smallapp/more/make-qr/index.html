@@ -65,6 +65,9 @@ if(a==100) nextMake();
 function nextMake(){
 continuelog.dialog("close");
 dlog.dialog("open");
+continuewait.hidden=completeschedule.innerHTML=completeprog.value=0;
+continuewait.innerHTML="Please wait...<br>"+
+"Now: <span id=continuenow>Check whether you are connected to the Internet</span><br>";
 }
 dlog.onsubmit=function(event){
 event.preventDefault();
