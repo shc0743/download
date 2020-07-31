@@ -42,7 +42,7 @@ Now: <span id=continuenow>Check whether you are connected to the Internet</span>
 <script>
 continuelog.dialog({autoOpen:0,modal:1,width:"300px",hidex:1})
 dlog.dialog({modal:1});oklog.dialog({modal:1,hidex:1});previewlog.dialog({zindex:8,width:"50%"});
-{let a=location.href.split("#")[1].replace("/","");if(a) qrcon.value=a;}
+//{let a=location.href.split("#")[1].replace("/","");if(a) qrcon.value=a;}
 makeform.onsubmit=function(event){
 event.preventDefault();
 continuelog.dialog("open");
