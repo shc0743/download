@@ -26,12 +26,12 @@ Now: <span id=continuenow>Check whether you are connected to the Internet</span>
 二维码背景颜色: <input id=qrbgc type=color value="#ffffff"><br>
 二维码颜色: <input id=qrc type=color value="#000000"><b>提示:</b> 请不要太接近背景颜色<br>
 二维码大小: <input id=qrs type=number min=150 max=1000 step=25 placeholder="间隔25" value=400><br>
-预览 <button id=loadpreview onclick="this.hidden=1;previewimg.hidden=0;pngjpg='png';
-this.parentElement.submit();qrbgc.oninput=qrc.oninput=qrs.oninput=function(){
-this.parentElement.submit();setTimeout('previewimg.src=downloadTag.href;',100);
-};setTimeout('previewimg.src=downloadTag.href;',100);">加载预览</button><img id=previewimg src="" hidden>
+预览 <button id=loadpreview onclick="previewlog.dialog('open');">加载预览</button><br>
 下载 <button type=submit onclick="pngjpg='png';startd=1;">PNG</button> <button type=submit onclick="pngjpg='jpg';startd=1;">JPG</button>
 </form>
+<div id=previewlog title=预览>
+<img id=previewimg />
+</div>
 <div id=oklog title="正在加载...">
 正在加载...<br>
 当前: <span id=loadnow>正在加载...</span><br>
@@ -41,7 +41,7 @@ this.parentElement.submit();setTimeout('previewimg.src=downloadTag.href;',100);
 
 <script>
 continuelog.dialog({autoOpen:0,modal:1,width:"300px",hidex:1})
-dlog.dialog({modal:1});oklog.dialog({modal:1,hidex:1});
+dlog.dialog({modal:1});oklog.dialog({modal:1,hidex:1});previewlog.dialog({zindex:8});
 makeform.onsubmit=function(event){
 event.preventDefault();
 continuelog.dialog("open");
@@ -97,13 +97,23 @@ okprogress.value=okprogressbfz.innerHTML=80;
 loadnow.innerHTML="正在连接,请稍候...";
 setTimeout(function(){
 okprogress.value=okprogressbfz.innerHTML=100;
-loadnow.innerHTML="已完成<br><button onclick='downloadTag.click()'>下载</button>";
+loadnow.innerHTML="已完成<br><button onclick='downloadTag.click()'>下载</button><button onclick='oklog.dialog(\"close\")'>关闭</button>";
 },1000);
 },1000);
 },1000);
 },1000);
 },1000);
 };
+}
+qrbgc.oninput=qrc.oninput=qrs.oninput=function(){
+var dc,dbg,dd,ds,dt;
+dc=qrc.value.replace("#","");
+dbg=qrbgc.value.replace("#","");
+dd=qrcon.value;
+ds=qrs.value+"x"+qrs.value;
+dt="png";
+var href=`https://api.qrserver.com/v1/create-qr-code/?color=${dc}&bgcolor=${dbg}&data=${dd}&qzone=1&margin=0&size=${ds}&ecc=H&format=${dt}&download=1`
+previewimg.src=href;
 }
 </script>
 
