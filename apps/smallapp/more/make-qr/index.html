@@ -110,11 +110,12 @@ loadnow.innerHTML="已完成<br><button onclick='downloadTag.click()'>下载</bu
 };
 }
 qrbgc.oninput=qrc.oninput=qrs.oninput=function(){
-var dc,dbg,dd,ds,dt;
+var dc,dbg,dd,ds,ds2,dt;
 dc=qrc.value.replace("#","");
 dbg=qrbgc.value.replace("#","");
 dd=qrcon.value;
-ds=qrs.value+"x"+qrs.value;
+ds2=(screen.width/2);
+ds=ds2+"x"+ds2;
 dt="png";
 var href=`https://api.qrserver.com/v1/create-qr-code/?color=${dc}&bgcolor=${dbg}&data=${dd}&qzone=1&margin=0&size=${ds}&ecc=H&format=${dt}&download=1`
 previewimg.src=href;
