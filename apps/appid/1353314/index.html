@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8" />
+<title></title>   
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://shc7432.github.io/public/something/sometool.js"></script>
+<script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
+<script src="https://shc7432.github.io/public/something/other/htmlToImg.js"></script>
+<script src="https://shc7432.github.io/public/something/other/dialog.js"></script>
+<script src="https://shc7432.github.io/public/something/other/anonymous.js"></script>
+  <!--script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"-->
+<script src="https://shc0743.github.io/crypto-js/core.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-base64.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-hex.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-utf8.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-utf16.js"></script>
+<script src="https://shc0743.github.io/crypto-js/crypto-js.js"></script>
+<script src="https://shc0743.github.io/crypto-js/aes.js"></script>
+<script src="https://shc0743.github.io/crypto-js/md5.js"></script>
+<script src="https://shc0743.github.io/crypto-js/sha1.js"></script>
+<script src="https://shc0743.github.io/crypto-js/sha512.js"></script>
+<script src="https://pv.sohu.com/cityjson"></script>
+<script>
+  window.getip=window.getIP=function(){
+    return returnCitySN.cip;
+  }
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+</script>
+</head>
+<body>
 
+<h1>Login with GitHub</h1>
+
+<div>
+<span id=loginbtn style="background-color:#7ebef4;color:#fff;">Login</span> or.. 
+<span id=rtnbtn style="background-color:#bbb;color:#fff;">Return</span>
+</div>
+
+<script>
+if(getUrlValue('rtn_url')){
+rtnbtn.style.backgroundColor="#7ebef4";
+rtnbtn.onclick=function(){
+location.href=decodeURIComponent(getUrlValue('rtn_url'));
+}
+}
+loginbtn.onclick=function(){
+location.href="https://github.com/login/oauth/authorize?client_id=9f33bcf747bc0c6a9ee9&redirect_url="+
+'https://shc7432.github.io/download/apps/appid/1353314/callback?rtn_url='+getUrlValue('rtn_url')+
+"&state="+CryptoJS.MD5(String(Math.Random())+new Date().getTime());
+}
+</script>
+
+</body>
+</html>
