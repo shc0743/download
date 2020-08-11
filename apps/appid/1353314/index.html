@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <title>Login with GitHub</title>   
@@ -52,9 +52,9 @@ location.href=decodeURIComponent(getUrlValue('rtn_url'));
 }
 loginbtn.onclick=function(){
 try{
-location.href="https://github.com/login/oauth/authorize?client_id=9f33bcf747bc0c6a9ee9&redirect_url="+
-encodeURIComponent('https://shc7432.github.io/download/apps/appid/1353314/callback?rtn_url='+getUrlValue('rtn_url'))+
-"&state="+(+(String(Math.floor(Math.random()*1000000000000000))+new Date().getTime()).toString(36));
+sessionStorage.rtn_url=getUrlValue('rtn_url');
+location.href="https://github.com/login/oauth/authorize?client_id=9f33bcf747bc0c6a9ee9"+
+"&state="+(+(String(Math.floor(Math.random()*1000))+new Date().getTime()).toString(36));
 }
 catch(e){alert(e)}
 }
