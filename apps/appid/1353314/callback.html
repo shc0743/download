@@ -12,7 +12,7 @@ var fd=new FormData();
 fd.append('client_id','9f33bcf747bc0c6a9ee9');
 fd.append('client_secret','ac1f8f8ffc6a7451c5002af728057d6b7fd8032f');
 fd.append('state',st);
-fd.append('code','co');
+fd.append('code',co);
 
   xhr.upload.onprogress = function(event) {
     nowc.innerHTML=(`Uploaded ${event.loaded} of ${event.total}`);
