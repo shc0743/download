@@ -1,3 +1,61 @@
+<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
+(function(){
+/*var a=function(){return {then: function(f){f()}}};
+a().then(function(){123456});*/
+var guv=getUrlValue;
+var co=guv('code'),st=guv('state');
+var xhr=new XMLHttpRequest();
+xhr.open('POST','https://github.com/login/oauth/access_token');
+var fd=new FormData();
+fd.append('client_id','9f33bcf747bc0c6a9ee9');
+fd.append('client_secret','ac1f8f8ffc6a7451c5002af728057d6b7fd8032f');
+fd.append('state',st);
+fd.append('code','co');
 
+  xhr.upload.onprogress = function(event) {
+    nowc.innerHTML=(`Uploaded ${event.loaded} of ${event.total}`);
+  };
+
+  // 跟踪完成：无论成功与否
+  xhr.onloadend = function() {
+    if (xhr.status == 200) {
+      nowc.innerHTML=("Uploaded success,downloading...");
+    } else {
+      nowc.innerHTML=(this.status+'error');
+    }
+  };
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 3) {
+    //nowc.innerHTML="Downloading..."// 加载中
+  }
+  if (xhr.readyState == 4) {
+    nowc.innerHTML="Completed"// 请求完成
+  }
+};
+xhr.onprogress = function(event) {
+  if (event.lengthComputable) {
+    nowc.innerHTML=(`Received ${event.loaded} of ${event.total} bytes`);
+  } else {
+    nowc.innerHTML=(`Received ${event.loaded} bytes`); // 没有 Content-Length
+  }
+};
+xhr.onload = function() {
+  if (xhr.status != 200) { // 分析响应的 HTTP 状态
+    nowc.innerHTML=(`${xhr.status} ${xhr.statusText}`); // 例如 404: Not Found
+  } else { // 显示结果
+    nowc.innerHTML=(`Completed`); // response 是服务器响应
+//ok
+var re=xhr.response;
+localStorage.githubLoginKey=re;
+alert(re);
+//ok
+  }
+};
+xhr.responseType="text";
+
+xhr.send(fd);
+})()
 </script>
+<div>Please wait...<br>Now: <span id=nowc style="color:blue">Please enable JavaScript.</span></div>
