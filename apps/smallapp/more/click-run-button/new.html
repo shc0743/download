@@ -43,7 +43,7 @@ function getRandom(min, max) {
 <script>
 (function(){
 var guv=getUrlValue,k=guv('password');
-if(k!=="c4a2d15e07f363a363cdfb6e2ed3a8d65dead9db"){
+if(k){
 location.href="data:text/plain,Password%20error!"
 pz.hidden=1;
 return false;
@@ -52,6 +52,7 @@ p404.hidden=1;
 pz.onsubmit=function(event){
 event.preventDefault();
 var arr=[],ec=encodeURIComponent;
+arr.push('dti='+ec(dti.value));
 arr.push('tte='+ec(tte.value));
 arr.push('b1t='+ec(b1t.value));
 arr.push('b2t='+ec(b2t.value));
