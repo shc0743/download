@@ -25,6 +25,7 @@ function getRandom(min, max) {
 
 <form id=pz>
 <h1>制作按钮</h1>
+标题: <input id=dti required><br>
 标题文字: <input id=tte required><br>
 按钮1文字: <input id=b1t required><br>
 按钮2文字: <input id=b2t required><br>
@@ -36,7 +37,8 @@ function getRandom(min, max) {
 </select><br>
 <button type=submit>生成</button>
 </form>
-<div id=res title=生成结果><input id=ress><br>按Ctrl+C复制</div>
+<div id=res title=生成结果><input id=ress readonly>  
+<span onclick="copytext(ress.value)">复制</span></div>
 
 <script>
 (function(){
