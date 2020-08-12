@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<title>制作[无法点击的按钮]</title>   
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://shc7432.github.io/public/something/sometool.js"></script>
+<script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
+<script src="https://shc7432.github.io/public/something/other/htmlToImg.js"></script>
+<script src="https://shc7432.github.io/public/something/other/dialog.js"></script>
+  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<script src="https://pv.sohu.com/cityjson"></script>
+<script>
+  window.getip=window.getIP=function(){
+    return returnCitySN.cip;
+  }
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+</script>
+</head>
+<body>
 
+<script>
+(function(){
+var guv=getUrlValue,k=guv('password');
+if(k!=="c4a2d15e07f363a363cdfb6e2ed3a8d65dead9db"){
+location.href="data:text/plain,Password error!"
+return false;
+}
+})()
+</script>
+
+</body>
+</html>
