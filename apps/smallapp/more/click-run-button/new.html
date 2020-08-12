@@ -26,7 +26,7 @@ function getRandom(min, max) {
 <form id=pz>
 <h1>制作按钮</h1>
 标题: <input id=dti required><br>
-标题文字: <input id=tte required><br>
+h1标题文字: <input id=tte required><br>
 按钮1文字: <input id=b1t required><br>
 按钮2文字: <input id=b2t required><br>
 按钮1颜色: <input type=color id=b1c required><br>
@@ -35,6 +35,9 @@ function getRandom(min, max) {
 <option value="1">按钮1</option>
 <option value="2">按钮2</option>
 </select><br>
+倒计时秒数: <input id=tsc placeholder="不填则为无限大"><br>
+等待秒数<span style="font-size:6px;" onclick="{let w=open();w.alert(
+'过指定秒数后两个按钮调换位置,不填为无');w.close()}">?</span>: <input id="wti"><br>
 <button type=submit>生成</button>
 </form>
 <div id=res title=生成结果><input id=ress readonly>  
@@ -59,6 +62,8 @@ arr.push('b2t='+ec(b2t.value));
 arr.push('b1c='+ec(b1c.value));
 arr.push('b2c='+ec(b2c.value));
 arr.push('nob='+ec(nob.value));
+arr.push('tsc='+ec(tsc.value));
+arr.push('wti='+ec(wti.value));
 var str="?"+arr.join("&");
 str="https://shc7432.github.io/download/apps/smallapp/more/click-run-button/"+str;
 pz.reset();
