@@ -36,13 +36,13 @@ h1标题文字: <input id=tte required><br>
 <option value="2">按钮2</option>
 </select><br>
 倒计时秒数: <input id=tsc placeholder="不填则为无限大"><br>
-等待秒数<!--span style="font-size:6px;" onclick="{let w=open('/','_blank');w.alert(
-'过指定秒数后两个按钮调换位置,不填为无');w.close()}">?</span-->: <input id="wti"><br>
+等待秒数<span style="font-size:8px;" onclick="{let w=open('/','_blank');w.alert(
+'过指定秒数后两个按钮调换位置,不填为无');w.close()}">?</span>: <input id="wti"><br>
 <button type=submit>生成</button> <!--button type=button onclick="pz.onsubmit();
 previe.src=ress.value;previ.dialog('open');">预览</button-->
 </form>
 <div id=res title=生成结果><input id=ress readonly>  
-<span onclick="copytext(ress.value)">复制</span></div>
+<span onclick="copytext(ress.value)">复制</span> <span onclick="pz.reset()">重置</span></div>
 <!--div id="previ" title=预览><iframe id=previe src="/404.html"></iframe></div-->
 
 <script>
