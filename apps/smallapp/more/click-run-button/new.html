@@ -26,9 +26,9 @@ function getRandom(min, max) {
 <form id=pz>
 <h1>制作按钮</h1>
 标题: <input id=dti required><br>
-h1标题文字: <input id=tte required><br>
-按钮1文字: <input id=b1t required><br>
-按钮2文字: <input id=b2t required><!--br>
+h1标题文字: <input id=tte placeholder=必填 required><br>
+按钮1文字: <input id=b1t placeholder=必填 required><br>
+按钮2文字: <input id=b2t placeholder=必填 required><!--br>
 按钮1颜色: <input type=color id=b1c required><br>
 按钮2颜色: <input type=color id=b2c required--><br>
 点不到的按钮: <select id="nob">
@@ -37,7 +37,8 @@ h1标题文字: <input id=tte required><br>
 </select><br>
 倒计时秒数: <input id=tsc placeholder="不填则为无限大"><br>
 等待秒数<span style="font-size:8px;" onclick="{let w=open('/','_blank');w.alert(
-'过指定秒数后两个按钮调换位置,不填为无');w.close()}">?</span>: <input id="wti"><br>
+'过指定秒数后两个按钮调换位置,不填为无');w.close()}">?</span>: 
+<input id="wti" placeholder="选填"><br>
 <button type=submit>生成</button> <!--button type=button onclick="pz.onsubmit();
 previe.src=ress.value;previ.dialog('open');">预览</button-->
 </form>
