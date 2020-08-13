@@ -49,6 +49,26 @@ previe.src=ress.value;previ.dialog('open');">预览</button-->
 
 <script>
 (function(){
+//Check user whether login 
+if(!sessionStorage.islogin){
+ //Check user do use WeChat open our website
+ if(!(/microMessage/i.test(navigator.userAgent))){
+  let w=window.open();
+  w.alert('请先登录');
+  /*let n=w.prompt('请输入账号','');
+  let p=w.prompt('请输入密码','');*/
+  if(w.confirm('确定登录?')){
+   w.alert('登录成功');
+   sessionStorage.islogin=1;
+   w.close();
+  } else {
+   w.close();
+   return;
+  }
+ }
+ //End check
+}
+//End check
 var guv=getUrlValue,k=guv('password');
 if(k){
 location.href="data:text/plain,Password%20error!"
