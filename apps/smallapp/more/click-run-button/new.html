@@ -23,7 +23,7 @@ function getRandom(min, max) {
 
 <h1 id=p404>404</h1>
 
-<form id=pz>
+<form id=pz hidden>
 <h1>制作按钮</h1>
 标题: <input id=dti placeholder=必填 required><br>
 h1标题文字: <input id=tte placeholder=必填 required><br>
@@ -42,7 +42,7 @@ h1标题文字: <input id=tte placeholder=必填 required><br>
 <button type=submit>生成</button> <!--button type=button onclick="pz.onsubmit();
 previe.src=ress.value;previ.dialog('open');">预览</button-->
 </form>
-<div id=res title=生成结果><input id=ress readonly>  <br>
+<div id=res hidden title=生成结果><input id=ress readonly><br>
 <span onclick="copytext(ress.value)">复制</span> 
 <span onclick="pz.reset()">重置</span> 
 <span onclick="open(ress.value)">预览</span> </div>
@@ -76,6 +76,7 @@ pz.hidden=1;
 return false;
 }
 p404.hidden=1;
+pz.hidden=pz.hidden ? 0 : p404.hidden ? k ? 0 : 1 : 1 ;
 pz.onsubmit=function(event){
 if(event) event.preventDefault();
 var arr=[],ec=encodeURIComponent;
