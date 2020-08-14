@@ -38,14 +38,25 @@ function getRandom(min, max) {
 
 <h1>404 Not Found</h1>
 
+<div id=box hidden><div style="border:1px solid #ccc;width:250px;
+transform:translate(-50%,-50%);left:50%;top:50%;position:fixed;">
+<center><b id=tti>即将爆炸</b></center><br>
+<button id=a>取消</button><button id=b>确定</button>
+</div></div>
+
 <script>
 window.addEventListener("load",function(){
 var ge=getUrlValue;
 var dti,tte,b1t,b2t,nob,tsc,wti;
-dti=ge('dti');tte=ge('tti');b1t=ge('b1t');b2t=ge('b2t');
+dti=ge('dti');tte=ge('tte');b1t=ge('b1t');b2t=ge('b2t');
 nob=ge('nob');tte=ge('tsc');dti=ge('wti');
 if(!(dti&tte&b1t&b2t&nob)) return false;
 document.title=dti;
+tti.innerHTML=tte;
+a.innerHTML=b1t;
+b.innerHTML=b2t;
+
+box.hidden=0;
 })
 </script>
 
