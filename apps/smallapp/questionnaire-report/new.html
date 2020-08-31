@@ -33,8 +33,19 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 </script>
+<style>
+input,textarea,[contenteditable]{border:1px solid #ccc;}
+input:focus,textarea:focus,[contenteditable]:focus{border:1px solid #9df;}
+</style>
 </head>
 <body>
+
+<h1>新问卷</h1>
+
+<div style="border:1px solid #ccc;">基本信息<br>
+文档标题: <input id=q_document_title><div style="border-top:1px solid;"></div>
+<center><div></div><br /><div></div></center>
+</div>
 
 </body>
 </html>
