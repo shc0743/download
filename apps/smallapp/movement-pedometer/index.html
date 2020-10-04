@@ -35,26 +35,35 @@ function getRandom(min, max) {
 <div id=mainDivElement>
 <h1>计步器</h1>
 <big>今日步数 <span style="color:blue;" id=tdnum>0</span></big><br>
-实时计步! <span onclick="let a=open();a.alert('利用经纬度的变化计步');a.close()">?</span><br>
-i 由于本计步器特性,需要获取经纬度,所以<a href='javascript:;' onclick=''>点击授权</a>
+实时计步 <span id=jbstatus style="color:red">已禁用</span><span id=agreedstatus><br>
+i 由于本计步器特性,需要获取经纬度,所以<a href='javascript:;' onclick=
+'navigator.geolocation.getCurrentPosition(new Function());agreedgeo()'>点击授权</a></span>
 </div>
 
 <script>
 (function(){
 toolow.hidden=1;
-var date=new Date(),ystd=new Date();ystd.setDate(ystd.getDate()-1);
-var tdd=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+date=new Date();ystd=new Date();ystd.setDate(ystd.getDate()-1);
+tdd=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
 ystd=ystd.getFullYear()+"-"+(ystd.getMonth()+1)+"-"+ystd.getDate();
 try{
-var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);
+var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);window.stepnumber=bs;
 }catch(e){
 let a=new Object();a.nums=new Object();
-localStorage.memoryNumberOfStepsWithJson=a;
+localStorage.memoryNumberOfStepsWithJson=JSON.stringify(a);
+var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);window.stepnumber=bs;
 }
 bs.nums[tdd] ? false : bs.nums[tdd]=new Object() ;
 bs.todayNum=(bs.nums[tdd].lastNum ? bs.nums[tdd].lastNum : 0);
 document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步器');
 })()
-</script>
+function uploadnum(){localStorage.memoryNumberOfStepsWithJson=JSON.stringify(stepnumber)};
+function agreedgeo(){jbstatus.innerHTML="已启用";jbstatus.style.color="blue";startJiBu(1);agreedstatus.hidden=1};
+function startJiBu(t){if(!t) return false;
+function addbs(){
+bs.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=bs.nums[tdd].lastNum;
+jbstatus.style.color='red';setTimeout("jbstatus.style.color='red'",1500);
+};navigator.geolocation.watchPosition(addbs);
+}</script>
 </body>
 </html>
