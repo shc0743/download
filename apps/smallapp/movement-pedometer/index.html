@@ -37,7 +37,7 @@ function getRandom(min, max) {
 <big>今日步数 <span style="color:blue;" id=tdnum>0</span></big><br>
 实时计步 <span id=jbstatus style="color:red">已禁用</span><span id=agreedstatus><br>
 i 由于本计步器特性,需要获取经纬度,所以<a href='javascript:;' onclick=
-'navigator.geolocation.getCurrentPosition(new Function());agreedgeo()'>点击授权</a></span>
+'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"))'>点击授权</a></span>
 </div>
 
 <script>
