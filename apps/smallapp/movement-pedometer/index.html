@@ -70,6 +70,7 @@ if(!window.befbusu){window.befbusu={lat:0,lon:0};};
 if(!(lat!=befbusu.lat||lon!=befbusu.lon)) return 'Nothing';
 stepnumber.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=stepnumber.nums[tdd].lastNum;
 jbstatus.style.color='red';setTimeout("jbstatus.style.color='blue'",1500);
+onlelon.innerHTML=lon;onlelat.innerHTML=lat;
 };navigator.geolocation.watchPosition(addbs);
 }</script>
 </body>
