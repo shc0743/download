@@ -56,6 +56,7 @@ var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);window.stepnumber=bs
 bs.nums[tdd] ? false : bs.nums[tdd]=new Object() ;
 bs.todayNum=(bs.nums[tdd].lastNum ? bs.nums[tdd].lastNum : 0);
 document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步器');
+tdnum.innerHTML=bs.todayNum;
 })()
 function uploadnum(){localStorage.memoryNumberOfStepsWithJson=JSON.stringify(stepnumber)};
 function agreedgeo(){jbstatus.innerHTML="已启用";jbstatus.style.color="blue";startJiBu(1);agreedstatus.hidden=1};
@@ -64,8 +65,8 @@ function addbs(position){
 let lat=position.coords.latitude,lon=position.coords.longitude;	
 if(!window.befbusu){window.befbusu={lat:0,lon:0};};
 if(!(lat!=befbusu.lat||lon!=befbusu.lon)) return 'Nothing';
-bs.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=bs.nums[tdd].lastNum;
-jbstatus.style.color='red';setTimeout("jbstatus.style.color='red'",1500);
+stepnumber.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=stepnumber.nums[tdd].lastNum;
+jbstatus.style.color='red';setTimeout("jbstatus.style.color='blue'",1500);
 };navigator.geolocation.watchPosition(addbs);
 }</script>
 </body>
