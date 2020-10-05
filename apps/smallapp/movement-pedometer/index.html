@@ -37,7 +37,8 @@ function getRandom(min, max) {
 <big>今日步数 <span style="color:blue;" id=tdnum>0</span></big><br>
 实时计步 <span id=jbstatus style="color:red">已禁用</span><span id=agreedstatus><br>
 i 由于本计步器特性,需要获取经纬度,所以<a href='javascript:;' onclick=
-'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"))'>点击授权</a></span>
+'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"),new Function("agreedstatus.innerHTML=\"已拒绝\""))'>
+点击授权</a></span>
 </div>
 
 <script>
@@ -60,7 +61,10 @@ document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步�
 function uploadnum(){localStorage.memoryNumberOfStepsWithJson=JSON.stringify(stepnumber)};
 function agreedgeo(){jbstatus.innerHTML="已启用";jbstatus.style.color="blue";startJiBu(1);agreedstatus.hidden=1};
 function startJiBu(t){if(!t) return false;
-function addbs(){
+function addbs(position){
+let lat=position.coords.latitude,lon=position.coords.longitude;	
+if(!window.befbusu){window.befbusu={lat:0,lon:0};};
+if(!(lat!=befbusu.lat||lon!=befbusu.lon)) return 'Nothing';
 bs.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=bs.nums[tdd].lastNum;
 jbstatus.style.color='red';setTimeout("jbstatus.style.color='red'",1500);
 };navigator.geolocation.watchPosition(addbs);
