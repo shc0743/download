@@ -29,6 +29,7 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 </script>
+<style>.blue{color:blue};.red{color:red}</style>
 </head>
 <body>
 <span id=toolow><h1>您的浏览器版本过低</h1><h2>请更换浏览器或启用JavaScript</h2></span>
@@ -38,6 +39,8 @@ function getRandom(min, max) {
 实时计步 <span id=jbstatus style="color:red">已禁用</span><span id=agreedstatus><br>
 i 由于本计步器特性,需要获取经纬度,所以<a href='javascript:;' onclick=
 'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"),new Function("agreedstatus.innerHTML=\"<br />已拒绝定位服务\""))'>点击授权</a></span>
+<div style='border:1px solid #ccc;'>更多功能<br>当前经度: <span id=onlelon class=blue>未获取</span><br>当前纬度: <span id=onlelat class=blue>未获取</span><br>
+功能 | <span style="color:#ccc"><a>查看历史步数</a></span></div>
 </div>
 <!--分鸽线-->
 <script>
@@ -62,7 +65,7 @@ function uploadnum(){localStorage.memoryNumberOfStepsWithJson=JSON.stringify(ste
 function agreedgeo(){jbstatus.innerHTML="已启用";jbstatus.style.color="blue";startJiBu(1);agreedstatus.hidden=1};
 function startJiBu(t){if(!t) return false;
 function addbs(position){
-let lat=position.coords.latitude,lon=position.coords.longitude;	
+lat=position.coords.latitude;lon=position.coords.longitude;	
 if(!window.befbusu){window.befbusu={lat:0,lon:0};};
 if(!(lat!=befbusu.lat||lon!=befbusu.lon)) return 'Nothing';
 stepnumber.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=stepnumber.nums[tdd].lastNum;
