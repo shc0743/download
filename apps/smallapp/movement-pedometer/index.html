@@ -30,6 +30,7 @@ function getRandom(min, max) {
 }
 </script>
 <style>.blue{color:blue};.red{color:red}
+.nle{text-decoration:none;}
 #historystep{background-color:#fff;position:fixed;left:0;top:0;z-index:3;width:100%;height:100%;}
 #messagearea{background-color:#fff;position:fixed;left:0;top:0;z-index:7;color:#0a0;}</style>
 </head>
@@ -43,7 +44,9 @@ function getRandom(min, max) {
 i 由于本计步器特性,需要获取经纬度,所以<a id=getcrt href='javascript:;' onclick=
 'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"),new Function("agreedstatus.innerHTML=\"<br />已拒绝定位或无法获取位置信息\""))'>点击授权</a></span>
 <div style='border:1px solid #ccc;'>更多功能<br>当前经度: <span id=onlelon class=blue>未获取</span><br>当前纬度: <span id=onlelat class=blue>未获取</span><br>
-功能 | <span style="color:#ccc"><a onclick="historystep.hidden=0;">查看历史步数</a> | <a onclick="ioautodw()">打开/关闭自动计步</a></span></div>
+功能 |<span> 
+<a class=nle href="start historystep.exe" onclick="event.preventDefault();historystep.hidden=0;">查看历史步数</a> | 
+<a class=nle href="io autocalcbushu toggle -y" onclick="event.preventDefault();ioautodw()">打开/关闭自动计步</a></span></div>
 </div><div id=historystep hidden>历史步数<span style="position:absolute;right:1px;" onclick="historystep.hidden=1">x</span><div id=historystepmemer style="border:1px solid #ccc;">
 日期 | 步数<br><a onclick="loadmorehistory(this)">加载更多...</a></div></div>
 <!--分鸽线-->
@@ -59,8 +62,7 @@ var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);window.stepnumber=bs
 let a=new Object();a.nums=new Object();
 localStorage.memoryNumberOfStepsWithJson=JSON.stringify(a);
 var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);window.stepnumber=bs;
-};autoupload();tdnum.innerHTML=bs.todayNum;
-if(bs.autostart) getcrt.onclick()
+};autoupload();tdnum.innerHTML=bs.todayNum;if(bs.autostart) getcrt.onclick();
 })()
 function uploadnum(){localStorage.memoryNumberOfStepsWithJson=JSON.stringify(stepnumber)};
 function agreedgeo(){jbstatus.innerHTML="已启用";jbstatus.style.color="blue";startJiBu(1);agreedstatus.hidden=1};
@@ -73,7 +75,7 @@ stepnumber.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=stepnumber.nums[tdd].
 jbstatus.style.color='red';setTimeout("jbstatus.style.color='blue'",1500);
 onlelon.innerHTML=lon;onlelat.innerHTML=lat;
 };navigator.geolocation.watchPosition(addbs);}
-function autoupload(stopcode){
+function autoupload(stopcode){let bs=stepnumber;
 bs.nums[tdd] ? false : bs.nums[tdd]=new Object() ;
 bs.todayNum=(bs.nums[tdd].lastNum ? bs.nums[tdd].lastNum : 0);
 document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步器');
