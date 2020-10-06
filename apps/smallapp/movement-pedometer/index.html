@@ -29,19 +29,23 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 </script>
-<style>.blue{color:blue};.red{color:red}</style>
+<style>.blue{color:blue};.red{color:red}
+#historystep{background-color:#fff;position:fixed;left:0;top:0;z-index:3;}
+#messagearea{background-color:#fff;position:fixed;left:0;top:0;z-index:7;color:#0a0;}</style>
 </head>
 <body>
 <span id=toolow><h1>您的浏览器版本过低</h1><h2>请更换浏览器或启用JavaScript</h2></span>
+<span id=messagearea></span>
 <div id=mainDivElement>
 <h1>计步器</h1>
 <big>今日步数 <span style="color:blue;" id=tdnum>0</span></big><br>
 实时计步 <span id=jbstatus style="color:red">已禁用</span><span id=agreedstatus><br>
 i 由于本计步器特性,需要获取经纬度,所以<a href='javascript:;' onclick=
-'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"),new Function("agreedstatus.innerHTML=\"<br />已拒绝定位服务\""))'>点击授权</a></span>
+'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"),new Function("agreedstatus.innerHTML=\"<br />已拒绝定位或无法获取位置信息\""))'>点击授权</a></span>
 <div style='border:1px solid #ccc;'>更多功能<br>当前经度: <span id=onlelon class=blue>未获取</span><br>当前纬度: <span id=onlelat class=blue>未获取</span><br>
-功能 | <span style="color:#ccc"><a>查看历史步数</a></span></div>
-</div>
+功能 | <span style="color:#ccc"><a onclick="historystep.hidden=0;">查看历史步数</a> | <a onclick="ioautodw()">打开/关闭自动计步</a></span></div>
+</div><div id=historystep hidden>历史步数<span style="position:absolute;right:1px;" onclick="historystep.hidden=1">x</span><div id=historystepmemer style="border:1px solid #ccc;">
+日期 | 步数<br><a onclick="loadmorehistory(this)">加载更多...</a></div></div>
 <!--分鸽线-->
 <script>
 (function(){
@@ -56,10 +60,7 @@ let a=new Object();a.nums=new Object();
 localStorage.memoryNumberOfStepsWithJson=JSON.stringify(a);
 var bs=JSON.parse(localStorage.memoryNumberOfStepsWithJson);window.stepnumber=bs;
 }
-bs.nums[tdd] ? false : bs.nums[tdd]=new Object() ;
-bs.todayNum=(bs.nums[tdd].lastNum ? bs.nums[tdd].lastNum : 0);
-document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步器');
-tdnum.innerHTML=bs.todayNum;
+autoupload();tdnum.innerHTML=bs.todayNum;
 })()
 function uploadnum(){localStorage.memoryNumberOfStepsWithJson=JSON.stringify(stepnumber)};
 function agreedgeo(){jbstatus.innerHTML="已启用";jbstatus.style.color="blue";startJiBu(1);agreedstatus.hidden=1};
@@ -71,7 +72,14 @@ if(!(lat!=befbusu.lat||lon!=befbusu.lon)) return 'Nothing';
 stepnumber.nums[tdd].lastNum++;uploadnum();tdnum.innerHTML=stepnumber.nums[tdd].lastNum;
 jbstatus.style.color='red';setTimeout("jbstatus.style.color='blue'",1500);
 onlelon.innerHTML=lon;onlelat.innerHTML=lat;
-};navigator.geolocation.watchPosition(addbs);
-}</script>
+};navigator.geolocation.watchPosition(addbs);}
+function autoupload(stopcode){
+bs.nums[tdd] ? false : bs.nums[tdd]=new Object() ;
+bs.todayNum=(bs.nums[tdd].lastNum ? bs.nums[tdd].lastNum : 0);
+document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步器');
+setTimeout(autoupload,750);}
+showmsg=function(msg){messagearea.innerHTML=msg;setTimeout('messagearea.innerHTML=""',1500);}
+function ioautodw(){stepnumber.autostart=!stepnumber.autostart;uploadnum();showmsg('已'+(stepnumber.autostart?'打开':'关闭'))}
+</script>
 </body>
 </html>
