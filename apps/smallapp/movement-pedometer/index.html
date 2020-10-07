@@ -45,9 +45,9 @@ i 由于本计步器特性,需要获取经纬度,所以<a id=getcrt href='javasc
 'navigator.geolocation.getCurrentPosition(new Function("agreedgeo()"),new Function("agreedstatus.innerHTML=\"<br />已拒绝定位或无法获取位置信息\""))'>点击授权</a></span>
 <div style='border:1px solid #ccc;'>更多功能<br>当前经度: <span id=onlelon class=blue>未获取</span><br>当前纬度: <span id=onlelat class=blue>未获取</span><br>
 功能 |<span> 
-<a class=nle href="start historystep.exe" onclick="event.preventDefault();historystep.style.top='0';location.href='#historystep'">查看历史步数</a> | 
+<a class=nle href="start historystep.exe" onclick="event.preventDefault();historystep.style.top='0';">查看历史步数</a> | 
 <a class=nle href="io autocalcbushu toggle -y" onclick="event.preventDefault();ioautodw()">打开/关闭自动计步</a></span></div>
-</div><div id=historystep style="top:-100%;">历史步数<span style="position:absolute;right:1px;" onclick="historystep.style.top='-100%';location.href=location.href.replace('#historystep','')">x</span>
+</div><div id=historystep style="top:-100%;">历史步数<span style="position:absolute;right:1px;" onclick="historystep.style.top='-100%';">x</span>
 <div style="border:1px solid #ccc;">日期 | 步数<br><span id=hstepmem></span><a onclick="loadmorehistory(this)">加载更多...</a></div></div>
 <!--分鸽线-->
 <script>
