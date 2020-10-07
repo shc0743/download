@@ -82,7 +82,7 @@ document.title=(bs.todayNum ? `计步器 今日步数${bs.todayNum}` : '计步�
 setTimeout(autoupload,750);};showmsg=function(msg){messagearea.innerHTML=msg;setTimeout('messagearea.innerHTML=""',1500);};
 function ioautodw(){stepnumber.autostart=!stepnumber.autostart;uploadnum();showmsg('已'+(stepnumber.autostart?'打开':'关闭'))}
 function loadmorehistory(el){var bs=stepnumber,nums=bs.nums,arr=[],res="";
-for(let i in nums){res+=(i+' | '+nums[i].lastnum+'<br />')};hstepmem.innerHTML+=res;el.innerHTML='没有可加载的内容了';el.onclick=false;}
+for(let i in nums){res+=(i+' | '+nums[i].lastNum+'<br />')};hstepmem.innerHTML+=res;el.innerHTML='没有可加载的内容了';el.onclick=false;}
 </script>
 </body>
 </html>
