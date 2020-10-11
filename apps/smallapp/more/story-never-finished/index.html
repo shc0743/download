@@ -35,7 +35,7 @@ function getRandom(min, max) {
 <script>
 try{
 let _=location.href.split('#');
-window.sets=JSON.parse(atob(_[l_.length-1]));
+window.sets=JSON.parse(compressStrPw.dec(_[_.length-1],'123456'));
 err404.hidden=1;
 document.title=sets.title;
 document.body.innerHTML+=(sets.start?sets.start:sets.str);
