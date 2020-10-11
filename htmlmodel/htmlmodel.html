@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title></title>   
- <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://shc7432.github.io/public/something/stools.js"></script>
 <!--script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -21,16 +21,20 @@
 <script src="https://shc0743.github.io/crypto-js/sha1.js"></script>
 <script src="https://shc0743.github.io/crypto-js/sha512.js"></script>
 <script src="https://pv.sohu.com/cityjson"></script>
-<script>
-  window.getip=window.getIP=function(){
-    return returnCitySN.cip;
-  }
-function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-</script>
+<script id=headScript>window.getip=window.getIP=function(){return returnCitySN.cip;}
+function getRandom(min, max){return Math.floor(Math.random() * (max - min + 1) ) + min;}
+function showMessage(msg,t){let a=document.getElementById('messageArea');a.innerHTML=msg;
+setTimeout(function(){a.innerHTML=""},((!!(+t))?(t*1000):1500))}
+</script><style id=headCss>
+#messageArea{position:fixed;left:1px;top:1px;background-color:#fff;color:#0a0}
+</style>
 </head>
 <body>
-
+<span id=messageArea></span>
+<div id=mainDivElement></div>
+<script id=mainScript>
+(function(){
+})()
+</script>
 </body>
 </html>
