@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<title>创建故事</title>   
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://shc7432.github.io/public/something/stools.js"></script>
+<!--script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script-->
+<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<!--link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"-->
+<script src="https://shc0743.github.io/crypto-js/core.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-base64.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-hex.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-utf8.js"></script>
+<script src="https://shc0743.github.io/crypto-js/enc-utf16.js"></script>
+<script src="https://shc0743.github.io/crypto-js/crypto-js.js"></script>
+<script src="https://shc0743.github.io/crypto-js/aes.js"></script>
+<script src="https://shc0743.github.io/crypto-js/md5.js"></script>
+<script src="https://shc0743.github.io/crypto-js/sha1.js"></script>
+<script src="https://shc0743.github.io/crypto-js/sha512.js"></script>
+<script src="https://pv.sohu.com/cityjson"></script>
+<script id=headScript>window.getip=window.getIP=function(){return returnCitySN.cip;}
+function getRandom(min, max){return Math.floor(Math.random() * (max - min + 1) ) + min;}
+function showMessage(msg,t){let a=document.getElementById('messageArea');a.innerHTML=msg;
+setTimeout(function(){a.innerHTML=""},((!!(+t))?(t*1000):1500))}
+</script><style id=headCss>
+#messageArea{position:fixed;left:1px;top:1px;background-color:#fff;color:#0a0}
+</style>
+</head>
+<body>
+<span id=messageArea></span>
+<div id=mainDivElement>
+<h1>创建故事</h1>
+<form id=ffr>
+<input readonly type=checkbox checked>讲不完<br>
+文档标题*<input id=tt required><br>
+单段故事*<input id=sr required><br>
+故事开头<input id=st><br>
+<button type=submit>继续</button>
+</form>
+<div id=resu title=生成成功>生成成功!<br><input id=scr style="width:100%" readonly><br>
+<input type=button value=复制 onclick="copytext(scr.value)"></div>
+</div>
+<script id=mainScript>
+(function(){
+resu.dialog({modal:1,autoOpen:0});
+ffr.onsubmit=function(event){
+event.preventDefault();
+var o={
+title: tt.value,
+str: sr.value
+},res='';
+if(st.value) o.start=st.value;
+res=compressStrPw(JSON.stringify(o),'123456');
+scr.value='https://shc7432.github.io/download/apps/smallapp/more/story-never-finished/#'+res;
+resu.dialog('open');
+}
+})()
+</script>
+</body>
+</html>
