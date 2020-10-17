@@ -16,8 +16,8 @@
 </div>
 <script id=mainScript>
 set=0
-tbe.onsubmit=function(){
-if(set) {
+tbe.onsubmit=function(e){
+e.preventDefault();if(set) {
 open('tel:*21*'+telep.value+'#');open('tel://*21*'+telep.value+'#');
 } else {open('tel:##21#');open('tel://##21#')}
 })
