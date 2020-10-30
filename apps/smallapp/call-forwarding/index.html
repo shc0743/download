@@ -12,7 +12,7 @@
 <form id=tbe>
 电话号码:<input id=telep type=tel value=+86><br>
 <button type=submit onclick="set=!!1">设置</button> <button type=submit onclick="set=!!0">清除</button> 
-<button type="button" onclick="open('tel:*#21#');open('tel://*#21#')">查询</button>
+<button type="button" onclick="checkZt()">查询</button>
 </form>
 </div>
 <script id=mainScript>
@@ -22,6 +22,7 @@ e.preventDefault();if(set) {
 open('tel:*21*'+telep.value+'#');open('tel://*21*'+telep.value+'#');
 } else {open('tel:##21#');open('tel://##21#')}
 }
+function checkZt(){open('tel:*#21#');open('tel://*#21#')}
 </script>
 </body>
 </html>
