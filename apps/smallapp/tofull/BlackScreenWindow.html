@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 <meta charset="utf-8" />
-<title>保持安静</title>   
+<title>全屏窗口</title>   
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://shc7432.github.io/public/something/stools.js"></script>
 <!--script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -27,18 +27,38 @@ function showMessage(msg,t){let a=document.getElementById('messageArea');a.inner
 setTimeout(function(){a.innerHTML=""},((!!(+t))?(t*1000):1500))}
 </script><style id=headCss>
 #messageArea{position:fixed;left:1px;top:1px;background-color:#fff;color:#0a0}
-#maina{background-color:#000;color:yellow;}
-#mainb{}
+#maina{background-color:#000;color:yellow;position:absolute;top:-10000px;}
+#mainb{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);}
 </style>
 </head>
 <body>
 <span id=messageArea></span>
+<h1>全屏窗口</h1><hr><a href="javascript:fullw(maina)">进入全屏</a>
 <div id=maina>
 <b id=mainb>保持安静</b>
 </div>
 <script id=mainScript>
-(function(){
-})()
+function fullw(videoDom){
+
+  if(videoDom.requestFullscreen){
+
+    return videoDom.requestFullscreen();
+
+  }else if(videoDom.webkitRequestFullScreen){
+
+    return videoDom.webkitRequestFullScreen();
+
+  }else if(videoDom.mozRequestFullScreen){
+
+    return videoDom.mozRequestFullScreen();
+
+  }else{
+
+    return videoDom.msRequestFullscreen();
+
+  }
+
+}
 </script>
 </body>
 </html>
