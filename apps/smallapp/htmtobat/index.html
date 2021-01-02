@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<title>HTML/HTA转BAT</title>   
+<script src="fullscreen.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style='background-color:#fff;'><span style="background-color:#fff;">
+
+<h1>HTML转BAT</h1>
+
+<div>
+<button onclick="toFullScreen(document.body);">全屏</button><br>
+html或hta代码:<br>
+<textarea style="width:95%;height:500px;cursor:crosshair;" id=cont placeholder=请输入></textaREa><br>
+Code type: <select id=tppe><option value=err>Please select a option</option><option value=html>HTML</option><option value=hta>HTA</option></select><BR>
+<button id=conv style="width:100%;cursor:not-allowed">Transformation</button>  <br>
+生成结果:<BR><TEXTAREA id=resu style="width:95%;height:500px;cursor:crosshair;" --readonly--></TexTArEa><Br>
+<button onclick="resu.value=''">Clear</button> <button onclick="window.close()">Exit</button>
+</div>
+
+<div id=whitescreen style="position:absolute;top:0;width:100%;height:100%;z-index:114514;opacity: 0.75;cursor:wait;background-color:#fff;" hidden>
+<div id=status01 style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid;z-index:114519;background-color:#fff;opacity: 551;">请稍候...</div></div>
+
+<script>
+(function(){
+window.checkenab=function(){
+whitescreen.style.height=screen.height+23.3+"px";
+if(cont.value==""||tppe.value=="err"){
+conv.style.cursor='not-allowed'
+conv.onmousedown=function(event){event.preventDefault();}
+} else {
+conv.style.cursor='pointer'
+conv.onmousedown=aa
+} 
+window.chktot01=setTimeout(checkenab,100);
+}
+setTimeout(checkenab,100);
+window.aa=function(event){
+clearTimeout(chktot01);
+event.preventDefault();
+//window.style.cursor='wait';
+//toFullScreen(document.body);
+whitescreen.hidden=0;
+conv.onmousedown=function(event){event.preventDefault();}
+var res='',v=cont.value,__temp__;
+__temp__=v.split("\n");
+res+="@echo off&%systemdrive%&cd %temp%&echo 正在释放...\necho. > temp891562."+tppe.value+"\n";
+for(let i=0;i<__temp__.length;i++){
+if(__temp__[i]=="") {res+="echo. >> temp891562."+tppe.value+"\n";continue;};
+let __temp2__=__temp__[i].replace(/\^/igm,"^^");
+__temp2__=__temp2__.replace(/\,/igm,"^,");
+//__temp2__=__temp2__.replace(/\;/igm,"^;");
+__temp2__=__temp2__.replace(/\[/igm,"^[");
+__temp2__=__temp2__.replace(/\]/igm,"^]");
+__temp2__=__temp2__.replace(/\{/igm,"^{");
+__temp2__=__temp2__.replace(/\}/igm,"^}");
+__temp2__=__temp2__.replace(/\(/igm,"^(");
+__temp2__=__temp2__.replace(/\)/igm,"^)");
+__temp2__=__temp2__.replace(/\+/igm,"^+");
+__temp2__=__temp2__.replace(/\%/igm,"^%");
+__temp2__=__temp2__.replace(/\&/igm,"^&");
+__temp2__=__temp2__.replace(/\@/igm,"^@");
+__temp2__=__temp2__.replace(/\!/igm,"^!");
+__temp2__=__temp2__.replace(/\t/igm,"^\t");
+__temp2__=__temp2__.replace(/\`/igm,"^`");
+__temp2__=__temp2__.replace(/\~/igm,"^~");
+//__temp2__=__temp2__.replace(/\//igm,"^/");
+__temp2__=__temp2__.replace(/\?/igm,"^?");
+__temp2__=__temp2__.replace(/\</igm,"^<");
+__temp2__=__temp2__.replace(/\>/igm,"^>");
+__temp2__=__temp2__.replace(/\*/igm,"^*");
+__temp2__=__temp2__.replace(/\\/igm,"^\\");
+//__temp2__=__temp2__.replace(/\:/igm,"^:");
+__temp2__=__temp2__.replace(/\|/igm,"^|");
+res+="echo "+__temp2__+" >> temp891562."+tppe.value+"\n"
+}
+res+="temp891562."+tppe.value+"\ndel /f /s /q temp891562."+tppe.value+"";
+setTimeout(function(){
+status01.innerHTML="马上就好..."
+setTimeout(function(){
+resu.value=res;
+conv.style.cursor='pointer'
+conv.onmousedown=aa;
+setTimeout(checkenab,100);
+whitescreen.hidden="-1010%";
+//unFullScreen();
+//window.style.cursor='auto';
+status01.innerHTML="请稍候..."
+},res.length>3000?1500:15)
+},res.length>3000?11451.114514:23.33)
+}
+})()
+</script>
+</span>
+</body>
+</html>
