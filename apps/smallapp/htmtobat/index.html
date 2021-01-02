@@ -20,13 +20,13 @@ Code type: <select id=tppe><option value=err>Please select a option</option><opt
 <button onclick="resu.value=''">Clear</button> <button onclick="window.close()">Exit</button>
 </div>
 
-<div id=whitescreen style="position:absolute;top:0;width:100%;height:100%;z-index:114514;opacity: 0.75;cursor:wait;background-color:#fff;" hidden>
+<div id=whitescreen style="position:absolute;top:0;width:100%;height:1009%;z-index:114514;opacity: 0.75;cursor:wait;background-color:#fff;" hidden>
 <div id=status01 style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid;z-index:114519;background-color:#fff;opacity: 551;">请稍候...</div></div>
 
 <script>
 (function(){
 window.checkenab=function(){
-whitescreen.style.height=screen.height+23.3+"px";
+//whitescreen.style.height=screen.height+23.3+"px";
 if(cont.value==""||tppe.value=="err"){
 conv.style.cursor='not-allowed'
 conv.onmousedown=function(event){event.preventDefault();}
