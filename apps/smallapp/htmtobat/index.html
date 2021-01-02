@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <title>HTML/HTA转BAT</title>   
 <script src="fullscreen.js"></script>
+<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style='background-color:#fff;'><span style="background-color:#fff;">
@@ -126,6 +127,13 @@ status01.innerHTML="请稍候..."
   }
 }
 })()
+setTimeout(function(){
+var a=getUrlValue('autoconv');
+if(!a) return 1;
+cont.value=a;
+tppe.value=getUrlValue('type')||'html';
+aa({preventDefault:function(){return void 0}});
+},1000)
 </script>
 </span>
 </body>
