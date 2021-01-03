@@ -31,9 +31,11 @@ window.checkenab=function(){
 if(cont.value==""||tppe.value=="err"){
 conv.style.cursor='not-allowed'
 conv.onmousedown=function(event){event.preventDefault();}
+conv.disabled=1;
 } else {
 conv.style.cursor='pointer'
 conv.onmousedown=aa
+conv.disabled=0;
 } 
 window.chktot01=setTimeout(checkenab,100);
 }
@@ -51,23 +53,15 @@ res+="@echo off&%systemdrive%&cd %temp%&echo 正在释放...\necho. > temp891562
 for(let i=0;i<__temp__.length;i++){
 if(__temp__[i]=="") {res+="echo. >> temp891562."+tppe.value+"\n";continue;};
 let __temp2__=__temp__[i].replace(/\^/igm,"^^");
-__temp2__=__temp2__.replace(/\,/igm,"^,");
-//__temp2__=__temp2__.replace(/\;/igm,"^;");
-__temp2__=__temp2__.replace(/\[/igm,"^[");
-__temp2__=__temp2__.replace(/\]/igm,"^]");
-__temp2__=__temp2__.replace(/\{/igm,"^{");
-__temp2__=__temp2__.replace(/\}/igm,"^}");
+// \ / | || && ^ > < *
 __temp2__=__temp2__.replace(/\(/igm,"^(");
 __temp2__=__temp2__.replace(/\)/igm,"^)");
-__temp2__=__temp2__.replace(/\+/igm,"^+");
-__temp2__=__temp2__.replace(/\%/igm,"^%");
+__temp2__=__temp2__.replace(/\%/igm,"%%");
 __temp2__=__temp2__.replace(/\&/igm,"^&");
 __temp2__=__temp2__.replace(/\@/igm,"^@");
 __temp2__=__temp2__.replace(/\!/igm,"^!");
 __temp2__=__temp2__.replace(/\t/igm,"^\t");
-__temp2__=__temp2__.replace(/\`/igm,"^`");
-__temp2__=__temp2__.replace(/\~/igm,"^~");
-//__temp2__=__temp2__.replace(/\//igm,"^/");
+__temp2__=__temp2__.replace(/\//igm,"^/");
 __temp2__=__temp2__.replace(/\?/igm,"^?");
 __temp2__=__temp2__.replace(/\</igm,"^<");
 __temp2__=__temp2__.replace(/\>/igm,"^>");
