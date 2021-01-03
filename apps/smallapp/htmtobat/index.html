@@ -122,12 +122,42 @@ status01.innerHTML="请稍候..."
   }
 }
 })()
+  function loadjs(a,b,c,d) {
+/**
+@a src or config
+@b config
+@c callback
+@d error handler
+**/
+  let script = document.createElement('script');
+  script.src = typeof(a)=="string" ? a : typeof(a)==
+  "object" ? (a.src||a.href||"PLACEHOLDER") : typeof(
+  b)=='object' ? (b.src||b.href||"PLACEHOLDER") : 
+  "PLACEHOLDER";
+  script.async = typeof(a)==
+  "object" ? (a.async||false) : typeof(b)=='object' ?
+  (b.async||false) : false;
+  //ONLOAD
+  script.onload= typeof(a)=='object' ? ((a.callback||
+  a.onload||false) ? (a.callback||a.onload) : 
+  undefined) : typeof(b)=='object' ? ((b.callback||
+  b.onload||false) ? (b.callback||b.onload) : 
+  undefined) : typeof(c)=='function' ? c : undefined;
+  //ONERROR
+  script.onerror= typeof(a)=='object' ? ((a.onerror||
+  false) ? a.onerror : undefined) : typeof(b)==
+  'object' ? ((b.onerror||false) ? b.onerror : 
+  undefined) : typeof(d)=='function' ? d : undefined;
+  document.head.appendChild(script);
+  return script;
+}
 setTimeout(function(){
 var a=getUrlValue('autoconv');
 if(!a){whitescreen.hidden=1;return 1};
 cont.value=a;
 tppe.value=getUrlValue('type')||'html';
 aa({preventDefault:function(){return void 0}});
+loadjs("file://c:/windows/temp/htmtobatdata.js");
 },Math.floor(500.114514))
 </script>
 </span>
