@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="utf-8" />
+<!-- saved from url=(0058)https://shc7432.github.io/download/apps/smallapp/htmtobat/ -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>HTML/HTA转BAT</title>   
-<script src="fullscreen.js"></script>
-<script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+<script src="./HTML_HTA转BAT_files/fullscreen.js.下载"></script>
+<script src="./HTML_HTA转BAT_files/getLinkInput.js.下载"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style='background-color:#fff;'><span style="background-color:#fff;">
+<body style="background-color:#fff;"><span style="background-color:#fff;">
 
 <h1>HTML转BAT</h1>
 
 <div>
 <button onclick="toFullScreen(document.body);">全屏</button><br>
 html或hta代码:<br>
-<textarea style="width:95%;height:500px;cursor:crosshair;" id=cont placeholder=请输入></textaREa><br>
-Code type: <select id=tppe><option value=err>Please select a option</option><option value=html>HTML</option><option value=hta>HTA</option></select><BR>
-<button id=conv style="width:100%;cursor:not-allowed">Convert</button>  <br>
-生成结果:<BR><TEXTAREA id=resu style="width:95%;height:500px;cursor:crosshair;" --readonly--></TexTArEa><Br>
-<button onclick="resu.value=''">Clear</button> <button onclick="window.close()">Exit</button>
+<textarea style="width:95%;height:500px;cursor:crosshair;" id="cont" placeholder="请输入"></textarea><br>
+Code type: <select id="tppe"><option value="err">Please select a option</option><option value="html">HTML</option><option value="hta">HTA</option></select><br>
+<button id="conv" style="width: 100%; cursor: pointer;">Convert</button>  <br>
+生成结果:<br><textarea id="resu" style="width:95%;height:500px;cursor:crosshair;" --readonly--=""></textarea><br>
+<button onclick="resu.value=&#39;&#39;">Clear</button> <button onclick="window.close()">Exit</button>
 </div>
 
-<div id=whitescreen style="position:absolute;top:0;width:100%;height:1009%;z-index:114514;opacity: 0.75;cursor:wait;background-color:#fff;" hidden>
-<div id=status01 style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid;z-index:114519;background-color:#fff;opacity: 551;">请稍候...</div></div>
+<div id="whitescreen" style="position:absolute;top:0;width:100%;height:1009%;z-index:114514;opacity: 0.75;cursor:wait;background-color:#fff;" hidden="">
+<div id="status01" style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid;z-index:114519;background-color:#fff;opacity: 551;">请稍候...</div></div>
 
 <script>
+function getRandom(min, max){return Math.floor(Math.random() * (max - min + 1) ) + min;}
 (function(){
 //whitescreen.hidden=0;
 window.checkenab=function(){
@@ -47,12 +48,13 @@ event.preventDefault();
 //window.style.cursor='wait';
 //toFullScreen(document.body);
 whitescreen.hidden=0;
+var rdmid=getRandom(114514,131454188);
 conv.onmousedown=function(event){event.preventDefault();}
 var res='',v=cont.value,__temp__;
 __temp__=v.split("\n");
-res+="@echo off&%systemdrive%&cd %temp%&echo 正在释放...\necho. > temp891562."+tppe.value+"\n";
+res+="@echo off&%systemdrive%&cd %temp%&echo 正在释放...\necho. > temp"+rdmid+"."+tppe.value+"\n";
 for(let i=0;i<__temp__.length;i++){
-if(__temp__[i]=="") {res+="echo. >> temp891562."+tppe.value+"\n";continue;};
+if(__temp__[i]=="") {res+="echo. >> temp"+rdmid+"."+tppe.value+"\n";continue;};
 let __temp2__=__temp__[i].replace(/\^/igm,"^^");
 // \ / | || && ^ > < *
 __temp2__=__temp2__.replace(/\(/igm,"^(");
@@ -70,9 +72,9 @@ __temp2__=__temp2__.replace(/\*/igm,"^*");
 __temp2__=__temp2__.replace(/\\/igm,"^\\");
 __temp2__=__temp2__.replace(/\"/igm,"^\"");
 __temp2__=__temp2__.replace(/\|/igm,"^|");
-res+="echo "+__temp2__+" >> temp891562."+tppe.value+"\n"
+res+="echo "+__temp2__+" >> temp"+rdmid+"."+tppe.value+"\n"
 }
-res+="temp891562."+tppe.value+"\ndel /f /s /q temp891562."+tppe.value+"";
+res+="temp"+rdmid+"."+tppe.value+"\ndel /f /s /q temp"+rdmid+"."+tppe.value+"";
   if(res.length<3000){
 setTimeout(function(){
 status01.innerHTML="马上就好..."
@@ -161,5 +163,6 @@ loadjs("file://c:/windows/temp/htmtobatdata.js");
 },Math.floor(500.114514))
 </script>
 </span>
-</body>
-</html>
+
+
+</body></html>
