@@ -124,7 +124,7 @@ status01.innerHTML="请稍候..."
 })()
 setTimeout(function(){
 var a=getUrlValue('autoconv');
-if(!a) return 1;
+if(!a){whitescreen.hidden=1;return 1};
 cont.value=a;
 tppe.value=getUrlValue('type')||'html';
 aa({preventDefault:function(){return void 0}});
