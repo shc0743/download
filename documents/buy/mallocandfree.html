@@ -21,4 +21,10 @@ qwert-yuiop-asdfg-hjklz-xcvbn
 +-*/
 /*-+
 </pre>
-<a style="color:blue;text-decoration:none" href="mallocandfree?donate=donate">DONATE</a>
+<a style="color:blue;text-decoration:none" href="mallocandfree?donate=donate" id=dt>DONATE</a>
+<script>
+if(location.href.indexOf("donate=donate")+1) {
+dt.style.color="red";
+dt.innerHTML="DONATE SUCCESS";
+}
+</script>
