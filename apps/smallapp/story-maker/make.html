@@ -47,7 +47,7 @@
         <div id=result hidden>
             <dialogtitle><b>Generated Story!</b><a class=closebtn>x</a></dialogtitle>
             <div>Your URL:</div>
-            <textarea style="width:100%;display:block;overflow:hidden;border:0" id=r_r rows=6 readonly></textarea>
+            <textarea style="width:100%;display:block;overflow:hidden;border:0;user-select:all" id=r_r rows=6 readonly></textarea>
             <button onclick='sTools.copytext(r_r.value)' style="background: greenyellow;">Copy</button> 
             <button onclick='CreateDialogEx.remove(result)'>Close</button>
         </div>
