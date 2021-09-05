@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Make a Story</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://shc7432.github.io/public/something/stools.js"></script>
+    <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+    <script>
+        function getRandom(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+        sTools.loadDependJs();
+    </script>
+    <style>
+        label,button,a{
+            cursor: pointer;
+        }
+        #Form1 label{
+            display: block;
+        }
+        #result{
+            width: 50%;
+            height: 50%;
+        }
+        .closebtn{
+            font-family: Zpix pixel sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav></nav>
+
+    <main>
+        <h1>Make a Story</h1>
+
+        <form action="javascript:;" id=Form1>
+            <label for=f_title>Title: <input id=f_title placeholder="Input the title"></label>
+            <label for=f_text>Contents:<br>
+                <textarea id=f_text style="width: 90%;margin: 0 auto;" rows=10 required></textarea>
+            </label>
+
+            <button type=submit>Generate</button> | <button type=button id=f_p>Preview</button>
+        </form>
+
+        <div id=result hidden>
+            <dialogtitle><b>Generated Story!</b><a class=closebtn>x</a></dialogtitle>
+            <div>Your URL:</div>
+            <textarea style="width:100%;display:block;overflow:hidden;border:0" id=r_r rows=6 readonly></textarea>
+            <button onclick='sTools.copytext(r_r.value)' style="background: greenyellow;">Copy</button> 
+            <button onclick='CreateDialogEx.remove(result)'>Close</button>
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded',function () {
+            var _preview = false;
+            document.querySelector('#Form1').onsubmit = function (e) {
+                e.preventDefault();
+                var url = './?title=' + encodeURIComponent(f_title.value) +
+                        '&text=' + encodeURIComponent(f_text.value);
+                if (_preview) {
+                    window.open(url);
+                    _preview = false;
+                    return false;
+                }
+                r_r.value=url;
+                console.log(CreateDialog(result, true));
+            }
+            f_p.onclick = function () {
+                _preview = true;
+                Form1.onsubmit({preventDefault:()=>{}});
+            }
+        });
+    </script>
+</body>
+
+</html>
