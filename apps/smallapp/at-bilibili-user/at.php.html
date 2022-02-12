@@ -1,167 +1,168 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-<meta charset="utf-8" />
-<title>@人 生成器</title>   
- <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://shc7432.github.io/public/something/sometool.js"></script>
-<script src="https://shc7432.github.io/public/something/other/anonymous.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://shc0743.github.io/crypto-js/core.js"></script>
-<script src="https://shc0743.github.io/crypto-js/enc-base64.js"></script>
-<script src="https://shc0743.github.io/crypto-js/enc-hex.js"></script>
-<script src="https://shc0743.github.io/crypto-js/enc-utf8.js"></script>
-<script src="https://shc0743.github.io/crypto-js/enc-utf16.js"></script>
-<script src="https://shc0743.github.io/crypto-js/crypto-js.js"></script>
-<script src="https://shc0743.github.io/crypto-js/aes.js"></script>
-<script src="https://shc0743.github.io/crypto-js/md5.js"></script>
-<script src="https://shc0743.github.io/crypto-js/sha1.js"></script>
-<script src="https://shc0743.github.io/crypto-js/sha512.js"></script>
-<script src="https://pv.sohu.com/cityjson"></script>
-<script>
-  window.getip=window.getIP=function(){
-    return returnCitySN.cip;
-  }
-function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
 
-if(localStorage.userData){
-let ud=JSON.parse(localStorage.userData);
-let udtime=ud.time;
-udtime=new Date(udtime);
-udtc=(((new Date()-udtime)/1000)/3600);
-if(udtc>23){
-if(1){
-delete localStorage.userData;
-location.reload(1);
-} else {
-location.reload(1);
-}
-} else {
-window.userData=ud;
-}
-} else {
-let ud=new Object();
-ud.uid=getRandom(10000000,99999999);
-ud.id=String(CryptoJS.MD5(ud.uid));
-ud.rid="";
-for(let i=0;i<36;i++){
-let r=getRandom(0,35).toString(36);
-ud.rid+=r;
-}
-ud.time=new Date();
-uds=JSON.stringify(ud);
-localStorage.userData=uds;
-location.reload(1);
-}
-</script>
+<head>
+    <meta charset="utf-8" />
+    <title>@人 生成器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://shc7432.github.io/public/something/sometool.js"></script>
+    <script src="https://shc7432.github.io/public/something/other/anonymous.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://shc7432.github.io/public/getLinkInput/getLinkInput.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://shc0743.github.io/crypto-js/core.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/enc-base64.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/enc-hex.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/enc-utf8.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/enc-utf16.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/crypto-js.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/aes.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/md5.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/sha1.js"></script>
+    <script src="https://shc0743.github.io/crypto-js/sha512.js"></script>
+    <script src="https://pv.sohu.com/cityjson"></script>
+    <script>
+        window.getip = window.getIP = function () {
+            return returnCitySN.cip;
+        }
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        if (localStorage.userData) {
+            let ud = JSON.parse(localStorage.userData);
+            let udtime = ud.time;
+            udtime = new Date(udtime);
+            udtc = (((new Date() - udtime) / 1000) / 3600);
+            if (udtc > 23) {
+                if (1) {
+                    delete localStorage.userData;
+                    location.reload(1);
+                } else {
+                    location.reload(1);
+                }
+            } else {
+                window.userData = ud;
+            }
+        } else {
+            let ud = new Object();
+            ud.uid = getRandom(10000000, 99999999);
+            ud.id = String(CryptoJS.MD5(ud.uid));
+            ud.rid = "";
+            for (let i = 0; i < 36; i++) {
+                let r = getRandom(0, 35).toString(36);
+                ud.rid += r;
+            }
+            ud.time = new Date();
+            uds = JSON.stringify(ud);
+            localStorage.userData = uds;
+            location.reload(1);
+        }
+    </script>
 </head>
+
 <body>
 
-<h1><span style="color:blue;" onclick=
-"window.open('https://space.bilibili.com/41293','_blank')">@人</span> 生成器</h1>
+    <h1><span style="color:blue;cursor:pointer;" onclick="window.open('https://space.bilibili.com/41293','_blank')">@人</span> 生成器</h1>
 
-<form style="border:1px solid #ccc;" action="" method="get">
-输入你要@的人 :<input name=username id=atpeopleusername> <span id=zstips></span><br>
-添加doge :<input type=checkbox name=adddoge id=adddoge>
-<input name=dogenum hidden id=dogenum placeholder="doge数量,默认1" type=number><br>
-是不是up :<input type=checkbox name=isup id=isup><br>
-<button type=submit>提交</button>
-<button type=reset>重置</button>
-<button type=reset onclick=
-"setTimeout(function(){document.querySelector('form').submit()},300)">全部重置</button>
-</form>
+    <form style="border:1px solid #ccc;" action="" method="get">
+        输入你要@的人 :<input name=username id=atpeopleusername> <span id=zstips></span><br>
+        添加doge :<input type=checkbox name=adddoge id=adddoge>
+        <input name=dogenum hidden id=dogenum placeholder="doge数量,默认1" type=number><br>
+        是不是up :<input type=checkbox name=isup id=isup><br>
+        <button type=submit>提交</button>
+        <button type=reset>重置</button>
+        <button type=reset onclick="setTimeout(function(){document.querySelector('form').submit()},300)">全部重置</button>
+    </form>
 
-<div style="border:1px solid #ccc;" id="replacestringresultframe">
-<pre>生成结果:                                    <span style="background-color: #7fcaff;"
+    <div style="border:1px solid #ccc;" id="replacestringresultframe">
+        <pre>生成结果:                                    <span style="background-color: #7fcaff;cursor:pointer;"
  onclick="copytext(replacestringresult.value);this.focus();window.focus();this.innerHTML=
 '复制成功';setTimeout(function(){this.innerHTML='复制'},2000);">复制</span></pre>
-<textarea cols="50" rows="8" id=replacestringresult></textarea>
+        <textarea cols="50" rows="8" id=replacestringresult></textarea>
 
-<script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
-<div class=userdata></div>
+        <div class=userdata></div>
+        <script src="https://shc7432.github.io/public/something/other/userdata.js"></script>
 
-<script>
-(function(){
+        <script>
+            (function () {
 
-atpeopleusername.oninput=function(){
-var out=zstips;
-var str=(("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
-"你们有没有考虑过@wuli小周 的感受？你们知道人家@wuli小周 做视频有多辛苦吗？你们老@wuli小周"+
-" @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
-"很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
-"@wuli小周 了").replace(new RegExp("wuli小周","g"),this.value));
- if(str.length>5000){
-out.innerHTML="超出"+(str.length-5000)+"字"
-out.style.color="#f00";
-out.style.fontSize="12px";
- } else {
-out.innerHTML=str.length+"字"
-out.style.color="#ccc";
-out.style.fontSize="12px";
- }
-//this.value=(this.value).replace(new RegExp(" ","g"),"%20");
-}
+                atpeopleusername.oninput = function () {
+                    var out = zstips;
+                    var str = (("你们不要老@H 了，你们天天@H @H @H @H 的，" +
+                        "你们有没有考虑过@H 的感受？你们知道人家@H 做视频有多辛苦吗？你们老@H" +
+                        " @H @H 没完没了的@H @H @H ，你们再这样@H 会" +
+                        "很生气的。@H 可很难抽出时间看你们的@H ，以后不要老@H @H " +
+                        "@H 了").replace(new RegExp("H", "g"), this.value));
+                    if (str.length > 5000) {
+                        out.innerHTML = "超出" + (str.length - 5000) + "字"
+                        out.style.color = "#f00";
+                        out.style.fontSize = "12px";
+                    } else {
+                        out.innerHTML = str.length + "字"
+                        out.style.color = "#ccc";
+                        out.style.fontSize = "12px";
+                    }
+                    //this.value=(this.value).replace(new RegExp(" ","g"),"%20");
+                }
 
-var uname=getUrlValue("username");
-var doge=getUrlValue("adddoge");
-var dogen=getUrlValue("dogenum");
-var isup=getUrlValue("isup");
-var dm=document;
-var str=("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
-"你们有没有考虑过@wuli小周 的感受？你们知道人家@wuli小周 做视频有多辛苦吗？你们老@wuli小周"+
-" @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
-"很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
-"@wuli小周 了")
-if(!isup){
-str=("你们不要老@wuli小周 了，你们天天@wuli小周 @wuli小周 @wuli小周 @wuli小周 的，"+
-"你们有没有考虑过@wuli小周 的感受？你们知道人家@wuli小周 看视频有多辛苦吗？你们老@wuli小周"+
-" @wuli小周 @wuli小周 没完没了的@wuli小周 @wuli小周 @wuli小周 ，你们再这样@wuli小周 会"+
-"很生气的。@wuli小周 可很难抽出时间看你们的@wuli小周 ，以后不要老@wuli小周 @wuli小周 "+
-"@wuli小周 了")
-}
-if(uname){
-uname=decodeURIComponent(uname);
-atpeopleusername.value=uname;
-adddoge.checked=doge;
-dm.querySelector("#isup").checked=isup;
-dogenum.value=dogen;
-var rstr=str.replace((new RegExp("wuli小周","g")),uname);
-if(doge){
-dogenum.hidden=0;
-if(!dogen) dogen=1;
-if(dogen>600){
-replacestringresult.value="doge超出限制"
-replacestringresult.style.color="#ff0000";
-return;
-}
-for(let i=0;i<dogen;i++){
-rstr+="[doge]";
-}
-};
-if(rstr.length>5000){
-replacestringresult.value="超出"+(rstr.length-5000)+"字";
-replacestringresult.style.color="#ff0000";
-return;
-}
-replacestringresult.value=rstr;
-//replacestringresultframe.hidden=0;
-}
+                var uname = getUrlValue("username");
+                var doge = getUrlValue("adddoge");
+                var dogen = getUrlValue("dogenum");
+                var isup = getUrlValue("isup");
+                var dm = document;
+                var str = ("你们不要老@H 了，你们天天@H @H @H @H 的，" +
+                    "你们有没有考虑过@H 的感受？你们知道人家@H 做视频有多辛苦吗？你们老@H" +
+                    " @H @H 没完没了的@H @H @H ，你们再这样@H 会" +
+                    "很生气的。@H 可很难抽出时间看你们的@H ，以后不要老@H @H " +
+                    "@H 了")
+                if (!isup) {
+                    str = ("你们不要老@H 了，你们天天@H @H @H @H 的，" +
+                        "你们有没有考虑过@H 的感受？你们知道人家@H 看视频有多辛苦吗？你们老@H" +
+                        " @H @H 没完没了的@H @H @H ，你们再这样@H 会" +
+                        "很生气的。@H 可很难抽出时间看你们的@H ，以后不要老@H @H " +
+                        "@H 了")
+                }
+                if (uname) {
+                    uname = decodeURIComponent(uname);
+                    atpeopleusername.value = uname;
+                    adddoge.checked = doge;
+                    dm.querySelector("#isup").checked = isup;
+                    dogenum.value = dogen;
+                    var rstr = str.replace((new RegExp("H", "g")), uname);
+                    if (doge) {
+                        dogenum.hidden = 0;
+                        if (!dogen) dogen = 1;
+                        if (dogen > 600) {
+                            replacestringresult.value = "doge超出限制"
+                            replacestringresult.style.color = "#ff0000";
+                            return;
+                        }
+                        for (let i = 0; i < dogen; i++) {
+                            rstr += "[doge]";
+                        }
+                    };
+                    if (rstr.length > 5000) {
+                        replacestringresult.value = "超出" + (rstr.length - 5000) + "字";
+                        replacestringresult.style.color = "#ff0000";
+                        return;
+                    }
+                    replacestringresult.value = rstr;
+                    //replacestringresultframe.hidden=0;
+                }
 
-adddoge.oninput=function(){
-  if(this.checked){
-    dogenum.hidden=0;
-  } else {
-    dogenum.hidden=1;
-  }
-}
-})()
+                adddoge.oninput = function () {
+                    if (this.checked) {
+                        dogenum.hidden = 0;
+                    } else {
+                        dogenum.hidden = 1;
+                    }
+                }
+            })()
 
-</script>
+        </script>
 
 </body>
+
 </html>
