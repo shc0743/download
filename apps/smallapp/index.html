@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5 Applications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        a, button {
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        a[href] {
+            color: blue;
+        }
+        *[disabled] {
+            cursor: not-allowed !important;
+        }
+    </style>
+    <style>
+        footer {
+            color: gray;
+            font-size: xx-small;
+            text-align: center;
+            margin-top: 50px;
+        }
+        a[data-zhcn] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Welcome to shc7432\smallapp!</h1>
+        <h3>There are some HTML5 (boring) webpage by <a href="https://github.com/shc0743">shc0743</a>.</h3>
+
+        <ul>
+            <li><a href="at-bilibili-user" data-zhcn>@&lt;a bilibili user&gt;</a></li>
+            <li><a href="color-selector" data-zhcn>Color selector (maybe helpful for mobile programming)</a></li>
+            <li><a href="happy-chicken" data-zhcn>快乐小鸡</a></li>
+            <li><a href="htmtobat" data-zhcn>HTML to BAT converter (useless)</a></li>
+            <li><a href="more/make-qr" data-zhcn>QR code generator</a></li>
+            <li><a href="more/movement-pedometer" data-zhcn>计步器</a></li>
+            <li><a href="perfect-plan-for-4-days" data-zhcn style="color:gray">“4天瘦20斤完美计划” (USELESS)</a></li>
+            <li><a href="story-maker">Story maker (never finish)</a></li>
+            <li><a href="water-content" data-zhcn>Make lots of [\u2060] to fill content</a></li>
+            
+            <li>...</li>
+        </ul>
+        
+    </main>
+
+    <footer>
+        About: <br>
+        These pages was created when the author is young.<br>
+        <a href="javascript:void(0)">@shc0743</a> is bored when he is a young boy,<br>
+        and he had ONLY A MOBILE for programming.<br>
+        So maybe these pages are not useful, please understanding!
+    </footer>
+
+    <script>
+        (function () {
+            var chn = document.querySelectorAll("a[data-zhcn]");
+            for (let i = 0; i < chn.length; ++i) {
+                chn[i].title = "[Warning] This is a Chinese webpage";
+                chn[i].onclick = function (e) {
+                    e.preventDefault();
+                    var gle = "Goooooooooogle";
+                    if (!confirm("You are trying to access a CHINESE webpage.\n" +
+                        "If you are not Chinese and you didn't learn the Chinese language,\n" +
+                        "It is difficult for you to understand what the webpage say.\n" +
+                        "However, if you can use \"" + gle + " translate\" or others " +
+                        "translate product, you can translate the page to English.\n" +
+                        "\nAre you sure you want to access the CHINESE webpage?"))
+                    return false;
+                    location.href = this.href;
+                };
+            };
+        })()
+    </script>
+</body>
+
+</html>
