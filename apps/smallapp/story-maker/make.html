@@ -54,7 +54,7 @@
     </main>
 
     <script>
-        window.addEventListener('DOMContentLoaded',function () {
+        window.addEventListener('DOMContentLoaded', function () {
             var _preview = false;
             document.querySelector('#Form1').onsubmit = function (e) {
                 e.preventDefault();
@@ -64,6 +64,15 @@
                     window.open(url);
                     _preview = false;
                     return false;
+                } else {
+                    let el = document.createElement('iframe');
+                    el.hidden = true;
+                    el.src = url;
+                    document.body.appendChild(el);
+                    try {
+                        let u = el.contentWindow.location.href;
+                        if (u) url = u;
+                    } catch (e) {};
                 }
                 r_r.value=url;
                 CreateDialog(result, true);
