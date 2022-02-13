@@ -6,7 +6,7 @@
     <title>HTML5 Applications</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        a, button {
+        a, button, input[type="checkbox"] {
             cursor: pointer;
         }
         a {
@@ -32,6 +32,9 @@
         a[data-zhcn] {
             color: red;
         }
+        main label {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -41,6 +44,8 @@
 
         <h1>Welcome to shc7432\smallapp!</h1>
         <h3>There are some HTML5 (boring) webpage by <a href="https://github.com/shc0743">shc0743</a>.</h3>
+
+        <p><label><input type=checkbox id=newtab>Open in new tab</label></p>
 
         <ul>
             <li><a href="at-bilibili-user" data-zhcn>@&lt;a bilibili user&gt;</a></li>
@@ -84,6 +89,12 @@
                     location.href = this.href;
                 };
             };
+            newtab.onclick = function () {
+                var bl = this.checked ? '_blank' : '_self';
+                var el = document.body.querySelectorAll("main ul li a");
+                for (let i = 0; i < el.length; ++i)
+                    el[i].target = bl;
+            }
         })()
     </script>
 </body>
