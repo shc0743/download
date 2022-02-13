@@ -86,7 +86,9 @@
                         "translate product, you can translate the page to English.\n" +
                         "\nAre you sure you want to access the CHINESE webpage?"))
                     return false;
-                    location.href = this.href;
+                    if (this.target == '_blank')
+                         window.open(this.href, this.target);
+                    else location.href = this.href;
                 };
             };
             newtab.onclick = function () {
